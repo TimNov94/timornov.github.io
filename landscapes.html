@@ -6,59 +6,194 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
-        body { background-color: black; color: white; font-family: 'Lora', serif; margin: 0; padding: 20px; }
+        body { 
+            background-color: black; 
+            color: white; 
+            font-family: 'Lora', serif; 
+            margin: 0; 
+            padding: 20px; 
+            position: relative;
+        }
         
         .topVignette {
-            position: fixed; top: 0; left: 0; width: 100%; height: 40px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
             background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-            z-index: 1000; pointer-events: none;
+            z-index: 1000;
+            pointer-events: none;
         }
 
         .fixedHeader {
-            position: fixed; top: 0; left: 0; width: 100%; background-color: black;
-            z-index: 500; padding-top: 35px; padding-bottom: 15px;
-            transition: opacity 0.2s ease; opacity: 1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            z-index: 500;
+            padding-top: 35px;
+            padding-bottom: 15px;
+            transition: opacity 0.2s ease;
+            opacity: 1;
         }
+
         .fixedHeader::after {
-            content: ""; position: absolute; bottom: -60px; left: 0; width: 100%; height: 60px;
-            background: linear-gradient(to bottom, black, transparent); pointer-events: none;
+            content: "";
+            position: absolute;
+            bottom: -60px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to bottom, black, transparent);
+            pointer-events: none;
         }
 
         .backButton {
-            position: absolute; top: 40px; left: 40px; color: white; text-decoration: none;
-            font-size: 16px; letter-spacing: 2px; display: flex; align-items: center; gap: 8px;
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        header { text-align: center; }
+        header { 
+            text-align: center; 
+        }
+        
         h1 { font-size: 3em; letter-spacing: 5px; text-transform: uppercase; margin: 0 0 15px 0; }
         
-        .filterContainer { display: flex; justify-content: center; gap: 25px; margin-bottom: 15px; }
-        .filterTag {
-            color: rgba(255, 255, 255, 0.4); cursor: pointer; font-size: 15px;
-            letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;
+        .filterContainer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .filterTag.activeTag { color: rgba(255, 255, 255, 1); border-bottom: 1px solid white; padding-bottom: 2px; }
+        
+        .filterTag {
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        
+        .filterTag.activeTag {
+            color: rgba(255, 255, 255, 1);
+            border-bottom: 1px solid white;
+            padding-bottom: 2px;
+        }
         
         .galleryContainer { 
-            display: flex; flex-wrap: wrap; gap: 15px; max-width: 1000px; 
-            margin: 240px auto 0 auto; padding-bottom: 100px;
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            max-width: 1000px; 
+            margin: 260px auto 0 auto; 
+            padding-bottom: 100px;
         }
         
-        .galleryImg { object-fit: cover; transition: opacity 0.5s ease, transform 0.5s ease; cursor: pointer; }
-        .galleryImg:hover { transform: scale(1.01); }
+        .galleryImg {
+            object-fit: cover;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            cursor: pointer;
+        }
+        .galleryImg:hover {
+            transform: scale(1.01);
+        }
+        
         .imgSmall { width: calc(50% - 8px); height: 350px; }
         .imgLarge { width: 100%; height: 500px; }
 
-        .lightboxOverlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.98); z-index: 2000; display: flex;
-            flex-direction: column; justify-content: center; align-items: center;
-            opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
+        .scrollTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 60px; 
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
         }
-        .lightboxOverlay.activeLightbox { opacity: 1; visibility: visible; }
-        .lightboxImg { max-width: 90%; max-height: 75vh; object-fit: contain; box-shadow: 0 0 30px rgba(0,0,0,0.8); }
-        .lightboxCaption { margin-top: 25px; color: rgba(255, 255, 255, 0.7); font-size: 18px; letter-spacing: 2px; text-align: center; max-width: 80%; }
-        .closeLightbox { position: absolute; top: 30px; right: 40px; font-size: 35px; color: white; cursor: pointer; opacity: 0.6; }
+        .scrollTopBtn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+        .scrollTopBtn.showBtn {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scrollBtnSvg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .lightboxOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.98);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease;
+        }
+        .lightboxOverlay.activeLightbox {
+            opacity: 1;
+            visibility: visible;
+        }
+        .lightboxImg {
+            max-width: 90%;
+            max-height: 75vh;
+            object-fit: contain;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+        .lightboxCaption {
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-align: center;
+            max-width: 80%;
+        }
+        .closeLightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 35px;
+            color: white;
+            cursor: pointer;
+            font-family: sans-serif;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+        .closeLightbox:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -74,24 +209,46 @@
             <div class="filterTag" onclick="filterGallery('mountains', this)">Mountains</div>
             <div class="filterTag" onclick="filterGallery('lakes', this)">Lakes</div>
             <div class="filterTag" onclick="filterGallery('forests', this)">Forests</div>
+            <div class="filterTag" onclick="filterGallery('sea', this)">Sea</div>
+            <div class="filterTag" onclick="filterGallery('desert', this)">Desert</div>
+            <div class="filterTag" onclick="filterGallery('city', this)">City</div>
         </div>
     </header>
 </div>
 
 <div class="galleryContainer">
-    <!-- שים לב ל-data-categories: אפשר לכתוב פה כמה תגיות שרוצים מופרדות ברווח -->
-    <img src="https://picsum.photos/800/600?random=101" class="galleryImg imgSmall" data-categories="mountains forests" caption="Granite peaks meeting the forest edge" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=102" class="galleryImg imgSmall" data-categories="mountains" caption="Swiss peaks" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=103" class="galleryImg imgLarge" data-categories="lakes mountains" caption="Lake reflection with mountains" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=104" class="galleryImg imgSmall" data-categories="forests" caption="Dense forest path" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=105" class="galleryImg imgSmall" data-categories="lakes" caption="Alpine lake blue waters" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=106" class="galleryImg imgLarge" data-categories="mountains" caption="Peak views" onclick="openLightbox(this)">
+    <!-- שורה 1: שתיים קטנות -->
+    <img src="https://picsum.photos/800/600?random=111" class="galleryImg imgSmall" data-categories="city" caption="Urban architecture crossing paths" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=112" class="galleryImg imgSmall" data-categories="desert mountains" caption="Dry peaks at sunset" onclick="openLightbox(this)">
+    
+    <!-- שורה 2: אחת ארוכה -->
+    <img src="https://picsum.photos/1200/600?random=113" class="galleryImg imgLarge" data-categories="sea mountains" caption="Cliffs meeting the rough ocean" onclick="openLightbox(this)">
+    
+    <!-- שורה 3: שתיים קטנות -->
+    <img src="https://picsum.photos/800/600?random=114" class="galleryImg imgSmall" data-categories="forests mountains" caption="Pine trees covering the valley" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=115" class="galleryImg imgSmall" data-categories="lakes forests" caption="Hidden waters deep in the woods" onclick="openLightbox(this)">
+    
+    <!-- שורה 4: אחת ארוכה -->
+    <img src="https://picsum.photos/1200/600?random=116" class="galleryImg imgLarge" data-categories="desert" caption="Endless dunes stretching to the horizon" onclick="openLightbox(this)">
+    
+    <!-- שורה 5: שתיים קטנות -->
+    <img src="https://picsum.photos/800/600?random=117" class="galleryImg imgSmall" data-categories="sea city" caption="Coastal town lights fading into the water" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=118" class="galleryImg imgSmall" data-categories="lakes mountains" caption="Mirror reflections of snowy peaks" onclick="openLightbox(this)">
+    
+    <!-- שורה 6: אחת ארוכה -->
+    <img src="https://picsum.photos/1200/600?random=119" class="galleryImg imgLarge" data-categories="city mountains" caption="Metropolis surrounded by giant ridges" onclick="openLightbox(this)">
 </div>
 
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
     <div class="closeLightbox">&times;</div>
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
     <div id="lightboxCaption" class="lightboxCaption"></div>
+</div>
+
+<div id="scrollTopBtn" class="scrollTopBtn" onclick="scrollToTop(event)">
+    <svg class="scrollBtnSvg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
 </div>
 
 <script>
@@ -102,9 +259,7 @@
         
         const images = document.querySelectorAll('.galleryImg');
         images.forEach(img => {
-            // הופך את הסטרינג לרשימה (Array) של תגיות
             const categories = img.getAttribute('data-categories').split(' ');
-            
             if (category === 'all' || categories.includes(category)) {
                 img.style.display = '';
                 setTimeout(() => img.style.opacity = '1', 10);
@@ -115,16 +270,43 @@
         });
     }
 
-    // שאר הלוגיקה נשארת זהה...
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        let opacityValue = 1 - (scrollTop / 60);
+        if (opacityValue < 0.25) {
+            opacityValue = 0.25;
+        }
+        document.getElementById('fixedHeader').style.opacity = opacityValue;
+
+        const topBtn = document.getElementById('scrollTopBtn');
+        if (scrollTop > 400) {
+            topBtn.classList.add('showBtn');
+        } else {
+            topBtn.classList.remove('showBtn');
+        }
+    });
+
+    function scrollToTop(event) {
+        event.stopPropagation();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
     function openLightbox(imgElement) {
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightboxImg");
         const lightboxCaption = document.getElementById("lightboxCaption");
+        
         lightboxImg.src = imgElement.src;
         lightboxCaption.textContent = imgElement.getAttribute("caption") || "";
         lightbox.classList.add("activeLightbox");
     }
-    function closeLightbox() { document.getElementById("lightbox").classList.remove("activeLightbox"); }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("activeLightbox");
+    }
 </script>
 
 </body>
