@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Wildlife - Timor Novoselsky</title>
+    <style>
+        body { background-color: black; color: white; font-family: 'Lora', serif; margin: 0; padding: 20px; }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { font-size: 3em; letter-spacing: 5px; text-transform: uppercase; }
+        
+        .gallery-container { display: flex; flex-wrap: wrap; gap: 15px; max-width: 1000px; margin: 0 auto; }
+        
+        /* תמונות קטנות (שתיים בשורה) */
+        .img-small { width: calc(50% - 8px); height: 300px; object-fit: cover; }
+        
+        /* תמונה גדולה/ארוכה (תופסת את כל הרוחב) */
+        .img-large { width: 100%; height: 500px; object-fit: cover; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Wildlife</h1>
+</header>
+
+<div class="gallery-container">
+    <!-- שורה 1: שתיים קטנות -->
+    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2" class="img-small">
+    <img src="https://images.unsplash.com/photo-1557050543-4d5f4c07ef46" class="img-small">
+    
+    <!-- שורה 2: אחת ארוכה -->
+    <img src="https://images.unsplash.com/photo-1474511320723-9a5687b867e5" class="img-large">
+    
+    <!-- שורה 3: שתיים קטנות -->
+    <img src="https://images.unsplash.com/photo-1502085671122-2d898cd4054a" class="img-small">
+    <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" class="img-small">
+</div>
+
+</body>
+</html>
