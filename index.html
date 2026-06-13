@@ -16,9 +16,9 @@
             flex-direction: column;
             align-items: center;
         }
-        .site-container {
+        .siteContainer {
             width: 100%;
-            max-width: 800px; /* רוחב אחיד לכל האתר */
+            max-width: 800px;
         }
         header {
             width: 100%;
@@ -30,7 +30,57 @@
         .branding { text-align: left; }
         h1 { font-family: 'Caveat', cursive; font-size: 50px; margin: 0; }
         .subtitle { font-size: 14px; letter-spacing: 6px; text-transform: uppercase; margin-top: -5px; color: #aaa; }
+        
+        /* אזור כפתורי הניווט העליון */
+        .navControls {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+        }
         .navMenu { cursor: pointer; font-size: 18px; letter-spacing: 2px; z-index: 5; }
+        
+        /* כפתור השפה (גלובוס) */
+        .langSelector {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            z-index: 5;
+        }
+        .globeIcon {
+            width: 22px;
+            height: 22px;
+            transition: opacity 0.2s;
+        }
+        .globeIcon:hover { opacity: 0.7; }
+        
+        /* תפריט השפות הנפתח */
+        .langDropdown {
+            display: none;
+            position: absolute;
+            top: 35px;
+            right: 0;
+            background-color: #1a1a1a;
+            padding: 10px;
+            min-width: 80px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            z-index: 600;
+        }
+        .langDropdown.showLang {
+            display: block;
+        }
+        .langDropdown a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 0;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: color 0.2s;
+        }
+        .langDropdown a:hover { color: #aaa; }
 
         /* תפריט מסך מלא */
         .overlayMenu {
@@ -40,8 +90,15 @@
         }
         .overlayMenu.active { opacity: 1; visibility: visible; }
         .closeBtn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; color: white; }
-        .menuLinks { display: flex; flex-direction: column; gap: 20px; text-align: center; }
-        .menuLinks a { color: white; text-decoration: none; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; }
+        
+        /* סידור המרווחים החדש בתוך התפריט */
+        .menuLinks { display: flex; flex-direction: column; text-align: center; }
+        .menuLinks a { color: white; text-decoration: none; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; padding: 10px 0; }
+        
+        /* מחלקה ייעודית ליצירת הרווחים שביקשת */
+        .menuLinks a.gapAfter {
+            margin-bottom: 40px;
+        }
 
         /* אזור התוכן */
         .mainDisplay { width: 100%; height: 450px; display: flex; justify-content: center; align-items: center; }
@@ -55,23 +112,39 @@
 </head>
 <body>
 
-<div class="site-container">
+<div class="siteContainer">
     <header>
         <div class="branding">
             <h1>Timor Novoselsky</h1>
             <div class="subtitle">PHOTOGRAPHY</div>
         </div>
-        <div class="navMenu" onclick="toggleMenu()">MENU</div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="#">EN</a>
+                    <a href="#">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENU</div>
+        </div>
     </header>
 
     <div id="fullScreenMenu" class="overlayMenu">
         <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
         <div class="menuLinks">
-            <a href="index.html">Home</a>
+            <a href="index.html" class="gapAfter">Home</a>
+            
             <a href="wildlife.html">Wildlife</a>
             <a href="#">Landscapes</a>
             <a href="#">People and Culture</a>
-            <a href="#">Stories</a>
+            <a href="#" class="gapAfter">Stories</a>
+            
             <a href="#">About</a>
             <a href="#">Contact</a>
         </div>
@@ -93,7 +166,23 @@
 </div>
 
 <script>
-    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
+    function toggleMenu() { 
+        document.getElementById("fullScreenMenu").classList.toggle("active"); 
+    }
+    
+    function toggleLangMenu(event) {
+        event.stopPropagation(); // מונע סגירה מיידית בגלל הלחיצה על האלמנט עצמו
+        document.getElementById("langDropdown").classList.toggle("showLang");
+    }
+    
+    // סגירת תפריט השפות אם לוחצים במקום אחר כלשהו במסך
+    window.onclick = function() {
+        const dropdown = document.getElementById("langDropdown");
+        if (dropdown.classList.contains("showLang")) {
+            dropdown.classList.remove("showLang");
+        }
+    }
+    
     const images = [ "https://picsum.photos/800/600?random=1", "https://picsum.photos/800/600?random=2", "https://picsum.photos/800/600?random=3", "https://picsum.photos/800/600?random=4", "https://picsum.photos/800/600?random=5" ];
     let index = 0;
     function updateGallery() {
