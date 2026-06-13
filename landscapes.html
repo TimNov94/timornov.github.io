@@ -2,9 +2,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Landscapes - Timor Novoselsky</title>
+    <title>Landscapes Timor Novoselsky</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+        /* ביטול סימון כחול בלחיצה */
+        a, button, img, .filterTag, .storyRow, .backButton, .closeLightbox, .scrollTopBtn {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            outline: none;
+        }
 
         body { 
             background-color: black; 
@@ -217,25 +225,19 @@
 </div>
 
 <div class="galleryContainer">
-    <!-- שורה 1: שתיים קטנות -->
     <img src="https://picsum.photos/800/600?random=111" class="galleryImg imgSmall" data-categories="city" caption="Urban architecture crossing paths" onclick="openLightbox(this)">
     <img src="https://picsum.photos/800/600?random=112" class="galleryImg imgSmall" data-categories="desert mountains" caption="Dry peaks at sunset" onclick="openLightbox(this)">
     
-    <!-- שורה 2: אחת ארוכה -->
     <img src="https://picsum.photos/1200/600?random=113" class="galleryImg imgLarge" data-categories="sea mountains" caption="Cliffs meeting the rough ocean" onclick="openLightbox(this)">
     
-    <!-- שורה 3: שתיים קטנות -->
     <img src="https://picsum.photos/800/600?random=114" class="galleryImg imgSmall" data-categories="forests mountains" caption="Pine trees covering the valley" onclick="openLightbox(this)">
     <img src="https://picsum.photos/800/600?random=115" class="galleryImg imgSmall" data-categories="lakes forests" caption="Hidden waters deep in the woods" onclick="openLightbox(this)">
     
-    <!-- שורה 4: אחת ארוכה -->
     <img src="https://picsum.photos/1200/600?random=116" class="galleryImg imgLarge" data-categories="desert" caption="Endless dunes stretching to the horizon" onclick="openLightbox(this)">
     
-    <!-- שורה 5: שתיים קטנות -->
     <img src="https://picsum.photos/800/600?random=117" class="galleryImg imgSmall" data-categories="sea city" caption="Coastal town lights fading into the water" onclick="openLightbox(this)">
     <img src="https://picsum.photos/800/600?random=118" class="galleryImg imgSmall" data-categories="lakes mountains" caption="Mirror reflections of snowy peaks" onclick="openLightbox(this)">
     
-    <!-- שורה 6: אחת ארוכה -->
     <img src="https://picsum.photos/1200/600?random=119" class="galleryImg imgLarge" data-categories="city mountains" caption="Metropolis surrounded by giant ridges" onclick="openLightbox(this)">
 </div>
 
