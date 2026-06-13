@@ -16,139 +16,85 @@
             flex-direction: column;
             align-items: center;
         }
+        .site-container {
+            width: 100%;
+            max-width: 800px; /* רוחב אחיד לכל האתר */
+        }
         header {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1000px;
+            padding-bottom: 20px;
         }
         .branding { text-align: left; }
-        h1 { font-family: 'Caveat', cursive; font-size: 60px; margin: 0; }
-        .subtitle { font-size: 16px; letter-spacing: 8px; text-transform: uppercase; margin-top: -5px; color: #aaa; }
-        .navMenu { cursor: pointer; position: relative; font-size: 20px; letter-spacing: 2px; z-index: 5; }
+        h1 { font-family: 'Caveat', cursive; font-size: 50px; margin: 0; }
+        .subtitle { font-size: 14px; letter-spacing: 6px; text-transform: uppercase; margin-top: -5px; color: #aaa; }
+        .navMenu { cursor: pointer; font-size: 18px; letter-spacing: 2px; z-index: 5; }
 
-        /* תפריט מסך מלא החדש */
+        /* תפריט מסך מלא */
         .overlayMenu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: black; z-index: 100; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
         }
-        .overlayMenu.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .closeBtn {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            font-size: 40px;
-            cursor: pointer;
-            font-family: sans-serif;
-            color: white;
-        }
-        .menuLinks {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            text-align: center;
-        }
-        .menuLinks a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-        .menuDivider {
-            width: 40px;
-            height: 1px;
-            background-color: #333;
-            margin: 30px auto;
-        }
-        .socialLinks {
-            margin-top: 40px;
-        }
-        .igIcon {
-            fill: white;
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-        }
+        .overlayMenu.active { opacity: 1; visibility: visible; }
+        .closeBtn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; color: white; }
+        .menuLinks { display: flex; flex-direction: column; gap: 20px; text-align: center; }
+        .menuLinks a { color: white; text-decoration: none; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; }
 
-        .mainDisplay { width: 100%; max-width: 800px; height: 50vh; display: flex; justify-content: center; align-items: center; margin-top: 20px; }
-        #slideImage { max-width: 100%; max-height: 100%; object-fit: cover; transition: opacity 0.8s ease; }
-        .thumbnails { display: flex; justify-content: space-between; width: 100%; max-width: 800px; margin-top: 5px; gap: 5px; }
-        .thumb { width: 33%; height: 120px; object-fit: cover; transition: opacity 0.8s ease; cursor: pointer; }
+        /* אזור התוכן */
+        .mainDisplay { width: 100%; height: 450px; display: flex; justify-content: center; align-items: center; }
+        #slideImage { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease; }
+        
+        .bioSection { margin: 40px 0; line-height: 1.8; color: #ccc; font-size: 16px; text-align: justify; }
+        
+        .thumbnails { display: flex; justify-content: space-between; width: 100%; gap: 10px; margin-bottom: 50px; }
+        .thumb { width: 32%; height: 120px; object-fit: cover; transition: opacity 0.8s ease; cursor: pointer; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="branding">
-        <h1>Timor Novoselsky</h1>
-        <div class="subtitle">PHOTOGRAPHY</div>
-    </div>
-    <div class="navMenu" onclick="toggleMenu()">MENU</div>
-</header>
+<div class="site-container">
+    <header>
+        <div class="branding">
+            <h1>Timor Novoselsky</h1>
+            <div class="subtitle">PHOTOGRAPHY</div>
+        </div>
+        <div class="navMenu" onclick="toggleMenu()">MENU</div>
+    </header>
 
-<div id="fullScreenMenu" class="overlayMenu">
-    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
-    <div class="menuLinks">
-        <a href="index.html">Home</a>
-        <a href="wildlife.html">Wildlife</a>
-        <a href="#">Landscapes</a>
-        <a href="#">People and Culture</a>
-        
-        <div class="menuDivider"></div>
-        
-        <a href="#">Stories</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        
-        <div class="socialLinks">
-            <a href="https://instagram.com" target="_blank">
-                <svg viewBox="0 0 24 24" class="igIcon">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                </svg>
-            </a>
+    <div id="fullScreenMenu" class="overlayMenu">
+        <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+        <div class="menuLinks">
+            <a href="index.html">Home</a>
+            <a href="wildlife.html">Wildlife</a>
+            <a href="#">Landscapes</a>
+            <a href="#">People and Culture</a>
+            <a href="#">Stories</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
         </div>
     </div>
-</div>
 
-<div class="mainDisplay">
-    <img id="slideImage" src="https://picsum.photos/800/600?random=1" alt="Main">
-</div>
+    <div class="mainDisplay">
+        <img id="slideImage" src="https://picsum.photos/800/600?random=1" alt="Main">
+    </div>
 
-<div class="thumbnails">
-    <img id="thumb1" class="thumb" src="https://picsum.photos/800/600?random=2">
-    <img id="thumb2" class="thumb" src="https://picsum.photos/800/600?random=3">
-    <img id="thumb3" class="thumb" src="https://picsum.photos/800/600?random=4">
+    <div class="bioSection">
+        I am Timor, a photographer captivated by the raw beauty of our world. Whether it's the towering peaks of Patagonia or the quiet, serene landscapes of Switzerland, my lens is always focused on storytelling through nature and culture. As I prepare for my upcoming move to Bern, I find myself looking for those fleeting, authentic moments that define a place. My work is not just about documenting what I see; it's about translating the feeling of independence, the spirit of travel, and the unique textures of the cultures I encounter into visual narratives. Welcome to my journey.
+    </div>
+
+    <div class="thumbnails">
+        <img id="thumb1" class="thumb" src="https://picsum.photos/800/600?random=2">
+        <img id="thumb2" class="thumb" src="https://picsum.photos/800/600?random=3">
+        <img id="thumb3" class="thumb" src="https://picsum.photos/800/600?random=4">
+    </div>
 </div>
 
 <script>
-    function toggleMenu() { 
-        document.getElementById("fullScreenMenu").classList.toggle("active"); 
-    }
-    
-    const images = [ 
-        "https://picsum.photos/800/600?random=1", 
-        "https://picsum.photos/800/600?random=2", 
-        "https://picsum.photos/800/600?random=3", 
-        "https://picsum.photos/800/600?random=4", 
-        "https://picsum.photos/800/600?random=5" 
-    ];
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
+    const images = [ "https://picsum.photos/800/600?random=1", "https://picsum.photos/800/600?random=2", "https://picsum.photos/800/600?random=3", "https://picsum.photos/800/600?random=4", "https://picsum.photos/800/600?random=5" ];
     let index = 0;
     function updateGallery() {
         const elements = [document.getElementById("slideImage"), document.getElementById("thumb1"), document.getElementById("thumb2"), document.getElementById("thumb3")];
