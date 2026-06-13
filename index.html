@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Timor Novoselsky</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Lora&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lora&display=swap');
 
         body {
             background-color: black;
@@ -16,73 +16,65 @@
             flex-direction: column;
             align-items: center;
         }
+        
+        .topVignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+            z-index: 1000;
+            pointer-events: none;
+        }
+
         .siteContainer {
             width: 100%;
             max-width: 800px;
         }
+        
         header {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
+            margin-top: 20px;
         }
-        .branding { text-align: left; }
-        h1 { font-family: 'Caveat', cursive; font-size: 50px; margin: 0; }
-        .subtitle { font-size: 14px; letter-spacing: 6px; text-transform: uppercase; margin-top: -5px; color: #aaa; }
         
-        /* אזור כפתורי הניווט העליון */
+        .branding { text-align: left; }
+        
+        /* גופן חדש, דק ואלגנטי לשם */
+        h1 { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-weight: 300;
+            font-size: 42px; 
+            margin: 0; 
+            letter-spacing: 2px;
+        }
+        .subtitle { font-size: 12px; letter-spacing: 7px; text-transform: uppercase; margin-top: 5px; color: #888; }
+        
         .navControls {
             display: flex;
             align-items: center;
             gap: 25px;
             position: relative;
         }
-        .navMenu { cursor: pointer; font-size: 18px; letter-spacing: 2px; z-index: 5; }
+        .navMenu { cursor: pointer; font-size: 16px; letter-spacing: 2px; z-index: 5; color: #aaa; transition: color 0.3s; }
+        .navMenu:hover { color: white; }
         
-        /* כפתור השפה (גלובוס) */
-        .langSelector {
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            z-index: 5;
-        }
-        .globeIcon {
-            width: 22px;
-            height: 22px;
-            transition: opacity 0.2s;
-        }
-        .globeIcon:hover { opacity: 0.7; }
+        .langSelector { position: relative; cursor: pointer; display: flex; align-items: center; z-index: 5; }
+        .globeIcon { width: 20px; height: 20px; opacity: 0.6; transition: opacity 0.2s; }
+        .globeIcon:hover { opacity: 1; }
         
-        /* תפריט השפות הנפתח */
         .langDropdown {
-            display: none;
-            position: absolute;
-            top: 35px;
-            right: 0;
-            background-color: #1a1a1a;
-            padding: 10px;
-            min-width: 80px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-            z-index: 600;
+            display: none; position: absolute; top: 35px; right: 0; background-color: #111;
+            padding: 10px; min-width: 80px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); z-index: 600;
         }
-        .langDropdown.showLang {
-            display: block;
-        }
-        .langDropdown a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 8px 0;
-            letter-spacing: 1px;
-            text-align: center;
-            transition: color 0.2s;
-        }
-        .langDropdown a:hover { color: #aaa; }
+        .langDropdown.showLang { display: block; }
+        .langDropdown a { display: block; color: #aaa; text-decoration: none; font-size: 13px; padding: 8px 0; letter-spacing: 1px; text-align: center; }
+        .langDropdown a:hover { color: white; }
 
-        /* תפריט מסך מלא */
         .overlayMenu {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: black; z-index: 100; display: flex; flex-direction: column;
@@ -91,26 +83,75 @@
         .overlayMenu.active { opacity: 1; visibility: visible; }
         .closeBtn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; color: white; }
         
-        /* סידור המרווחים החדש בתוך התפריט */
         .menuLinks { display: flex; flex-direction: column; text-align: center; }
-        .menuLinks a { color: white; text-decoration: none; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; padding: 10px 0; }
-        
-        /* מחלקה ייעודית ליצירת הרווחים שביקשת */
-        .menuLinks a.gapAfter {
-            margin-bottom: 40px;
-        }
+        .menuLinks a { color: #aaa; text-decoration: none; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; padding: 12px 0; transition: color 0.3s; }
+        .menuLinks a:hover { color: white; }
+        .menuLinks a.gapAfter { margin-bottom: 40px; }
 
-        /* אזור התוכן */
-        .mainDisplay { width: 100%; height: 450px; display: flex; justify-content: center; align-items: center; }
-        #slideImage { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s ease; }
+        /* קונטיינר לתצוגה הראשית - מרווח גדול יותר מלמעלה */
+        .mainDisplay { 
+            width: 100%; 
+            height: 480px; 
+            position: relative; 
+            margin-top: 50px; /* ריווח נשימה מוגדל */
+        }
         
-        .bioSection { margin: 40px 0; line-height: 1.8; color: #ccc; font-size: 16px; text-align: justify; }
+        /* מבנה שתי תמונות חופפות עבור ה-Cross-fade */
+        .slideImg { 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: opacity 2s ease-in-out; /* מעבר איטי וחלק */
+            opacity: 0; 
+        }
+        .slideImg.activeImg { opacity: 1; }
         
-        .thumbnails { display: flex; justify-content: space-between; width: 100%; gap: 10px; margin-bottom: 50px; }
-        .thumb { width: 32%; height: 120px; object-fit: cover; transition: opacity 0.8s ease; cursor: pointer; }
+        .bioSection { margin: 50px 0 30px 0; line-height: 1.8; color: #bbb; font-size: 15px; text-align: justify; }
+        
+        /* אזור הסיפורים החדש בשלוש עמודות */
+        .storiesSection {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 60px;
+            gap: 25px;
+        }
+        .storyCard {
+            width: 31%;
+            display: flex;
+            flex-direction: column;
+        }
+        .storyImg {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: filter 0.3s;
+        }
+        .storyCard:hover .storyImg { filter: grayscale(0%); }
+        .storyTitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            margin: 12px 0 6px 0;
+            letter-spacing: 1px;
+        }
+        .storySnippet {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #888;
+        }
+        
+        .thumbnails { display: flex; justify-content: space-between; width: 100%; gap: 10px; margin-bottom: 60px; }
+        .thumb { width: 32%; height: 120px; object-fit: cover; transition: opacity 2s ease-in-out; opacity: 0.5; }
+        .thumb.activeThumb { opacity: 1; }
     </style>
 </head>
 <body>
+
+<div class="topVignette"></div>
 
 <div class="siteContainer">
     <header>
@@ -139,65 +180,93 @@
         <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
         <div class="menuLinks">
             <a href="index.html" class="gapAfter">Home</a>
-            
             <a href="wildlife.html">Wildlife</a>
             <a href="#">Landscapes</a>
             <a href="#">People and Culture</a>
             <a href="#" class="gapAfter">Stories</a>
-            
             <a href="#">About</a>
             <a href="#">Contact</a>
         </div>
     </div>
 
     <div class="mainDisplay">
-        <img id="slideImage" src="https://picsum.photos/800/600?random=1" alt="Main">
+        <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=1" alt="Main 1">
+        <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=2" alt="Main 2">
     </div>
 
     <div class="bioSection">
         I am Timor, a photographer captivated by the raw beauty of our world. Whether it's the towering peaks of Patagonia or the quiet, serene landscapes of Switzerland, my lens is always focused on storytelling through nature and culture. As I prepare for my upcoming move to Bern, I find myself looking for those fleeting, authentic moments that define a place. My work is not just about documenting what I see; it's about translating the feeling of independence, the spirit of travel, and the unique textures of the cultures I encounter into visual narratives. Welcome to my journey.
     </div>
 
+    <div class="storiesSection">
+        <div class="storyCard">
+            <img src="https://picsum.photos/400/300?random=40" class="storyImg">
+            <h3 class="storyTitle">The Silence of Patagonia</h3>
+            <p class="storySnippet">A journey into the wind-swept wilderness of Torres del Paine, capturing the isolation and grandeur of the Southern edge.</p>
+        </div>
+        <div class="storyCard">
+            <img src="https://picsum.photos/400/300?random=41" class="storyImg">
+            <h3 class="storyTitle">Shadows of Bhutan</h3>
+            <p class="storySnippet">Exploring ancient monasteries and the subtle, deep-rooted cultural textures hidden high within the Eastern Himalayas.</p>
+        </div>
+        <div class="storyCard">
+            <img src="https://picsum.photos/400/300?random=42" class="storyImg">
+            <h3 class="storyTitle">Alpine Transitions</h3>
+            <p class="storySnippet">Documenting the shifting light across the vertical granite walls and freezing glacial streams of the Swiss Alps.</p>
+        </div>
+    </div>
+
     <div class="thumbnails">
-        <img id="thumb1" class="thumb" src="https://picsum.photos/800/600?random=2">
+        <img id="thumb1" class="thumb activeThumb" src="https://picsum.photos/800/600?random=2">
         <img id="thumb2" class="thumb" src="https://picsum.photos/800/600?random=3">
         <img id="thumb3" class="thumb" src="https://picsum.photos/800/600?random=4">
     </div>
 </div>
 
 <script>
-    function toggleMenu() { 
-        document.getElementById("fullScreenMenu").classList.toggle("active"); 
-    }
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
+    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
     
-    function toggleLangMenu(event) {
-        event.stopPropagation(); // מונע סגירה מיידית בגלל הלחיצה על האלמנט עצמו
-        document.getElementById("langDropdown").classList.toggle("showLang");
-    }
-    
-    // סגירת תפריט השפות אם לוחצים במקום אחר כלשהו במסך
     window.onclick = function() {
         const dropdown = document.getElementById("langDropdown");
-        if (dropdown.classList.contains("showLang")) {
-            dropdown.classList.remove("showLang");
-        }
+        if (dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
     }
     
-    const images = [ "https://picsum.photos/800/600?random=1", "https://picsum.photos/800/600?random=2", "https://picsum.photos/800/600?random=3", "https://picsum.photos/800/600?random=4", "https://picsum.photos/800/600?random=5" ];
+    const images = [ 
+        "https://picsum.photos/800/600?random=1", 
+        "https://picsum.photos/800/600?random=2", 
+        "https://picsum.photos/800/600?random=3", 
+        "https://picsum.photos/800/600?random=4", 
+        "https://picsum.photos/800/600?random=5" 
+    ];
+    
     let index = 0;
-    function updateGallery() {
-        const elements = [document.getElementById("slideImage"), document.getElementById("thumb1"), document.getElementById("thumb2"), document.getElementById("thumb3")];
-        elements.forEach(el => el.style.opacity = 0);
-        setTimeout(() => {
-            index = (index + 1) % images.length;
-            elements[0].src = images[index];
-            elements[1].src = images[(index + 1) % images.length];
-            elements[2].src = images[(index + 2) % images.length];
-            elements[3].src = images[(index + 3) % images.length];
-            elements.forEach(el => el.style.opacity = 1);
-        }, 800);
+    const img1 = document.getElementById("slideImage1");
+    const img2 = document.getElementById("slideImage2");
+    const thumbs = [document.getElementById("thumb1"), document.getElementById("thumb2"), document.getElementById("thumb3")];
+    
+    function crossFadeGallery() {
+        index = (index + 1) % images.length;
+        
+        // זיהוי מי התמונה הגלויה כרגע ומי הבאה בתור
+        const activeImg = img1.classList.contains("activeImg") ? img1 : img2;
+        const nextImg = activeImg === img1 ? img2 : img1;
+        
+        // טעינת המקור החדש לתמונה הנסתרת מראש
+        nextImg.src = images[index];
+        
+        // ביצוע ההחלפה החלקה בלבד
+        nextImg.classList.add("activeImg");
+        activeImg.classList.remove("activeImg");
+        
+        // עדכון התמונות הקטנות למטה בהתאמה
+        thumbs[0].src = images[(index + 1) % images.length];
+        thumbs[1].src = images[(index + 2) % images.length];
+        thumbs[2].src = images[(index + 3) % images.length];
     }
-    setInterval(updateGallery, 4000);
+    
+    // החלפה כל 5 שניות כדי לתת לאנימציה האיטית (2 שניות) מקום לבלוט
+    setInterval(crossFadeGallery, 5000);
 </script>
 </body>
 </html>
