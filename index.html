@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Timor Nocoselsky</title>
+    <title>Timor Novoselsky</title>
     <style>
         body {
             background-color: black;
@@ -18,24 +18,55 @@
         }
         .navMenu {
             cursor: pointer;
+            position: relative;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        .menuItems {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 40px;
+            background-color: #222;
+            padding: 15px;
+            min-width: 150px;
+            z-index: 10;
+        }
+        .menuItems a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+        .showMenu {
+            display: block;
         }
         .mainDisplay {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 80vh;
+            margin-top: 20px;
         }
         #slideImage {
             max-width: 100%;
             max-height: 80vh;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Timor Nocoselsky</h1>
-    <div class="navMenu">MENU</div>
+    <h1>Timor Novoselsky</h1>
+    <div class="navMenu" onclick="toggleMenu()">MENU
+        <div id="dropdown" class="menuItems">
+            <a href="#">Wildlife</a>
+            <a href="#">Landscapes</a>
+            <a href="#">Culture</a>
+        </div>
+    </div>
 </header>
 
 <div class="mainDisplay">
@@ -43,6 +74,10 @@
 </div>
 
 <script>
+    function toggleMenu() {
+        document.getElementById("dropdown").classList.toggle("showMenu");
+    }
+
     const images = [
         "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
         "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
