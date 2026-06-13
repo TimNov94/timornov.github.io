@@ -174,4 +174,301 @@
             left: 0; 
             width: 100%; 
             height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
+        }
+
+        footer { margin-top: 20px; padding-top: 40px; border-top: 1px solid #222; text-align: center; color: #666; font-size: 14px; }
+        .footerQuote { font-style: italic; margin-bottom: 25px; letter-spacing: 1px; }
+        
+        .footerNav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .footerNav a {
+            color: #888;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+        .footerNav a:hover { color: white; }
+
+        .copyrightText {
+            font-size: 11px;
+            color: #444;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contactBubble {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: #222;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 900;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .contactBubble:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+        .bubbleIcon {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .contactModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .contactModal.activeModal {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modalContent {
+            background-color: #111;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 1px solid #222;
+        }
+        
+        .closeModalBtn {
+            text-align: right;
+            cursor: pointer;
+            font-size: 32px;
+            color: white;
+            opacity: 0.5;
+            margin-top: -10px;
+            transition: opacity 0.2s;
+            display: inline-block;
+            align-self: flex-end;
+            width: 30px;
+        }
+        .closeModalBtn:hover { opacity: 1; }
+        
+        .modalTitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            margin: -10px 0 10px 0;
+            letter-spacing: 1px;
+        }
+        .modalContent input, .modalContent textarea {
+            background-color: #000;
+            border: 1px solid #333;
+            color: white;
+            padding: 12px;
+            font-family: 'Lora', serif;
+            font-size: 14px;
+        }
+        .modalContent input:focus, .modalContent textarea:focus {
+            outline: none;
+            border-color: #666;
+        }
+        .modalContent button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 12px;
+            font-family: 'Lora', serif;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.2s;
+        }
+        .modalContent button:hover { background-color: #ccc; }
+
+        .bottomCushion {
+            height: 45vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="topVignette"></div>
+
+<div class="siteContainer">
+    <header>
+        <div class="branding">
+            <h1>Timor Novoselsky</h1>
+            <div class="subtitle">PHOTOGRAPHY</div>
+        </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="#">EN</a>
+                    <a href="#">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENU</div>
+        </div>
+    </header>
+
+    <div id="fullScreenMenu" class="overlayMenu">
+        <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+        <div class="menuLinks">
+            <a href="index.html" class="gapAfter">Home</a>
+            <a href="wildlife.html">Wildlife</a>
+            <a href="landscapes.html">Landscapes</a>
+            <a href="culture.html">People and Culture</a>
+            <a href="#" class="gapAfter">Stories</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <div class="mainDisplay">
+        <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=50" alt="Main 1">
+        <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=51" alt="Main 2">
+    </div>
+
+    <div class="bioSection scrollReveal">
+        I am Timor, a photographer captivated by the raw beauty of our world. Whether it's the towering peaks of Patagonia or the quiet, serene landscapes of Switzerland, my lens is always focused on storytelling through nature and culture. As I prepare for my upcoming move to Bern, I find myself looking for those fleeting, authentic moments that define a place. My work is not just about documenting what I see; it's about translating the feeling of independence, the spirit of travel, and the unique textures of the cultures I encounter into visual narratives. Welcome to my journey.
+    </div>
+
+    <div class="storiesSection scrollReveal">
+        <div class="storyCard">
+            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=40" class="storyImg"></div>
+            <h3 class="storyTitle">The Silence of Patagonia</h3>
+            <p class="storySnippet">A journey into the wind swept wilderness of Torres del Paine, capturing the isolation and grandeur of the Southern edge.</p>
+        </div>
+        <div class="storyCard">
+            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=41" class="storyImg"></div>
+            <h3 class="storyTitle">Shadows of Bhutan</h3>
+            <p class="storySnippet">Exploring ancient monasteries and the subtle, deep rooted cultural textures hidden high within the Eastern Himalayas.</p>
+        </div>
+        <div class="storyCard">
+            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=42" class="storyImg"></div>
+            <h3 class="storyTitle">Alpine Transitions</h3>
+            <p class="storySnippet">Documenting the shifting light across the vertical granite walls and freezing glacial streams of the Swiss Alps.</p>
+        </div>
+    </div>
+
+    <div class="verticalFeature scrollReveal">
+        <div class="gradientOverlay"></div>
+        <img src="https://picsum.photos/600/900?random=95" alt="Feature">
+    </div>
+
+    <footer>
+        <div class="footerQuote">"Capturing the silence between the moments."</div>
+        <div class="footerNav">
+            <a href="wildlife.html">Wildlife</a>
+            <a href="landscapes.html">Landscapes</a>
+            <a href="culture.html">People and Culture</a>
+            <a href="#">Stories</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="copyrightText">© 2026 Timor Novoselsky. All rights reserved.</div>
+    </footer>
+</div>
+
+<div class="bottomCushion"></div>
+
+<div class="contactBubble" onclick="openContactModal()">
+    <svg class="bubbleIcon" viewBox="0 0 24 24">
+        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+    </svg>
+</div>
+
+<div id="contactModal" class="contactModal" onclick="closeContactModal(event)">
+    <div class="modalContent" onclick="event.stopPropagation()">
+        <div class="closeModalBtn" onclick="closeContactModal(event, true)">&times;</div>
+        <h2 class="modalTitle">Contact</h2>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="button">Send Message</button>
+    </div>
+</div>
+
+<script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
+    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
+    
+    window.onclick = function() {
+        const dropdown = document.getElementById("langDropdown");
+        if (dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
+    }
+
+    function openContactModal() { document.getElementById("contactModal").classList.add("activeModal"); }
+    
+    function closeContactModal(event, force=false) { 
+        if(force || (event && event.target.classList.contains("contactModal"))) {
+            document.getElementById("contactModal").classList.remove("activeModal"); 
+        }
+    }
+    
+    const images = [ 
+        "https://picsum.photos/800/600?random=50", 
+        "https://picsum.photos/800/600?random=51", 
+        "https://picsum.photos/800/600?random=52", 
+        "https://picsum.photos/800/600?random=53"
+    ];
+    
+    let index = 0;
+    const img1 = document.getElementById("slideImage1");
+    const img2 = document.getElementById("slideImage2");
+    
+    function crossFadeGallery() {
+        index = (index + 1) % images.length;
+        const activeImg = img1.classList.contains("activeImg") ? img1 : img2;
+        const nextImg = activeImg === img1 ? img2 : img1;
+        
+        nextImg.src = images[index];
+        nextImg.classList.add("activeImg");
+        activeImg.classList.remove("activeImg");
+    }
+    setInterval(crossFadeGallery, 5000);
+
+    const revealElements = document.querySelectorAll('.scrollReveal');
+    const checkReveal = () => {
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight - 50) {
+                el.classList.add('revealed');
+            }
+        });
+    };
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal);
+</script>
+</body>
+</html>
