@@ -44,7 +44,6 @@
         
         .branding { text-align: left; }
         
-        /* גופן חדש, דק ואלגנטי לשם */
         h1 { 
             font-family: 'Cormorant Garamond', serif; 
             font-weight: 300;
@@ -88,15 +87,13 @@
         .menuLinks a:hover { color: white; }
         .menuLinks a.gapAfter { margin-bottom: 40px; }
 
-        /* קונטיינר לתצוגה הראשית - מרווח גדול יותר מלמעלה */
         .mainDisplay { 
             width: 100%; 
             height: 480px; 
             position: relative; 
-            margin-top: 50px; /* ריווח נשימה מוגדל */
+            margin-top: 50px; 
         }
         
-        /* מבנה שתי תמונות חופפות עבור ה-Cross-fade */
         .slideImg { 
             position: absolute;
             top: 0;
@@ -104,34 +101,54 @@
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
-            transition: opacity 2s ease-in-out; /* מעבר איטי וחלק */
+            transition: opacity 2s ease-in-out; 
             opacity: 0; 
         }
         .slideImg.activeImg { opacity: 1; }
         
-        .bioSection { margin: 50px 0 30px 0; line-height: 1.8; color: #bbb; font-size: 15px; text-align: justify; }
+        /* תבנית בסיס לאנימציית כניסה בגלילה */
+        .scrollReveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .scrollReveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
         
-        /* אזור הסיפורים החדש בשלוש עמודות */
+        .bioSection { margin: 50px 0; line-height: 1.8; color: #bbb; font-size: 15px; text-align: justify; }
+        
         .storiesSection {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
             gap: 25px;
         }
         .storyCard {
             width: 31%;
             display: flex;
             flex-direction: column;
+            cursor: pointer;
+        }
+        /* מסגרת מוגדרת שמונעת מהתמונה לצאת החוצה בזום */
+        .storyImgWrapper {
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
         }
         .storyImg {
             width: 100%;
-            height: 140px;
+            height: 100%;
             object-fit: cover;
             filter: grayscale(30%);
-            transition: filter 0.3s;
+            transition: transform 0.8s ease, filter 0.3s ease; /* אנימציית זום חלקה */
         }
-        .storyCard:hover .storyImg { filter: grayscale(0%); }
+        .storyCard:hover .storyImg { 
+            filter: grayscale(0%); 
+            transform: scale(1.04); /* אפקט הגדלה עדין מאוד */
+        }
         .storyTitle {
             font-family: 'Cormorant Garamond', serif;
             font-size: 20px;
@@ -143,10 +160,101 @@
             line-height: 1.6;
             color: #888;
         }
-        
-        .thumbnails { display: flex; justify-content: space-between; width: 100%; gap: 10px; margin-bottom: 60px; }
-        .thumb { width: 32%; height: 120px; object-fit: cover; transition: opacity 2s ease-in-out; opacity: 0.5; }
-        .thumb.activeThumb { opacity: 1; }
+
+        /* עיצוב בועת יצירת הקשר הצפה */
+        .contactBubble {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background-color: rgba(255, 255, 255, 0.15);
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 900;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .contactBubble:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+        .bubbleIcon {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* חלון טופס יצירת קשר מוסתר */
+        .contactModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .contactModal.activeModal {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modalContent {
+            background-color: #111;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            border: 1px solid #222;
+        }
+        .modalTitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+        .modalContent input, .modalContent textarea {
+            background-color: #000;
+            border: 1px solid #333;
+            color: white;
+            padding: 12px;
+            font-family: 'Lora', serif;
+            font-size: 14px;
+        }
+        .modalContent input:focus, .modalContent textarea:focus {
+            outline: none;
+            border-color: #666;
+        }
+        .modalContent button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 12px;
+            font-family: 'Lora', serif;
+            font-size: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.2s;
+        }
+        .modalContent button:hover { background-color: #ccc; }
+        .closeModalBtn {
+            text-align: right;
+            cursor: pointer;
+            font-size: 20px;
+            color: #888;
+            margin-top: -10px;
+        }
     </style>
 </head>
 <body>
@@ -190,36 +298,47 @@
     </div>
 
     <div class="mainDisplay">
-        <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=1" alt="Main 1">
-        <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=2" alt="Main 2">
+        <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=50" alt="Main 1">
+        <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=51" alt="Main 2">
     </div>
 
-    <div class="bioSection">
+    <div class="bioSection scrollReveal">
         I am Timor, a photographer captivated by the raw beauty of our world. Whether it's the towering peaks of Patagonia or the quiet, serene landscapes of Switzerland, my lens is always focused on storytelling through nature and culture. As I prepare for my upcoming move to Bern, I find myself looking for those fleeting, authentic moments that define a place. My work is not just about documenting what I see; it's about translating the feeling of independence, the spirit of travel, and the unique textures of the cultures I encounter into visual narratives. Welcome to my journey.
     </div>
 
-    <div class="storiesSection">
+    <div class="storiesSection scrollReveal">
         <div class="storyCard">
-            <img src="https://picsum.photos/400/300?random=40" class="storyImg">
+            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=40" class="storyImg"></div>
             <h3 class="storyTitle">The Silence of Patagonia</h3>
             <p class="storySnippet">A journey into the wind-swept wilderness of Torres del Paine, capturing the isolation and grandeur of the Southern edge.</p>
         </div>
         <div class="storyCard">
-            <img src="https://picsum.photos/400/300?random=41" class="storyImg">
+            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=41" class="storyImg"></div>
             <h3 class="storyTitle">Shadows of Bhutan</h3>
             <p class="storySnippet">Exploring ancient monasteries and the subtle, deep-rooted cultural textures hidden high within the Eastern Himalayas.</p>
         </div>
         <div class="storyCard">
-            <img src="https://picsum.photos/400/300?random=42" class="storyImg">
+            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=42" class="storyImg"></div>
             <h3 class="storyTitle">Alpine Transitions</h3>
             <p class="storySnippet">Documenting the shifting light across the vertical granite walls and freezing glacial streams of the Swiss Alps.</p>
         </div>
     </div>
+</div>
 
-    <div class="thumbnails">
-        <img id="thumb1" class="thumb activeThumb" src="https://picsum.photos/800/600?random=2">
-        <img id="thumb2" class="thumb" src="https://picsum.photos/800/600?random=3">
-        <img id="thumb3" class="thumb" src="https://picsum.photos/800/600?random=4">
+<div class="contactBubble" onclick="openContactModal()">
+    <svg class="bubbleIcon" viewBox="0 0 24 24">
+        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+    </svg>
+</div>
+
+<div id="contactModal" class="contactModal" onclick="closeContactModal(event)">
+    <div class="modalContent" onclick="event.stopPropagation()">
+        <div class="closeModalBtn" onclick="closeContactModal(force=true)">&times;</div>
+        <h2 class="modalTitle">Contact</h2>
+        <input type="text" placeholder="Name" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" rows="5" required></textarea>
+        <button type="button">Send Message</button>
     </div>
 </div>
 
@@ -231,42 +350,51 @@
         const dropdown = document.getElementById("langDropdown");
         if (dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
     }
+
+    // ניהול חלון יצירת קשר
+    function openContactModal() { document.getElementById("contactModal").classList.add("activeModal"); }
+    function closeContactModal(event, force=false) { 
+        if(force || event.target.classList.contains("contactModal")) {
+            document.getElementById("contactModal").classList.remove("activeModal"); 
+        }
+    }
     
+    // רשימת תמונות מסודרת למעבר חלק (בשליטתך המלאה לעתיד)
     const images = [ 
-        "https://picsum.photos/800/600?random=1", 
-        "https://picsum.photos/800/600?random=2", 
-        "https://picsum.photos/800/600?random=3", 
-        "https://picsum.photos/800/600?random=4", 
-        "https://picsum.photos/800/600?random=5" 
+        "https://picsum.photos/800/600?random=50", 
+        "https://picsum.photos/800/600?random=51", 
+        "https://picsum.photos/800/600?random=52", 
+        "https://picsum.photos/800/600?random=53"
     ];
     
     let index = 0;
     const img1 = document.getElementById("slideImage1");
     const img2 = document.getElementById("slideImage2");
-    const thumbs = [document.getElementById("thumb1"), document.getElementById("thumb2"), document.getElementById("thumb3")];
     
     function crossFadeGallery() {
         index = (index + 1) % images.length;
-        
-        // זיהוי מי התמונה הגלויה כרגע ומי הבאה בתור
         const activeImg = img1.classList.contains("activeImg") ? img1 : img2;
         const nextImg = activeImg === img1 ? img2 : img1;
         
-        // טעינת המקור החדש לתמונה הנסתרת מראש
         nextImg.src = images[index];
-        
-        // ביצוע ההחלפה החלקה בלבד
         nextImg.classList.add("activeImg");
         activeImg.classList.remove("activeImg");
-        
-        // עדכון התמונות הקטנות למטה בהתאמה
-        thumbs[0].src = images[(index + 1) % images.length];
-        thumbs[1].src = images[(index + 2) % images.length];
-        thumbs[2].src = images[(index + 3) % images.length];
     }
-    
-    // החלפה כל 5 שניות כדי לתת לאנימציה האיטית (2 שניות) מקום לבלוט
     setInterval(crossFadeGallery, 5000);
+
+    // מנגנון Scroll Reveal המזהה מתי אלמנטים נכנסים למסך ומפעיל אותם
+    const revealElements = document.querySelectorAll('.scrollReveal');
+    const checkReveal = () => {
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (elementTop < windowHeight - 50) {
+                el.classList.add('revealed');
+            }
+        });
+    };
+    window.addEventListener('scroll', checkReveal);
+    window.addEventListener('load', checkReveal); // הפעלה גם בטעינה ראשונית
 </script>
 </body>
 </html>
