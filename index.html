@@ -23,80 +23,23 @@
             align-items: center;
             max-width: 1000px;
         }
-        .branding {
-            text-align: left;
-        }
-        h1 {
-            font-family: 'Caveat', cursive;
-            font-size: 60px;
-            margin: 0;
-        }
-        .subtitle {
-            font-size: 16px;
-            letter-spacing: 8px; /* מרווח יפה */
-            text-transform: uppercase;
-            margin-top: -5px;
-            color: #aaa;
-        }
-        .navMenu {
-            cursor: pointer;
-            position: relative;
-            font-size: 20px;
-            letter-spacing: 2px;
-        }
+        .branding { text-align: left; }
+        h1 { font-family: 'Caveat', cursive; font-size: 60px; margin: 0; }
+        .subtitle { font-size: 16px; letter-spacing: 8px; text-transform: uppercase; margin-top: -5px; color: #aaa; }
+        .navMenu { cursor: pointer; position: relative; font-size: 20px; letter-spacing: 2px; }
         .menuItems {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease;
-            position: absolute;
-            right: 0;
-            top: 40px;
-            background-color: #222;
-            padding: 15px;
-            min-width: 200px;
-            z-index: 10;
+            opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
+            position: absolute; right: 0; top: 40px; background-color: #222; padding: 15px; min-width: 200px; z-index: 10;
         }
-        .menuItems a {
-            display: block;
-            color: white;
-            text-decoration: none;
-            padding: 10px 0;
-            font-size: 16px;
-        }
-        .showMenu {
-            opacity: 1;
-            visibility: visible;
-        }
-        .mainDisplay {
-            width: 100%;
-            max-width: 800px;
-            height: 50vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-        }
-        #slideImage {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover;
-            transition: opacity 1s ease-in-out;
-        }
-        .thumbnails {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 800px;
-            margin-top: 20px;
-            gap: 15px;
-        }
-        .thumb {
-            width: 32%;
-            height: 150px;
-            object-fit: cover;
-            transition: opacity 1s ease-in-out;
-            cursor: pointer;
-        }
+        .menuItems a { display: block; color: white; text-decoration: none; padding: 10px 0; font-size: 16px; }
+        .showMenu { opacity: 1; visibility: visible; }
+        
+        /* המרווח צומצם ל-5 פיקסלים */
+        .mainDisplay { width: 100%; max-width: 800px; height: 50vh; display: flex; justify-content: center; align-items: center; margin-top: 20px; }
+        #slideImage { max-width: 100%; max-height: 100%; object-fit: cover; transition: opacity 0.8s ease-in-out; }
+        
+        .thumbnails { display: flex; justify-content: space-between; width: 100%; max-width: 800px; margin-top: 5px; gap: 5px; }
+        .thumb { width: 33%; height: 120px; object-fit: cover; transition: opacity 0.8s ease-in-out; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -108,7 +51,7 @@
     </div>
     <div class="navMenu" onclick="toggleMenu()">MENU
         <div id="dropdown" class="menuItems">
-            <a href="#">Wildlife</a>
+            <a href="wildlife.html">Wildlife</a> <!-- לינק לדף החדש -->
             <a href="#">Landscapes</a>
             <a href="#">People and Culture</a>
             <a href="#">Stories</a>
@@ -129,48 +72,22 @@
 </div>
 
 <script>
-    function toggleMenu() {
-        document.getElementById("dropdown").classList.toggle("showMenu");
-    }
-
-    const images = [
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-        "https://images.unsplash.com/photo-1470770841072-f978cf4d019e",
-        "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
-        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
-        "https://images.unsplash.com/photo-1500673922987-e212871fec22"
-    ];
+    function toggleMenu() { document.getElementById("dropdown").classList.toggle("showMenu"); }
+    const images = [ "https://images.unsplash.com/photo-1506744038136-46273834b3fb", "https://images.unsplash.com/photo-1470770841072-f978cf4d019e", "https://images.unsplash.com/photo-1501785888041-af3ef285b470", "https://images.unsplash.com/photo-1441974231531-c6227db76b6e", "https://images.unsplash.com/photo-1500673922987-e212871fec22" ];
     let index = 0;
-
     function updateGallery() {
-        const mainImg = document.getElementById("slideImage");
-        const t1 = document.getElementById("thumb1");
-        const t2 = document.getElementById("thumb2");
-        const t3 = document.getElementById("thumb3");
-
-        // אפקט פייד-אאוט לכולם
-        mainImg.style.opacity = 0;
-        t1.style.opacity = 0;
-        t2.style.opacity = 0;
-        t3.style.opacity = 0;
-
+        const elements = [document.getElementById("slideImage"), document.getElementById("thumb1"), document.getElementById("thumb2"), document.getElementById("thumb3")];
+        elements.forEach(el => el.style.opacity = 0);
         setTimeout(() => {
             index = (index + 1) % images.length;
-            mainImg.src = images[index];
-            t1.src = images[(index + 1) % images.length];
-            t2.src = images[(index + 2) % images.length];
-            t3.src = images[(index + 3) % images.length];
-            
-            // פייד-אין
-            mainImg.style.opacity = 1;
-            t1.style.opacity = 1;
-            t2.style.opacity = 1;
-            t3.style.opacity = 1;
-        }, 1000);
+            elements[0].src = images[index];
+            elements[1].src = images[(index + 1) % images.length];
+            elements[2].src = images[(index + 2) % images.length];
+            elements[3].src = images[(index + 3) % images.length];
+            elements.forEach(el => el.style.opacity = 1);
+        }, 800);
     }
-
     setInterval(updateGallery, 4000);
 </script>
-
 </body>
 </html>
