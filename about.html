@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>About - Timor Novoselsky</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lora&display=swap');
+
+        body { background-color: black; color: white; font-family: 'Lora', serif; margin: 0; padding: 0; overflow-x: hidden; }
+        
+        .topVignette { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); z-index: 1000; pointer-events: none; }
+        .fixedHeader { position: absolute; top: 0; left: 0; width: 100%; z-index: 500; padding: 40px; box-sizing: border-box; }
+        .backButton { color: white; text-decoration: none; font-size: 16px; letter-spacing: 2px; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s; }
+        .backButton:hover { opacity: 0.6; }
+
+        /* חלוקת המסך לחצי תמונה וחצי טקסט */
+        .aboutContainer { display: flex; min-height: 100vh; width: 100%; }
+        
+        .aboutImage { width: 45%; background: url('https://picsum.photos/1000/1500?random=400') center/cover no-repeat; position: relative; }
+        .aboutImage::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, black); }
+
+        .aboutContent { width: 55%; padding: 120px 80px 80px 60px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
+        
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; letter-spacing: 3px; margin: 0 0 40px 0; }
+        
+        .bioText { font-size: 16px; line-height: 2.2; color: #bbb; text-align: justify; margin-bottom: 25px; }
+        .bioText strong { color: white; font-weight: normal; }
+
+        @media (max-width: 900px) {
+            .aboutContainer { flex-direction: column; }
+            .aboutImage { width: 100%; height: 50vh; }
+            .aboutImage::after { background: linear-gradient(to bottom, transparent, black); }
+            .aboutContent { width: 100%; padding: 60px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="topVignette"></div>
+
+<div class="fixedHeader">
+    <a href="index.html" class="backButton"><span>&#8592;</span> BACK TO HOME</a>
+</div>
+
+<div class="aboutContainer">
+    <div class="aboutImage"></div>
+    <div class="aboutContent">
+        <h1>Behind the Lens</h1>
+        <p class="bioText">
+            I am Timor Novoselsky, a photographer and visual storyteller. Originally from Jerusalem, I am embarking on a new chapter, relocating to Bern, Switzerland this summer alongside my partner Magalie. My photography is born from a deep curiosity about the natural world and the diverse cultures that shape it.
+        </p>
+        <p class="bioText">
+            My travels have taken me across the globe. From navigating the icy waters of Antarctica aboard the MV Ushuaia, to exploring the wild landscapes of New Zealand in a campervan, and wandering the ancient monasteries of Bhutan and the vast trails of Patagonia. Equipped with my Nikon Z camera and an ultralight backpack, I believe in moving quietly and independently through nature.
+        </p>
+        <p class="bioText">
+            When I am not behind the lens or planning the logistics of my next expedition, you can find me practicing the quiet art of wood carving, exploring alternative photography techniques like cyanotype, or seeking out the perfect pour over specialty coffee. 
+        </p>
+        <p class="bioText">
+            Through my lens, I invite you to see the world as I do: vast, intricate, and deeply connected.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
