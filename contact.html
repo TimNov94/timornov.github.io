@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Timor Novoselsky</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lora&display=swap');
+
+        body { background-color: black; color: white; font-family: 'Lora', serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; }
+        
+        .topVignette { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); z-index: 1000; pointer-events: none; }
+        .fixedHeader { position: absolute; top: 0; left: 0; width: 100%; z-index: 500; padding: 40px; box-sizing: border-box; }
+        .backButton { color: white; text-decoration: none; font-size: 16px; letter-spacing: 2px; display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.3s; }
+        .backButton:hover { opacity: 0.6; }
+
+        .contactContainer { width: 100%; max-width: 600px; padding: 40px; text-align: center; }
+        
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 50px; font-weight: 300; letter-spacing: 4px; margin: 0 0 15px 0; }
+        .contactSubtitle { font-size: 16px; color: #888; margin-bottom: 50px; letter-spacing: 1px; }
+
+        .contactForm { display: flex; flex-direction: column; gap: 40px; }
+        
+        .inputGroup { position: relative; }
+        .inputGroup input, .inputGroup textarea { 
+            width: 100%; background: transparent; border: none; border-bottom: 1px solid #444; 
+            color: white; font-family: 'Lora', serif; font-size: 16px; padding: 10px 0; box-sizing: border-box; resize: none; 
+        }
+        .inputGroup input:focus, .inputGroup textarea:focus { outline: none; border-bottom-color: white; }
+        .inputGroup input::placeholder, .inputGroup textarea::placeholder { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; }
+
+        .sendBtn { 
+            background: white; color: black; border: none; padding: 18px 40px; font-family: 'Lora', serif; 
+            font-size: 14px; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s, color 0.3s; align-self: center; margin-top: 20px;
+        }
+        .sendBtn:hover { background: #ccc; }
+
+    </style>
+</head>
+<body>
+
+<div class="topVignette"></div>
+
+<div class="fixedHeader">
+    <a href="index.html" class="backButton"><span>&#8592;</span> BACK</a>
+</div>
+
+<div class="contactContainer">
+    <h1>Let us Connect</h1>
+    <div class="contactSubtitle">For inquiries, prints, or just to say hello.</div>
+    
+    <form class="contactForm">
+        <div class="inputGroup">
+            <input type="text" placeholder="Your Name" required>
+        </div>
+        <div class="inputGroup">
+            <input type="email" placeholder="Your Email" required>
+        </div>
+        <div class="inputGroup">
+            <textarea placeholder="Your Message" rows="4" required></textarea>
+        </div>
+        <button type="button" class="sendBtn">Send Message</button>
+    </form>
+</div>
+
+</body>
+</html>
