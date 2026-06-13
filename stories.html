@@ -6,6 +6,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lora&display=swap');
 
+        /* ביטול סימון כחול בלחיצה */
+        a, button, img, .filterTag, .storyRow, .backButton, .closeLightbox, .scrollTopBtn {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            outline: none;
+        }
+
         body { background-color: black; color: white; font-family: 'Lora', serif; margin: 0; padding: 20px; }
         
         .topVignette { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); z-index: 1000; pointer-events: none; }
@@ -17,12 +25,10 @@
             max-width: 1000px; margin: 180px auto 100px auto; display: flex; flex-direction: column; gap: 120px; 
         }
 
-        /* מבנה שורת הסיפור */
         .storyRow { 
             display: flex; align-items: center; gap: 60px; 
-            transition: transform 0.4s ease; /* אפקט הציפה */
+            transition: transform 0.4s ease; 
         }
-        /* שינוי כיוון כל שורה שנייה */
         .storyRow:nth-child(even) { flex-direction: row-reverse; }
 
         .storyImg { width: 50%; height: 450px; object-fit: cover; filter: grayscale(20%); transition: filter 0.5s; }
@@ -32,7 +38,6 @@
         .storyTitle { font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 20px; letter-spacing: 1px; }
         .storyText { font-size: 16px; line-height: 2; color: #aaa; text-align: justify; }
 
-        /* מובייל: הכל עמודה אחת */
         @media (max-width: 768px) {
             .storyRow, .storyRow:nth-child(even) { flex-direction: column; gap: 20px; }
             .storyImg, .storyContent { width: 100%; }
@@ -49,8 +54,6 @@
 </div>
 
 <div class="storiesContainer">
-    
-    <!-- סיפור 1 -->
     <div class="storyRow">
         <img src="https://picsum.photos/800/1000?random=301" class="storyImg">
         <div class="storyContent">
@@ -64,7 +67,6 @@
         </div>
     </div>
 
-    <!-- סיפור 2 (ארוך יותר) -->
     <div class="storyRow">
         <img src="https://picsum.photos/800/1000?random=302" class="storyImg">
         <div class="storyContent">
@@ -74,13 +76,12 @@
                 In Bhutan, time seems to loop back on itself. I remember walking through a small village where the elderly were 
                 turning prayer wheels with such rhythm, it felt like the heartbeat of the valley itself.<br><br>
                 It was during this trip that I understood how culture is preserved not in museums, but in daily gestures. 
-                From the intricate patterns of the hand-woven textiles to the communal meals shared by firelight, everything is a testament to resilience. 
+                From the intricate patterns of the hand woven textiles to the communal meals shared by firelight, everything is a testament to resilience. 
                 It wasn't just another shoot; it was an immersion into a way of life that values stillness over speed.
             </p>
         </div>
     </div>
 
-    <!-- סיפור 3 -->
     <div class="storyRow">
         <img src="https://picsum.photos/800/1000?random=303" class="storyImg">
         <div class="storyContent">
@@ -88,11 +89,10 @@
             <p class="storyText">
                 Switzerland in autumn is a masterclass in change. The transition from the vibrant greens of summer to the burnt oranges 
                 and deep reds of the slopes is breathtaking. It's a reminder that change is the only constant. 
-                As I prepare for my move, I'm documenting these shifts—not just as landscapes, but as metaphors for the chapters of our lives.
+                As I prepare for my move, I'm documenting these shifts not just as landscapes, but as metaphors for the chapters of our lives.
             </p>
         </div>
     </div>
-
 </div>
 
 </body>
