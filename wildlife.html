@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <title>Wildlife - Timor Novoselsky</title>
     <style>
-        body { background-color: black; color: white; font-family: 'Lora', serif; margin: 0; padding: 20px; position: relative; }
-        header { text-align: center; margin-bottom: 40px; margin-top: 20px; }
-        h1 { font-size: 3em; letter-spacing: 5px; text-transform: uppercase; }
+        @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+        body { 
+            background-color: black; 
+            color: white; 
+            font-family: 'Lora', serif; 
+            margin: 0; 
+            padding: 20px; 
+            position: relative; 
+        }
         
-        .backBtn {
-            position: absolute;
+        /* שכבת הוינייטה העליונה - סנטימטר אחד כהה שמשתלב חלק */
+        .topVignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+            z-index: 1000;
+            pointer-events: none; /* מאפשר ללחוץ על אלמנטים שמתחתיה */
+        }
+
+        /* כפתור חזרה מעוצב שיושפע מהגלילה */
+        .backButton {
+            position: fixed;
             top: 25px;
             left: 20px;
             color: white;
@@ -19,31 +39,144 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            z-index: 10;
+            transition: opacity 0.2s ease;
         }
-        .backBtn:hover { color: #ccc; }
         
-        .galleryContainer { display: flex; flex-wrap: wrap; gap: 15px; max-width: 1000px; margin: 0 auto; }
-        .imgSmall { width: calc(50% - 8px); height: 300px; object-fit: cover; }
-        .imgLarge { width: 100%; height: 500px; object-fit: cover; }
+        header { 
+            text-align: center; 
+            margin-bottom: 20px; 
+            margin-top: 50px;
+            transition: opacity 0.2s ease;
+        }
+        
+        h1 { font-size: 3em; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 20px; }
+        
+        /* אזור התגיות - לבן בהיר/עמום מאוד כברירת מחדל */
+        .filterContainer {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .filterTag {
+            color: rgba(255, 255, 255, 0.3); /* בהיר מאוד */
+            cursor: pointer;
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        
+        /* תגית פעילה משנה צבע ללבן מלא */
+        .filterTag.activeTag {
+            color: rgba(255, 255, 255, 1);
+            border-bottom: 1px solid white;
+            padding-bottom: 2px;
+        }
+        
+        /* גלריה במבנה הדינמי שביקשת */
+        .galleryContainer { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding-bottom: 100px;
+        }
+        
+        .galleryImg {
+            object-fit: cover;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .imgSmall { width: calc(50% - 8px); height: 350px; }
+        .imgLarge { width: 100%; height: 500px; }
     </style>
 </head>
 <body>
 
-<a href="index.html" class="backBtn"><span>&#8592;</span> BACK</a>
+<div class="topVignette"></div>
 
-<header>
+<a href="index.html" id="backButton" class="backButton"><span>&#8592;</span> BACK</a>
+
+<header id="galleryHeader">
     <h1>Wildlife</h1>
+    
+    <div class="filterContainer">
+        <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
+        <div class="filterTag" onclick="filterGallery('birds', this)">Birds</div>
+        <div class="filterTag" onclick="filterGallery('mammals', this)">Mammals</div>
+        <div class="filterTag" onclick="filterGallery('macro', this)">Macro</div>
+    </div>
 </header>
 
 <div class="galleryContainer">
-    <img src="https://picsum.photos/800/600?random=6" class="imgSmall">
-    <img src="https://picsum.photos/800/600?random=7" class="imgSmall">
+    <img src="https://picsum.photos/800/600?random=11" class="galleryImg imgSmall" data-category="birds">
+    <img src="https://picsum.photos/800/600?random=12" class="galleryImg imgSmall" data-category="birds">
+    <img src="https://picsum.photos/1200/600?random=13" class="galleryImg imgLarge" data-category="mammals">
     
-    <img src="https://picsum.photos/1200/500?random=8" class="imgLarge">
+    <img src="https://picsum.photos/800/600?random=14" class="galleryImg imgSmall" data-category="macro">
+    <img src="https://picsum.photos/800/600?random=15" class="galleryImg imgSmall" data-category="birds">
+    <img src="https://picsum.photos/1200/600?random=16" class="galleryImg imgLarge" data-category="macro">
     
-    <img src="https://picsum.photos/800/600?random=9" class="imgSmall">
-    <img src="https://picsum.photos/800/600?random=10" class="imgSmall">
+    <img src="https://picsum.photos/800/600?random=17" class="galleryImg imgSmall" data-category="mammals">
+    <img src="https://picsum.photos/800/600?random=18" class="galleryImg imgSmall" data-category="mammals">
+    <img src="https://picsum.photos/1200/600?random=19" class="galleryImg imgLarge" data-category="birds">
+    
+    <img src="https://picsum.photos/800/600?random=20" class="galleryImg imgSmall" data-category="macro">
+    <img src="https://picsum.photos/800/600?random=21" class="galleryImg imgSmall" data-category="birds">
+    <img src="https://picsum.photos/1200/600?random=22" class="galleryImg imgLarge" data-category="mammals">
+    
+    <img src="https://picsum.photos/800/600?random=23" class="galleryImg imgSmall" data-category="mammals">
+    <img src="https://picsum.photos/800/600?random=24" class="galleryImg imgSmall" data-category="macro">
+    <img src="https://picsum.photos/1200/600?random=25" class="galleryImg imgLarge" data-category="birds">
+    
+    <img src="https://picsum.photos/800/600?random=26" class="galleryImg imgSmall" data-category="birds">
+    <img src="https://picsum.photos/800/600?random=27" class="galleryImg imgSmall" data-category="macro">
+    <img src="https://picsum.photos/1200/600?random=28" class="galleryImg imgLarge" data-category="mammals">
+    
+    <img src="https://picsum.photos/800/600?random=29" class="galleryImg imgSmall" data-category="macro">
+    <img src="https://picsum.photos/800/600?random=30" class="galleryImg imgSmall" data-category="mammals">
 </div>
+
+<script>
+    // מנגנון סינון התמונות באותו עמוד
+    function filterGallery(category, element) {
+        // עדכון צבע התגית הנבחרת
+        const tags = document.querySelectorAll('.filterTag');
+        tags.forEach(tag => tag.classList.remove('activeTag'));
+        element.classList.add('activeTag');
+        
+        // סינון התמונות
+        const images = document.querySelectorAll('.galleryImg');
+        images.forEach(img => {
+            const imgCategory = img.getAttribute('data-category');
+            if (category === 'all' || imgCategory === category) {
+                img.style.display = '';
+                setTimeout(() => img.style.opacity = '1', 10);
+            } else {
+                img.style.opacity = '0';
+                img.style.display = 'none';
+            }
+        });
+    }
+
+    // מנגנון החלשת הבהירות של הכותרת והחץ בזמן גלילה למטה
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        
+        // ככל שגוללים יותר למטה, השקיפות יורדת לכיוון ה-0
+        let opacityValue = 1 - (scrollTop / 200);
+        
+        if (opacityValue < 0) opacityValue = 0;
+        if (opacityValue > 1) opacityValue = 1;
+        
+        document.getElementById('galleryHeader').style.opacity = opacityValue;
+        document.getElementById('backButton').style.opacity = opacityValue;
+    });
+</script>
 
 </body>
 </html>
