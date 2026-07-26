@@ -9,44 +9,73 @@
 
 <div class="topVignette"></div>
 
-<div class="fixedHeader">
-    <a href="index-de.html" class="backButton"><span>&#8592;</span> ZURÜCK</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="contact.html">EN</a>
-            <a href="contact-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index-de.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">FOTOGRAFIE</div>
+            </a>
         </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="contact.html">EN</a>
+                    <a href="contact-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENÜ</div>
+        </div>
+    </div>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index-de.html" class="gapAfter">Startseite</a>
+        <a href="wildlife-de.html">Wildtiere</a>
+        <a href="landscapes-de.html">Landschaften</a>
+        <a href="culture-de.html">Mensch & Kultur</a>
+        <a href="stories-de.html" class="gapAfter">Geschichten</a>
+        <a href="about-de.html">Über mich</a>
+        <a href="contact-de.html">Kontakt</a>
     </div>
 </div>
 
-<div class="contactContainer">
-    <h1>Lass uns in Kontakt treten</h1>
-    <div class="contactSubtitle">Für Anfragen, Kunstdrucke oder einfach für ein kurzes Hallo.</div>
-    
-    <form class="contactForm">
-        <div class="inputGroup">
-            <input type="text" placeholder="Ihr Name" required>
-        </div>
-        <div class="inputGroup">
-            <input type="email" placeholder="Ihre E-Mail" required>
-        </div>
-        <div class="inputGroup">
-            <textarea placeholder="Ihre Nachricht" rows="4" required></textarea>
-        </div>
-        <button type="button" class="sendBtn">Nachricht Senden</button>
-    </form>
+<div class="contactPageContainer">
+    <div class="contactContainer">
+        <h1 class="pageTitle">Kontakt aufnehmen</h1>
+        <div class="contactSubtitle">Für Kunstdruck-Anfragen, Aufträge oder allgemeine Fragen</div>
+        
+        <form class="contactForm" onsubmit="event.preventDefault(); alert('Vielen Dank! Ihre Nachricht wurde gesendet.');">
+            <div class="inputGroup">
+                <input type="text" placeholder="Ihr Name" required>
+            </div>
+            <div class="inputGroup">
+                <input type="email" placeholder="Ihre E-Mail" required>
+            </div>
+            <div class="inputGroup">
+                <textarea rows="4" placeholder="Ihre Nachricht" required></textarea>
+            </div>
+            <button type="submit" class="sendBtn">Nachricht senden</button>
+        </form>
+    </div>
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.onclick = function() {
+    window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
         if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    }
+    });
 </script>
+
 </body>
 </html>

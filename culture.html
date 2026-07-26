@@ -2,27 +2,55 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>People and Culture</title>
+    <title>People and Culture - Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="topVignette"></div>
 
-<div id="fixedHeader" class="fixedHeader">
-    <a href="index.html" class="backButton"><span>&#8592;</span> BACK</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="culture.html">EN</a>
-            <a href="culture-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">PHOTOGRAPHY</div>
+            </a>
+        </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="culture.html">EN</a>
+                    <a href="culture-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENU</div>
         </div>
     </div>
-    <header>
-        <h1>People & Culture</h1>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index.html" class="gapAfter">Home</a>
+        <a href="wildlife.html">Wildlife</a>
+        <a href="landscapes.html">Landscapes</a>
+        <a href="culture.html">People and Culture</a>
+        <a href="stories.html" class="gapAfter">Stories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<div class="pageContainer">
+    <div class="pageHeader">
+        <h1 class="pageTitle">People & Culture</h1>
         <div class="filterContainer">
             <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
             <div class="filterTag" onclick="filterGallery('portraits', this)">Portraits</div>
@@ -31,24 +59,24 @@
             <div class="filterTag" onclick="filterGallery('dailylife', this)">Daily Life</div>
             <div class="filterTag" onclick="filterGallery('artisans', this)">Artisans</div>
         </div>
-    </header>
-</div>
+    </div>
 
-<div class="galleryContainer">
-    <img src="https://picsum.photos/800/600?random=201" class="galleryImg imgSmall" data-categories="portraits dailylife" caption="An elder smiling in the local market" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=202" class="galleryImg imgSmall" data-categories="festivals" caption="Colorful celebrations during the spring festival" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/1200/600?random=203" class="galleryImg imgLarge" data-categories="street dailylife" caption="Morning rush in the narrow alleyways" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=204" class="galleryImg imgSmall" data-categories="artisans portraits" caption="A local wood carver focusing on intricate details in his workshop" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=205" class="galleryImg imgSmall" data-categories="dailylife" caption="Tea time conversation among friends" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/1200/600?random=206" class="galleryImg imgLarge" data-categories="festivals street" caption="Dancers moving to the rhythm of traditional drums" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=207" class="galleryImg imgSmall" data-categories="artisans dailylife" caption="Weaving traditional textiles in the village" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=208" class="galleryImg imgSmall" data-categories="portraits" caption="A moment of quiet reflection" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/1200/600?random=209" class="galleryImg imgLarge" data-categories="street" caption="Evening light casting long shadows on the city square" onclick="openLightbox(this)">
+    <div class="galleryContainer">
+        <img src="https://picsum.photos/800/600?random=201" class="galleryImg imgSmall" data-categories="portraits dailylife" caption="An elder smiling in the local market" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=202" class="galleryImg imgSmall" data-categories="festivals" caption="Colorful celebrations during the spring festival" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/1200/600?random=203" class="galleryImg imgLarge" data-categories="street dailylife" caption="Morning rush in the narrow alleyways" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=204" class="galleryImg imgSmall" data-categories="artisans portraits" caption="A local wood carver focusing on intricate details in his workshop" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=205" class="galleryImg imgSmall" data-categories="dailylife" caption="Tea time conversation among friends" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/1200/600?random=206" class="galleryImg imgLarge" data-categories="festivals street" caption="Dancers moving to the rhythm of traditional drums" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=207" class="galleryImg imgSmall" data-categories="artisans dailylife" caption="Weaving traditional textiles in the village" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=208" class="galleryImg imgSmall" data-categories="portraits" caption="A moment of quiet reflection" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/1200/600?random=209" class="galleryImg imgLarge" data-categories="street" caption="Evening light casting long shadows on the city square" onclick="openLightbox(this)">
+    </div>
 </div>
 
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
@@ -64,6 +92,7 @@
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
     window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
@@ -90,12 +119,6 @@
 
     window.addEventListener('scroll', function() {
         const scrollTop = window.scrollY;
-        let opacityValue = 1 - (scrollTop / 60);
-        if (opacityValue < 0.25) {
-            opacityValue = 0.25;
-        }
-        document.getElementById('fixedHeader').style.opacity = opacityValue;
-
         const topBtn = document.getElementById('scrollTopBtn');
         if (scrollTop > 400) {
             topBtn.classList.add('showBtn');

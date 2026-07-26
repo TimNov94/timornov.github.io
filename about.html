@@ -9,17 +9,42 @@
 
 <div class="topVignette"></div>
 
-<div class="fixedHeader">
-    <a href="index.html" class="backButton"><span>&#8592;</span> BACK TO HOME</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="about.html">EN</a>
-            <a href="about-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">PHOTOGRAPHY</div>
+            </a>
         </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="about.html">EN</a>
+                    <a href="about-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENU</div>
+        </div>
+    </div>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index.html" class="gapAfter">Home</a>
+        <a href="wildlife.html">Wildlife</a>
+        <a href="landscapes.html">Landscapes</a>
+        <a href="culture.html">People and Culture</a>
+        <a href="stories.html" class="gapAfter">Stories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
     </div>
 </div>
 
@@ -28,26 +53,25 @@
     <div class="aboutContent">
         <h1>Behind the Lens</h1>
         <p class="bioText">
-            I am Timor Novoselsky, a photographer and visual storyteller. Originally from Jerusalem, I am embarking on a new chapter, relocating to Bern, Switzerland this summer alongside my partner Magalie. My photography is born from a deep curiosity about the natural world and the diverse cultures that shape it.
+            My name is <strong>Timor Novoselsky</strong>. For years, photography has been my way of connecting with the wildest corners of our planet. From capturing rare alpine wildlife to documenting the quiet rhythms of remote mountain communities, my passion lies in authentic storytelling.
         </p>
         <p class="bioText">
-            My travels have taken me across the globe. From navigating the icy waters of Antarctica aboard the MV Ushuaia, to exploring the wild landscapes of New Zealand in a campervan, and wandering the ancient monasteries of Bhutan and the vast trails of Patagonia. Equipped with my Nikon Z camera and an ultralight backpack, I believe in moving quietly and independently through nature.
+            I am currently preparing for an exciting new chapter: moving to <strong>Bern, Switzerland</strong>. This relocation marks both a personal and creative milestone, bringing me closer to the heart of the European Alps.
         </p>
         <p class="bioText">
-            When I am not behind the lens or planning the logistics of my next expedition, you can find me practicing the quiet art of wood carving, exploring alternative photography techniques like cyanotype, or seeking out the perfect pour over specialty coffee. 
-        </p>
-        <p class="bioText">
-            Through my lens, I invite you to see the world as I do: vast, intricate, and deeply connected.
+            Whether working in extreme weather conditions or waiting hours for a single frame, I approach every project with patience, respect for nature, and an eye for minimalist beauty.
         </p>
     </div>
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.onclick = function() {
+    window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
         if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    }
+    });
 </script>
+
 </body>
 </html>

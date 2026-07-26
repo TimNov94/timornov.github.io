@@ -9,43 +9,71 @@
 
 <div class="topVignette"></div>
 
-<div id="fixedHeader" class="fixedHeader">
-    <a href="index-de.html" class="backButton"><span>&#8592;</span> ZURÜCK</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="wildlife.html">EN</a>
-            <a href="wildlife-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index-de.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">FOTOGRAFIE</div>
+            </a>
+        </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="wildlife.html">EN</a>
+                    <a href="wildlife-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENÜ</div>
         </div>
     </div>
-    <header class="galleryHeader">
-        <h1>Wildtiere</h1>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index-de.html" class="gapAfter">Startseite</a>
+        <a href="wildlife-de.html">Wildtiere</a>
+        <a href="landscapes-de.html">Landschaften</a>
+        <a href="culture-de.html">Mensch & Kultur</a>
+        <a href="stories-de.html" class="gapAfter">Geschichten</a>
+        <a href="about-de.html">Über mich</a>
+        <a href="contact-de.html">Kontakt</a>
+    </div>
+</div>
+
+<div class="pageContainer">
+    <div class="pageHeader">
+        <h1 class="pageTitle">Wildtiere</h1>
         <div class="filterContainer">
             <div class="filterTag activeTag" onclick="filterGallery('all', this)">Alle</div>
             <div class="filterTag" onclick="filterGallery('birds', this)">Vögel</div>
             <div class="filterTag" onclick="filterGallery('mammals', this)">Säugetiere</div>
             <div class="filterTag" onclick="filterGallery('macro', this)">Makro</div>
         </div>
-    </header>
-</div>
+    </div>
 
-<div class="galleryContainer">
-    <img src="https://picsum.photos/800/600?random=11" class="galleryImg imgSmall" category="birds" caption="Alpendohle fliegt über den Eiger, Schweiz" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=12" class="galleryImg imgSmall" category="birds" caption="Bartgeier im Schweizer Nationalpark" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=13" class="galleryImg imgLarge" category="mammals" caption="Guanako-Herde grasend in Torres del Paine, Patagonien" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=14" class="galleryImg imgSmall" category="macro" caption="Tautropfen auf alpiner Flora, Schweizer Alpen" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=15" class="galleryImg imgSmall" category="birds" caption="Königspinguine versammeln sich an den Küsten von Südgeorgien" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=16" class="galleryImg imgLarge" category="macro" caption="Detaillierte Texturen heimischen Mooses, Fiordland, Neuseeland" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=17" class="galleryImg imgSmall" category="mammals" caption="Alpensteinbock rastet auf den felsigen Gratlinien des Pilatus" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=18" class="galleryImg imgSmall" category="mammals" caption="Gämse klettert an den steilen Hängen nahe Interlaken" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=19" class="galleryImg imgLarge" category="birds" caption="Schneesturmvogel gleitet an den Eiswänden der Antarktis" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=20" class="galleryImg imgSmall" category="macro" caption="Verborgene Muster alpiner Flechten" onclick="openLightbox(this)">
+    <div class="galleryContainer">
+        <img src="https://picsum.photos/800/600?random=11" class="galleryImg imgSmall" category="birds" caption="Alpendohle fliegt über den Eiger, Schweiz" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=12" class="galleryImg imgSmall" category="birds" caption="Bartgeier im Schweizer Nationalpark" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/1200/600?random=13" class="galleryImg imgLarge" category="mammals" caption="Guanako-Herde grasend in Torres del Paine, Patagonien" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=14" class="galleryImg imgSmall" category="macro" caption="Tautropfen auf alpiner Flora, Schweizer Alpen" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=15" class="galleryImg imgSmall" category="birds" caption="Königspinguine versammeln sich an den Küsten von Südgeorgien" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/1200/600?random=16" class="galleryImg imgLarge" category="macro" caption="Detaillierte Texturen heimischen Mooses, Fiordland, Neuseeland" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=17" class="galleryImg imgSmall" category="mammals" caption="Alpensteinbock rastet auf den felsigen Gratlinien des Pilatus" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=18" class="galleryImg imgSmall" category="mammals" caption="Gämse klettert an den steilen Hängen nahe Interlaken" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/1200/600?random=19" class="galleryImg imgLarge" category="birds" caption="Schneesturmvogel gleitet an den Eiswänden der Antarktis" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=20" class="galleryImg imgSmall" category="macro" caption="Verborgene Muster alpiner Flechten" onclick="openLightbox(this)">
+    </div>
 </div>
 
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
@@ -61,6 +89,7 @@
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
     window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
@@ -87,14 +116,6 @@
 
     window.addEventListener('scroll', function() {
         const scrollTop = window.scrollY;
-        
-        let opacityValue = 1 - (scrollTop / 60);
-        if (opacityValue < 0.25) {
-            opacityValue = 0.25;
-        }
-        
-        document.getElementById('fixedHeader').style.opacity = opacityValue;
-
         const topBtn = document.getElementById('scrollTopBtn');
         if (scrollTop > 400) {
             topBtn.classList.add('showBtn');

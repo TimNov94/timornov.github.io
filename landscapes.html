@@ -2,27 +2,55 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Landscapes Timor Novoselsky</title>
+    <title>Landscapes - Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="topVignette"></div>
 
-<div id="fixedHeader" class="fixedHeader">
-    <a href="index.html" class="backButton"><span>&#8592;</span> BACK</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="landscapes.html">EN</a>
-            <a href="landscapes-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">PHOTOGRAPHY</div>
+            </a>
+        </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="landscapes.html">EN</a>
+                    <a href="landscapes-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENU</div>
         </div>
     </div>
-    <header>
-        <h1>Landscapes</h1>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index.html" class="gapAfter">Home</a>
+        <a href="wildlife.html">Wildlife</a>
+        <a href="landscapes.html">Landscapes</a>
+        <a href="culture.html">People and Culture</a>
+        <a href="stories.html" class="gapAfter">Stories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<div class="pageContainer">
+    <div class="pageHeader">
+        <h1 class="pageTitle">Landscapes</h1>
         <div class="filterContainer">
             <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
             <div class="filterTag" onclick="filterGallery('mountains', this)">Mountains</div>
@@ -32,24 +60,24 @@
             <div class="filterTag" onclick="filterGallery('desert', this)">Desert</div>
             <div class="filterTag" onclick="filterGallery('city', this)">City</div>
         </div>
-    </header>
-</div>
+    </div>
 
-<div class="galleryContainer">
-    <img src="https://picsum.photos/800/600?random=111" class="galleryImg imgSmall" data-categories="city" caption="Urban architecture crossing paths" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=112" class="galleryImg imgSmall" data-categories="desert mountains" caption="Dry peaks at sunset" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/1200/600?random=113" class="galleryImg imgLarge" data-categories="sea mountains" caption="Cliffs meeting the rough ocean" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=114" class="galleryImg imgSmall" data-categories="forests mountains" caption="Pine trees covering the valley" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=115" class="galleryImg imgSmall" data-categories="lakes forests" caption="Hidden waters deep in the woods" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/1200/600?random=116" class="galleryImg imgLarge" data-categories="desert" caption="Endless dunes stretching to the horizon" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=117" class="galleryImg imgSmall" data-categories="sea city" caption="Coastal town lights fading into the water" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=118" class="galleryImg imgSmall" data-categories="lakes mountains" caption="Mirror reflections of snowy peaks" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/1200/600?random=119" class="galleryImg imgLarge" data-categories="city mountains" caption="Metropolis surrounded by giant ridges" onclick="openLightbox(this)">
+    <div class="galleryContainer">
+        <img src="https://picsum.photos/800/600?random=111" class="galleryImg imgSmall" data-categories="city" caption="Urban architecture crossing paths" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=112" class="galleryImg imgSmall" data-categories="desert mountains" caption="Dry peaks at sunset" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/1200/600?random=113" class="galleryImg imgLarge" data-categories="sea mountains" caption="Cliffs meeting the rough ocean" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=114" class="galleryImg imgSmall" data-categories="forests mountains" caption="Pine trees covering the valley" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=115" class="galleryImg imgSmall" data-categories="lakes forests" caption="Hidden waters deep in the woods" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/1200/600?random=116" class="galleryImg imgLarge" data-categories="desert" caption="Endless dunes stretching to the horizon" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=117" class="galleryImg imgSmall" data-categories="sea city" caption="Coastal town lights fading into the water" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=118" class="galleryImg imgSmall" data-categories="lakes mountains" caption="Mirror reflections of snowy peaks" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/1200/600?random=119" class="galleryImg imgLarge" data-categories="city mountains" caption="Metropolis surrounded by giant ridges" onclick="openLightbox(this)">
+    </div>
 </div>
 
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
@@ -65,6 +93,7 @@
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
     window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
@@ -91,12 +120,6 @@
 
     window.addEventListener('scroll', function() {
         const scrollTop = window.scrollY;
-        let opacityValue = 1 - (scrollTop / 60);
-        if (opacityValue < 0.25) {
-            opacityValue = 0.25;
-        }
-        document.getElementById('fixedHeader').style.opacity = opacityValue;
-
         const topBtn = document.getElementById('scrollTopBtn');
         if (scrollTop > 400) {
             topBtn.classList.add('showBtn');

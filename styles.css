@@ -12,7 +12,7 @@ a, a:visited, a:link, a:hover, a:active {
     text-decoration: none;
 }
 
-a, button, img, .navMenu, .contactBubble, .galleryImg, .filterTag, .closeBtn, .closeModalBtn, .langSelector, .storyCard, .storyRow, .backButton, .closeLightbox, .scrollTopBtn {
+a, button, img, .navMenu, .contactBubble, .galleryImg, .filterTag, .closeBtn, .closeModalBtn, .langSelector, .storyCard, .storyRow, .closeLightbox, .scrollTopBtn {
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     user-select: none;
@@ -23,49 +23,28 @@ body {
     background-color: black;
     color: white;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     font-family: 'Lora', serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* ==========================================================================
-   2. HEADER & NAVIGATION
+   2. UNIVERSAL FIXED HEADER & NAVIGATION
    ========================================================================== */
 .topVignette {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 40px;
     background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-    z-index: 1000;
+    z-index: 1001;
     pointer-events: none;
-}
-
-.siteContainer {
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 15px;
-}
-
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    margin-top: 15px;
-}
-
-header.galleryHeader {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .fixedHeader {
@@ -73,67 +52,56 @@ header.galleryHeader {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: black;
-    z-index: 500;
-    padding-top: 25px;
-    padding-bottom: 15px;
-    transition: opacity 0.2s ease;
-    opacity: 1;
+    height: 80px;
+    background-color: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerInner {
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.branding {
+    text-align: left;
+}
+
+.branding a {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-.fixedHeader::after {
-    content: "";
-    position: absolute;
-    bottom: -60px;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background: linear-gradient(to bottom, black, transparent);
-    pointer-events: none;
-}
-
-.fixedHeader .langSelector {
-    position: absolute;
-    top: 28px;
-    right: 40px;
-}
-
-.backButton, .backButton:visited {
-    position: absolute;
-    top: 28px;
-    left: 40px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: clamp(13px, 1.2vw, 15px);
-    letter-spacing: 2px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: opacity 0.3s ease;
-    z-index: 10;
-}
-.backButton:hover { opacity: 0.6; }
-
-.branding { text-align: left; }
-
-.branding h1, h1 { 
+.branding h1 { 
     font-family: 'Cormorant Garamond', serif; 
     font-weight: 300;
-    font-size: clamp(2rem, 5vw, 3.5rem); 
+    font-size: clamp(24px, 2.5vw, 34px); 
     margin: 0; 
     letter-spacing: 2px;
     color: #ffffff;
-    text-decoration: none;
+    line-height: 1.1;
 }
-.subtitle { font-size: clamp(10px, 1vw, 12px); letter-spacing: 7px; text-transform: uppercase; margin-top: 5px; color: #888888; }
+
+.subtitle { 
+    font-size: 10px; 
+    letter-spacing: 6px; 
+    text-transform: uppercase; 
+    margin-top: 4px; 
+    color: #888888; 
+}
 
 .navControls {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
     position: relative;
 }
 
@@ -149,8 +117,19 @@ header.galleryHeader {
 }
 .navMenu:hover { color: #ffffff; }
 
-.langSelector { position: relative; cursor: pointer; display: flex; align-items: center; z-index: 5; }
-.globeIcon { width: 20px; height: 20px; opacity: 0.65; transition: opacity 0.2s ease; }
+.langSelector { 
+    position: relative; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    z-index: 5; 
+}
+.globeIcon { 
+    width: 20px; 
+    height: 20px; 
+    opacity: 0.65; 
+    transition: opacity 0.2s ease; 
+}
 .globeIcon:hover { opacity: 1; }
 
 .langDropdown {
@@ -161,7 +140,7 @@ header.galleryHeader {
     background-color: #111111;
     padding: 8px 12px; 
     min-width: 80px; 
-    box-shadow: 0 6px 20px rgba(0,0,0,0.8); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.9); 
     z-index: 600;
     border: 1px solid #222222;
     border-radius: 4px;
@@ -179,13 +158,26 @@ header.galleryHeader {
 }
 .langDropdown a:hover { color: #ffffff; }
 
+/* Full Screen Overlay Menu */
 .overlayMenu {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: black; z-index: 1000; display: flex; flex-direction: column;
-    justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.98); 
+    backdrop-filter: blur(15px);
+    z-index: 2000; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .overlayMenu.active { opacity: 1; visibility: visible; }
-.closeBtn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; color: white; }
+.closeBtn { position: absolute; top: 30px; right: 40px; font-size: 40px; cursor: pointer; color: white; }
 
 .menuLinks { display: flex; flex-direction: column; text-align: center; }
 .menuLinks a, .menuLinks a:visited { 
@@ -198,21 +190,48 @@ header.galleryHeader {
     transition: color 0.3s ease; 
 }
 .menuLinks a:hover { color: #ffffff; }
-.menuLinks a.gapAfter { margin-bottom: 40px; }
+.menuLinks a.gapAfter { margin-bottom: 35px; }
 
-@media (max-width: 768px) {
-    .fixedHeader .backButton { left: 20px; top: 22px; }
-    .fixedHeader .langSelector { right: 20px; top: 22px; }
+/* ==========================================================================
+   3. CENTERED CONTAINER & PAGE TITLES
+   ========================================================================== */
+.pageContainer, .siteContainer {
+    width: 100%;
+    max-width: 1300px;
+    margin: 120px auto 60px auto;
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pageHeader {
+    text-align: center;
+    margin-bottom: 35px;
+    width: 100%;
+}
+
+.pageTitle, h1.galleryTitle { 
+    font-family: 'Cormorant Garamond', serif; 
+    font-weight: 300;
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem); 
+    margin: 0 0 15px 0; 
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: center;
 }
 
 /* ==========================================================================
-   3. HOME PAGE (INDEX)
+   4. HOME PAGE (INDEX)
    ========================================================================== */
 .mainDisplay { 
     width: 100%; 
-    height: clamp(320px, 50vh, 560px); 
+    height: clamp(340px, 52vh, 580px); 
     position: relative; 
-    margin-top: 40px; 
+    margin-top: 10px; 
+    margin-bottom: 50px;
 }
 
 .slideImg { 
@@ -224,6 +243,7 @@ header.galleryHeader {
     object-fit: cover; 
     transition: opacity 2s ease-in-out; 
     opacity: 0; 
+    border-radius: 2px;
 }
 .slideImg.activeImg { opacity: 1; }
 
@@ -238,9 +258,9 @@ header.galleryHeader {
 }
 
 .bioSection { 
-    margin: 60px auto; 
+    margin: 40px auto 70px auto; 
     max-width: 850px;
-    line-height: 1.9; 
+    line-height: 2.0; 
     color: #bbb; 
     font-size: clamp(0.95rem, 1.2vw, 1.15rem); 
     text-align: justify; 
@@ -253,20 +273,19 @@ header.galleryHeader {
     margin-bottom: 80px;
     gap: 30px;
 }
-@media (max-width: 768px) {
-    .storiesSection { grid-template-columns: 1fr; gap: 40px; }
-}
 
 .storyCard {
     width: 100%;
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    text-align: left;
 }
 .storyImgWrapper {
     width: 100%;
-    height: 200px;
+    height: 220px;
     overflow: hidden;
+    border-radius: 2px;
 }
 .storyImg {
     width: 100%;
@@ -295,8 +314,9 @@ header.galleryHeader {
     width: 100%; 
     height: clamp(800px, 150vh, 2200px); 
     position: relative; 
-    margin: 80px 0 30px 0; 
+    margin: 60px 0 30px 0; 
     overflow: hidden; 
+    border-radius: 2px;
 }
 .verticalFeature img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -310,26 +330,25 @@ header.galleryHeader {
 }
 
 .bottomCushion {
-    height: 35vh;
+    height: 30vh;
     width: 100%;
 }
 
 /* ==========================================================================
-   4. GALLERIES & RESPONSIVE GRID LAYOUT
+   5. GALLERIES & RESPONSIVE GRID LAYOUT (30px Gap)
    ========================================================================== */
 .filterContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 18px;
-    margin-bottom: 15px;
+    gap: 22px;
+    margin: 10px auto 40px auto;
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
 .filterTag {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.45);
     cursor: pointer;
     font-size: clamp(13px, 1.1vw, 15px);
     letter-spacing: 2px;
@@ -340,64 +359,66 @@ header.galleryHeader {
 .filterTag.activeTag {
     color: rgba(255, 255, 255, 1);
     border-bottom: 1px solid white;
-    padding-bottom: 2px;
+    padding-bottom: 3px;
 }
 
-/* CSS Grid Gallery Layout */
+/* CSS Grid Gallery Layout with 30px gaps */
 .galleryContainer { 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px; 
     width: 100%;
-    max-width: 1200px; 
-    margin: 240px auto 0 auto; 
+    max-width: 1300px; 
+    margin: 0 auto; 
     padding-bottom: 100px;
 }
 
 .galleryImg {
     width: 100%;
+    height: 360px;
     object-fit: cover;
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 3px;
+    background-color: #111111;
 }
 .galleryImg:hover {
-    transform: scale(1.025);
+    transform: scale(1.02);
     filter: brightness(1.08);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.85);
     z-index: 2;
 }
 
 .imgSmall { 
-    height: 320px; 
     grid-column: span 1;
 }
 
 .imgLarge { 
-    height: 480px; 
     grid-column: span 2;
 }
 
-/* Tablet & Mobile Media Queries for Gallery Grid */
-@media (max-width: 1023px) and (min-width: 600px) {
+/* Responsive Grid Breakpoints */
+@media (max-width: 1024px) {
     .galleryContainer {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        margin-top: 220px;
+        gap: 25px;
     }
     .imgSmall, .imgLarge {
         grid-column: span 1;
-        height: 300px;
+        height: 320px;
+    }
+    .storiesSection {
+        grid-template-columns: 1fr;
+        gap: 40px;
     }
 }
 
-@media (max-width: 599px) {
+@media (max-width: 650px) {
+    .headerInner { padding: 0 20px; }
+    .pageContainer, .siteContainer { padding: 0 20px; margin-top: 100px; }
     .galleryContainer {
         grid-template-columns: 1fr;
-        gap: 15px;
-        margin-top: 200px;
-        padding-left: 10px;
-        padding-right: 10px;
+        gap: 20px;
     }
     .imgSmall, .imgLarge {
         grid-column: span 1;
@@ -406,7 +427,7 @@ header.galleryHeader {
 }
 
 /* ==========================================================================
-   5. ENHANCED LIGHTBOX & SCROLL TO TOP
+   6. LIGHTBOX & SCROLL TO TOP
    ========================================================================== */
 .scrollTopBtn {
     position: fixed;
@@ -439,15 +460,14 @@ header.galleryHeader {
     height: 26px;
 }
 
-/* Lightbox Modal */
 .lightboxOverlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.96);
+    backdrop-filter: blur(10px);
     z-index: 2000;
     display: flex;
     flex-direction: column;
@@ -505,27 +525,41 @@ header.galleryHeader {
 }
 
 /* ==========================================================================
-   6. ABOUT PAGE
+   7. ABOUT PAGE
    ========================================================================== */
-.aboutContainer { display: flex; min-height: 100vh; width: 100%; }
-.aboutImage { width: 45%; background: url('https://picsum.photos/1000/1500?random=400') center/cover no-repeat; position: relative; }
+.aboutContainer { 
+    display: flex; 
+    min-height: calc(100vh - 120px); 
+    width: 100%; 
+    max-width: 1300px;
+    margin: 120px auto 0 auto;
+}
+.aboutImage { width: 45%; background: url('https://picsum.photos/1000/1500?random=400') center/cover no-repeat; position: relative; border-radius: 2px; }
 .aboutImage::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, black); }
 
-.aboutContent { width: 55%; padding: 120px 80px 80px 60px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
+.aboutContent { width: 55%; padding: 60px 80px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; text-align: left; }
+.aboutContent h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; letter-spacing: 3px; margin: 0 0 35px 0; }
 .bioText { font-size: clamp(0.95rem, 1.2vw, 1.15rem); line-height: 2.1; color: #bbb; text-align: justify; margin-bottom: 25px; }
 .bioText strong { color: white; font-weight: normal; }
 
 @media (max-width: 900px) {
-    .aboutContainer { flex-direction: column; }
-    .aboutImage { width: 100%; height: 50vh; }
+    .aboutContainer { flex-direction: column; margin-top: 100px; }
+    .aboutImage { width: 100%; height: 45vh; }
     .aboutImage::after { background: linear-gradient(to bottom, transparent, black); }
-    .aboutContent { width: 100%; padding: 60px 25px; }
+    .aboutContent { width: 100%; padding: 50px 25px; }
 }
 
 /* ==========================================================================
-   7. CONTACT PAGE & CONTACT MODAL
+   8. CONTACT PAGE & CONTACT MODAL
    ========================================================================== */
-.contactContainer { width: 100%; max-width: 600px; padding: 40px 20px; text-align: center; box-sizing: border-box; }
+.contactPageContainer {
+    width: 100%;
+    max-width: 600px;
+    margin: 140px auto 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+.contactContainer { width: 100%; max-width: 600px; padding: 0; text-align: center; box-sizing: border-box; }
 .contactSubtitle { font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: #888; margin-bottom: 50px; letter-spacing: 1px; }
 
 .contactForm { display: flex; flex-direction: column; gap: 40px; }
@@ -646,15 +680,16 @@ header.galleryHeader {
 .modalContent button:hover { background-color: #ccc; }
 
 /* ==========================================================================
-   8. STORIES PAGE
+   9. STORIES PAGE
    ========================================================================== */
 .storiesContainer { 
-    max-width: 1000px; 
-    margin: 200px auto 100px auto; 
+    max-width: 1100px; 
+    margin: 140px auto 80px auto; 
     display: flex; 
     flex-direction: column; 
     gap: 100px; 
-    padding: 0 15px;
+    padding: 0 30px;
+    width: 100%;
 }
 
 .storyRow { 
@@ -668,20 +703,20 @@ header.galleryHeader {
 .storyImg { width: 50%; height: 420px; object-fit: cover; filter: grayscale(20%); transition: filter 0.5s, transform 0.5s; border-radius: 2px; }
 .storyRow:hover .storyImg { filter: grayscale(0%); transform: translateY(-5px); }
 
-.storyContent { width: 50%; }
+.storyContent { width: 50%; text-align: left; }
 .storyTitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 18px; letter-spacing: 1px; }
 .storyText { font-size: clamp(0.95rem, 1.1vw, 1.1rem); line-height: 1.9; color: #aaa; text-align: justify; }
 
 @media (max-width: 768px) {
-    .storiesContainer { margin-top: 180px; gap: 60px; }
+    .storiesContainer { margin-top: 110px; gap: 60px; padding: 0 20px; }
     .storyRow, .storyRow:nth-child(even) { flex-direction: column; gap: 20px; }
     .storyImg, .storyContent { width: 100%; height: 300px; }
 }
 
 /* ==========================================================================
-   9. FOOTER
+   10. FOOTER
    ========================================================================== */
-footer { margin-top: 40px; padding-top: 40px; border-top: 1px solid #222; text-align: center; color: #666; font-size: 14px; width: 100%; }
+footer { margin-top: 60px; padding: 40px 0; border-top: 1px solid #1a1a1a; text-align: center; color: #666; font-size: 14px; width: 100%; }
 .footerQuote { font-style: italic; margin-bottom: 25px; letter-spacing: 1px; font-size: clamp(0.9rem, 1.2vw, 1.1rem); }
 
 .footerNav {

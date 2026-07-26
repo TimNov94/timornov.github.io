@@ -9,43 +9,71 @@
 
 <div class="topVignette"></div>
 
-<div id="fixedHeader" class="fixedHeader">
-    <a href="index.html" class="backButton"><span>&#8592;</span> BACK</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="wildlife.html">EN</a>
-            <a href="wildlife-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">PHOTOGRAPHY</div>
+            </a>
+        </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="wildlife.html">EN</a>
+                    <a href="wildlife-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENU</div>
         </div>
     </div>
-    <header>
-        <h1>Wildlife</h1>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index.html" class="gapAfter">Home</a>
+        <a href="wildlife.html">Wildlife</a>
+        <a href="landscapes.html">Landscapes</a>
+        <a href="culture.html">People and Culture</a>
+        <a href="stories.html" class="gapAfter">Stories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<div class="pageContainer">
+    <div class="pageHeader">
+        <h1 class="pageTitle">Wildlife</h1>
         <div class="filterContainer">
             <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
             <div class="filterTag" onclick="filterGallery('birds', this)">Birds</div>
             <div class="filterTag" onclick="filterGallery('mammals', this)">Mammals</div>
             <div class="filterTag" onclick="filterGallery('macro', this)">Macro</div>
         </div>
-    </header>
-</div>
+    </div>
 
-<div class="galleryContainer">
-    <img src="https://picsum.photos/800/600?random=11" class="galleryImg imgSmall" category="birds" caption="Alpine Chough flying over Eiger, Switzerland" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=12" class="galleryImg imgSmall" category="birds" caption="Bearded Vulture in the Swiss National Park" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=13" class="galleryImg imgLarge" category="mammals" caption="Guanaco herd grazing in Torres del Paine, Patagonia" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=14" class="galleryImg imgSmall" category="macro" caption="Dewdrops on mountain flora, Swiss Alps" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=15" class="galleryImg imgSmall" category="birds" caption="King Penguins gathering on the shores of South Georgia" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=16" class="galleryImg imgLarge" category="macro" caption="Detailed textures of native moss, Fiordland, New Zealand" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=17" class="galleryImg imgSmall" category="mammals" caption="Alpine Ibex resting on the rocky ridges of Mount Pilatus" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=18" class="galleryImg imgSmall" category="mammals" caption="Chamois navigating the steep slopes near Interlaken" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=19" class="galleryImg imgLarge" category="birds" caption="Snow Petrel gliding against the ice walls of Antarctica" onclick="openLightbox(this)">
-    
-    <img src="https://picsum.photos/800/600?random=20" class="galleryImg imgSmall" category="macro" caption="Hidden patterns of mountain lichen" onclick="openLightbox(this)">
+    <div class="galleryContainer">
+        <img src="https://picsum.photos/800/600?random=11" class="galleryImg imgSmall" category="birds" caption="Alpine Chough flying over Eiger, Switzerland" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=12" class="galleryImg imgSmall" category="birds" caption="Bearded Vulture in the Swiss National Park" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/1200/600?random=13" class="galleryImg imgLarge" category="mammals" caption="Guanaco herd grazing in Torres del Paine, Patagonia" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=14" class="galleryImg imgSmall" category="macro" caption="Dewdrops on mountain flora, Swiss Alps" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=15" class="galleryImg imgSmall" category="birds" caption="King Penguins gathering on the shores of South Georgia" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/1200/600?random=16" class="galleryImg imgLarge" category="macro" caption="Detailed textures of native moss, Fiordland, New Zealand" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=17" class="galleryImg imgSmall" category="mammals" caption="Alpine Ibex resting on the rocky ridges of Mount Pilatus" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/800/600?random=18" class="galleryImg imgSmall" category="mammals" caption="Chamois navigating the steep slopes near Interlaken" onclick="openLightbox(this)">
+        <img src="https://picsum.photos/1200/600?random=19" class="galleryImg imgLarge" category="birds" caption="Snow Petrel gliding against the ice walls of Antarctica" onclick="openLightbox(this)">
+        
+        <img src="https://picsum.photos/800/600?random=20" class="galleryImg imgSmall" category="macro" caption="Hidden patterns of mountain lichen" onclick="openLightbox(this)">
+    </div>
 </div>
 
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
@@ -61,13 +89,13 @@
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
     window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
         if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
     });
 
-    // מנגנון סינון
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
         tags.forEach(tag => tag.classList.remove('activeTag'));
@@ -86,17 +114,8 @@
         });
     }
 
-    // ניהול גלילה ועמעום כותרת
     window.addEventListener('scroll', function() {
         const scrollTop = window.scrollY;
-        
-        let opacityValue = 1 - (scrollTop / 60);
-        if (opacityValue < 0.25) {
-            opacityValue = 0.25;
-        }
-        
-        document.getElementById('fixedHeader').style.opacity = opacityValue;
-
         const topBtn = document.getElementById('scrollTopBtn');
         if (scrollTop > 400) {
             topBtn.classList.add('showBtn');
@@ -113,7 +132,6 @@
         });
     }
 
-    // פונקציות הצפת תמונה
     function openLightbox(imgElement) {
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightboxImg");

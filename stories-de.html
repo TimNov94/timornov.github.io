@@ -9,69 +9,85 @@
 
 <div class="topVignette"></div>
 
-<div class="fixedHeader">
-    <a href="index-de.html" class="backButton"><span>&#8592;</span> ZURÜCK</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="stories.html">EN</a>
-            <a href="stories-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index-de.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">FOTOGRAFIE</div>
+            </a>
+        </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="stories.html">EN</a>
+                    <a href="stories-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENÜ</div>
         </div>
     </div>
-    <h1>Geschichten</h1>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index-de.html" class="gapAfter">Startseite</a>
+        <a href="wildlife-de.html">Wildtiere</a>
+        <a href="landscapes-de.html">Landschaften</a>
+        <a href="culture-de.html">Mensch & Kultur</a>
+        <a href="stories-de.html" class="gapAfter">Geschichten</a>
+        <a href="about-de.html">Über mich</a>
+        <a href="contact-de.html">Kontakt</a>
+    </div>
 </div>
 
 <div class="storiesContainer">
     <div class="storyRow">
-        <img src="https://picsum.photos/800/1000?random=301" class="storyImg">
+        <img src="https://picsum.photos/600/400?random=10" class="storyImg">
         <div class="storyContent">
-            <h2 class="storyTitle">Die Stille Patagoniens</h2>
-            <p class="storyText">
-                Torres del Paine ist nicht nur ein Reiseziel; es ist eine Lektion in Demut. Der Wind weht hier nicht nur – er formt die Landschaft. 
-                Ich habe Tage damit verbracht, darauf zu warten, dass das Licht die Granittürme trifft, und als es schließlich geschah, war die Stille überwältigend. 
-                Fotografie ist hier weniger eine Frage der Kamera, sondern vielmehr der Ausdauer des Geistes. 
-                Damals wurde mir klar, dass wahre Schönheit oft in den unwirtlichsten Ecken unseres Planeten zu finden ist.
-            </p>
+            <div class="storyTitle">Die Stille der alpinen Morgendämmerung</div>
+            <div class="storyText">
+                Auf dem Grat um 5:00 Uhr morgens, während mir ein eisiger Wind ins Gesicht blies, wartete ich auf den ersten Sonnenstrahl, der die Schneegipfel berührte. In diesen ruhigen Momenten vor Sonnenaufgang offenbaren die Berge eine Gelassenheit, die sich schwer in Worte fassen lässt. Die Stille ist tief – nur gelegentlich unterbrochen von einer Windböe und dem Knirschen der Stiefel auf dem Frost.
+            </div>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/800/1000?random=302" class="storyImg">
+        <img src="https://picsum.photos/600/400?random=11" class="storyImg">
         <div class="storyContent">
-            <h2 class="storyTitle">Schatten von Bhutan</h2>
-            <p class="storyText">
-                Die Luft im hohen Himalaya hat ein ganz besonderes Gewicht. Sie duftet nach Räucherwerk, Pinien und jahrhundertealten Gebeten. 
-                In Bhutan scheint die Zeit in Schleifen zu verlaufen. Ich erinnere mich an den Spaziergang durch ein kleines Dorf, wo Ältere 
-                die Gebetsmühlen mit einem solchen Rhythmus drehten, dass es sich wie der Herzschlag des Tals selbst anfühlte.<br><br>
-                Auf dieser Reise verstand ich, wie Kultur bewahrt wird – nicht in Museen, sondern in alltäglichen Gesten. 
-                Von den aufwendigen Mustern handgewebter Textilien bis hin zu den gemeinsamen Mahlzeiten am Feuer ist alles ein Zeugnis der Widerstandskraft. 
-                Es war nicht nur eine weitere Fototour; es war das Eintauchen in eine Lebensweise, die Ruhe über Geschwindigkeit stellt.
-            </p>
+            <div class="storyTitle">Wandern durch Patagoniens Winde</div>
+            <div class="storyText">
+                Patagonien beugt sich nicht für Reisende; Reisende müssen sich Patagonien anpassen. Das Verfolgen von Guanakos durch die goldenen Steppen, während Wolken über Torres del Paine jagten, lehrte mich Geduld. Jedes Foto hier ist ein Kampf mit den Elementen, doch genau dieser Rhythmus verleiht der Landschaft ihre Seele.
+            </div>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/800/1000?random=303" class="storyImg">
+        <img src="https://picsum.photos/600/400?random=12" class="storyImg">
         <div class="storyContent">
-            <h2 class="storyTitle">Alpine Übergänge</h2>
-            <p class="storyText">
-                Die Schweiz im Herbst ist ein Meisterwerk des Wandels. Der Übergang von den leuchtenden Grüntönen des Sommers zu den satt leuchtenden Orange- 
-                und Tieffototönen der Hänge ist atemberaubend. Es ist eine Erinnerung daran, dass Veränderung die einzige Konstante ist. 
-                Während ich mich auf meinen Umzug vorbereite, dokumentiere ich diese Veränderungen nicht nur als Landschaften, sondern als Metaphern für die Kapitel unseres Lebens.
-            </p>
+            <div class="storyTitle">Gesichter der Bergpfade</div>
+            <div class="storyText">
+                Es ist leicht, sich auf die große Weite der Natur zu konzentrieren, aber die menschlichen Begegnungen entlang entlegener Pfade verleihen der Reise ihren wahren Gehalt. Das Teilen von heißem Tee mit lokalen Hirten in hoch gelegenen Hütten erinnerte mich daran, dass Wärme und Gastfreundschaft eine universelle Sprache sprechen.
+            </div>
         </div>
     </div>
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.onclick = function() {
+    window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
         if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    }
+    });
 </script>
+
 </body>
 </html>

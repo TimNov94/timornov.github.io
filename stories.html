@@ -9,69 +9,85 @@
 
 <div class="topVignette"></div>
 
-<div class="fixedHeader">
-    <a href="index.html" class="backButton"><span>&#8592;</span> BACK</a>
-    <div class="langSelector" onclick="toggleLangMenu(event)">
-        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
-        </svg>
-        <div id="langDropdown" class="langDropdown">
-            <a href="stories.html">EN</a>
-            <a href="stories-de.html">DE</a>
+<header class="fixedHeader">
+    <div class="headerInner">
+        <div class="branding">
+            <a href="index.html">
+                <h1>Timor Novoselsky</h1>
+                <div class="subtitle">PHOTOGRAPHY</div>
+            </a>
+        </div>
+        
+        <div class="navControls">
+            <div class="langSelector" onclick="toggleLangMenu(event)">
+                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+                </svg>
+                <div id="langDropdown" class="langDropdown">
+                    <a href="stories.html">EN</a>
+                    <a href="stories-de.html">DE</a>
+                </div>
+            </div>
+            
+            <div class="navMenu" onclick="toggleMenu()">MENU</div>
         </div>
     </div>
-    <h1>Stories</h1>
+</header>
+
+<div id="fullScreenMenu" class="overlayMenu">
+    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
+    <div class="menuLinks">
+        <a href="index.html" class="gapAfter">Home</a>
+        <a href="wildlife.html">Wildlife</a>
+        <a href="landscapes.html">Landscapes</a>
+        <a href="culture.html">People and Culture</a>
+        <a href="stories.html" class="gapAfter">Stories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
 </div>
 
 <div class="storiesContainer">
     <div class="storyRow">
-        <img src="https://picsum.photos/800/1000?random=301" class="storyImg">
+        <img src="https://picsum.photos/600/400?random=10" class="storyImg">
         <div class="storyContent">
-            <h2 class="storyTitle">The Silence of Patagonia</h2>
-            <p class="storyText">
-                Torres del Paine is not just a destination; it is a lesson in humility. The wind here doesn't just blow; it carves. 
-                I spent days waiting for the light to catch the granite towers, and when it finally did, the silence was overwhelming. 
-                Photography here is less about the camera and more about the endurance of the spirit. 
-                I realized then that true beauty is often found in the most inhospitable corners of our planet.
-            </p>
+            <div class="storyTitle">The Silence of the Alpine Dawn</div>
+            <div class="storyText">
+                Standing atop the ridge at 5:00 AM, freezing wind biting at my face, I waited for the first ray of light to hit the snow peaks. In those quiet moments before sunrise, the mountains reveal a calm that is impossible to capture in words. The silence is profound—broken only by the occasional gust of wind and the crunch of boots on frost.
+            </div>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/800/1000?random=302" class="storyImg">
+        <img src="https://picsum.photos/600/400?random=11" class="storyImg">
         <div class="storyContent">
-            <h2 class="storyTitle">Shadows of Bhutan</h2>
-            <p class="storyText">
-                The air in the high Himalayas has a specific weight to it. It smells of incense, pine, and centuries of prayer. 
-                In Bhutan, time seems to loop back on itself. I remember walking through a small village where the elderly were 
-                turning prayer wheels with such rhythm, it felt like the heartbeat of the valley itself.<br><br>
-                It was during this trip that I understood how culture is preserved not in museums, but in daily gestures. 
-                From the intricate patterns of the hand woven textiles to the communal meals shared by firelight, everything is a testament to resilience. 
-                It wasn't just another shoot; it was an immersion into a way of life that values stillness over speed.
-            </p>
+            <div class="storyTitle">Wandering Patagonia's Winds</div>
+            <div class="storyText">
+                Patagonia does not bend for travelers; travelers must adapt to Patagonia. Tracking guanacos through the golden steppes while clouds raced across Torres del Paine taught me patience. Every photo here is a battle with the elements, but that grit is precisely what gives the landscape its soul.
+            </div>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/800/1000?random=303" class="storyImg">
+        <img src="https://picsum.photos/600/400?random=12" class="storyImg">
         <div class="storyContent">
-            <h2 class="storyTitle">Alpine Transitions</h2>
-            <p class="storyText">
-                Switzerland in autumn is a masterclass in change. The transition from the vibrant greens of summer to the burnt oranges 
-                and deep reds of the slopes is breathtaking. It's a reminder that change is the only constant. 
-                As I prepare for my move, I'm documenting these shifts not just as landscapes, but as metaphors for the chapters of our lives.
-            </p>
+            <div class="storyTitle">Faces of the Mountain Trails</div>
+            <div class="storyText">
+                It’s easy to focus on nature’s grand scale, but the human connections along remote trails are what ground the journey. Shared hot tea with local shepherds in high mountain huts reminded me that warmth and hospitality speak a universal language.
+            </div>
         </div>
     </div>
 </div>
 
 <script>
+    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
     function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.onclick = function() {
+    window.addEventListener('click', function() {
         const dropdown = document.getElementById("langDropdown");
         if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    }
+    });
 </script>
+
 </body>
 </html>
