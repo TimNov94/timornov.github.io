@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Wildlife - Timor Novoselsky</title>
+    <title>Mensch & Kultur - Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -10,42 +10,45 @@
 <div class="topVignette"></div>
 
 <div id="fixedHeader" class="fixedHeader">
-    <a href="index.html" class="backButton"><span>&#8592;</span> BACK</a>
+    <a href="index-de.html" class="backButton"><span>&#8592;</span> ZURÜCK</a>
     <div class="langSelector" onclick="toggleLangMenu(event)">
         <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>
-            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
         </svg>
         <div id="langDropdown" class="langDropdown">
-            <a href="wildlife.html">EN</a>
-            <a href="wildlife-de.html">DE</a>
+            <a href="culture.html">EN</a>
+            <a href="culture-de.html">DE</a>
         </div>
     </div>
-    <header>
-        <h1>Wildlife</h1>
+    <header class="galleryHeader">
+        <h1>Mensch & Kultur</h1>
         <div class="filterContainer">
-            <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
-            <div class="filterTag" onclick="filterGallery('birds', this)">Birds</div>
-            <div class="filterTag" onclick="filterGallery('mammals', this)">Mammals</div>
-            <div class="filterTag" onclick="filterGallery('macro', this)">Macro</div>
+            <div class="filterTag activeTag" onclick="filterGallery('all', this)">Alle</div>
+            <div class="filterTag" onclick="filterGallery('portraits', this)">Porträts</div>
+            <div class="filterTag" onclick="filterGallery('festivals', this)">Feste</div>
+            <div class="filterTag" onclick="filterGallery('street', this)">Straßenfotografie</div>
+            <div class="filterTag" onclick="filterGallery('dailylife', this)">Alltag</div>
+            <div class="filterTag" onclick="filterGallery('artisans', this)">Kunsthandwerk</div>
         </div>
     </header>
 </div>
 
 <div class="galleryContainer">
-    <img src="https://picsum.photos/800/600?random=11" class="galleryImg imgSmall" category="birds" caption="Alpine Chough flying over Eiger, Switzerland" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=12" class="galleryImg imgSmall" category="birds" caption="Bearded Vulture in the Swiss National Park" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=13" class="galleryImg imgLarge" category="mammals" caption="Guanaco herd grazing in Torres del Paine, Patagonia" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=201" class="galleryImg imgSmall" data-categories="portraits dailylife" caption="Ein Älterer lächelt auf dem lokalen Markt" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=202" class="galleryImg imgSmall" data-categories="festivals" caption="Farbenfrohe Feierlichkeiten während des Frühlingsfestes" onclick="openLightbox(this)">
     
-    <img src="https://picsum.photos/800/600?random=14" class="galleryImg imgSmall" category="macro" caption="Dewdrops on mountain flora, Swiss Alps" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=15" class="galleryImg imgSmall" category="birds" caption="King Penguins gathering on the shores of South Georgia" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=16" class="galleryImg imgLarge" category="macro" caption="Detailed textures of native moss, Fiordland, New Zealand" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/1200/600?random=203" class="galleryImg imgLarge" data-categories="street dailylife" caption="Morgendliches Treiben in den engen Gassen" onclick="openLightbox(this)">
     
-    <img src="https://picsum.photos/800/600?random=17" class="galleryImg imgSmall" category="mammals" caption="Alpine Ibex resting on the rocky ridges of Mount Pilatus" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/800/600?random=18" class="galleryImg imgSmall" category="mammals" caption="Chamois navigating the steep slopes near Interlaken" onclick="openLightbox(this)">
-    <img src="https://picsum.photos/1200/600?random=19" class="galleryImg imgLarge" category="birds" caption="Snow Petrel gliding against the ice walls of Antarctica" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=204" class="galleryImg imgSmall" data-categories="artisans portraits" caption="Ein lokaler Holzschnitzer konzentriert auf feine Details in seiner Werkstatt" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=205" class="galleryImg imgSmall" data-categories="dailylife" caption="Gespräch bei einer Tasse Tee unter Freunden" onclick="openLightbox(this)">
     
-    <img src="https://picsum.photos/800/600?random=20" class="galleryImg imgSmall" category="macro" caption="Hidden patterns of mountain lichen" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/1200/600?random=206" class="galleryImg imgLarge" data-categories="festivals street" caption="Tänzer bewegen sich zum Rhythmus traditioneller Trommeln" onclick="openLightbox(this)">
+    
+    <img src="https://picsum.photos/800/600?random=207" class="galleryImg imgSmall" data-categories="artisans dailylife" caption="Weben traditioneller Textilien im Dorf" onclick="openLightbox(this)">
+    <img src="https://picsum.photos/800/600?random=208" class="galleryImg imgSmall" data-categories="portraits" caption="Ein Moment stiller Reflexion" onclick="openLightbox(this)">
+    
+    <img src="https://picsum.photos/1200/600?random=209" class="galleryImg imgLarge" data-categories="street" caption="Abendlicht wirft lange Schatten auf den Stadtplatz" onclick="openLightbox(this)">
 </div>
 
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
@@ -67,7 +70,6 @@
         if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
     });
 
-    // מנגנון סינון
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
         tags.forEach(tag => tag.classList.remove('activeTag'));
@@ -75,8 +77,8 @@
         
         const images = document.querySelectorAll('.galleryImg');
         images.forEach(img => {
-            const imgCategory = img.getAttribute('category');
-            if (category === 'all' || imgCategory === category) {
+            const categories = img.getAttribute('data-categories').split(' ');
+            if (category === 'all' || categories.includes(category)) {
                 img.style.display = '';
                 setTimeout(() => img.style.opacity = '1', 10);
             } else {
@@ -86,15 +88,12 @@
         });
     }
 
-    // ניהול גלילה ועמעום כותרת
     window.addEventListener('scroll', function() {
         const scrollTop = window.scrollY;
-        
         let opacityValue = 1 - (scrollTop / 60);
         if (opacityValue < 0.25) {
             opacityValue = 0.25;
         }
-        
         document.getElementById('fixedHeader').style.opacity = opacityValue;
 
         const topBtn = document.getElementById('scrollTopBtn');
@@ -113,7 +112,6 @@
         });
     }
 
-    // פונקציות הצפת תמונה
     function openLightbox(imgElement) {
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightboxImg");

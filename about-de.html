@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Über mich - Timor Novoselsky</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topVignette"></div>
+
+<div class="fixedHeader">
+    <a href="index-de.html" class="backButton"><span>&#8592;</span> ZURÜCK ZUR STARTSEITE</a>
+    <div class="langSelector" onclick="toggleLangMenu(event)">
+        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+        </svg>
+        <div id="langDropdown" class="langDropdown">
+            <a href="about.html">EN</a>
+            <a href="about-de.html">DE</a>
+        </div>
+    </div>
+</div>
+
+<div class="aboutContainer">
+    <div class="aboutImage"></div>
+    <div class="aboutContent">
+        <h1>Hinter der Linse</h1>
+        <p class="bioText">
+            Ich bin Timor Novoselsky, Fotograf und visueller Geschichtenerzähler. Ursprünglich aus Jerusalem stammend, schlage ich diesen Sommer gemeinsam mit meiner Partnerin Magalie ein neues Kapitel auf und ziehe nach Bern in die Schweiz. Meine Fotografie entspringt einer tiefen Neugier auf die natürliche Welt und die vielfältigen Kulturen, die sie prägen.
+        </p>
+        <p class="bioText">
+            Meine Reisen haben mich rund um den Globus geführt. Vom Navigieren durch die eisigen Gewässer der Antarktis an Bord der MV Ushuaia über das Erkunden der wilden Landschaften Neuseelands im Wohnmobil bis hin zum Wandern durch die alten Klöster Bhutans und die weiten Pfade Patagoniens. Ausgerüstet mit meiner Nikon Z-Kamera und einem ultraleichten Rucksack schätze ich das leise und unabhängige Bewegen in der Natur.
+        </p>
+        <p class="bioText">
+            Wenn ich nicht hinter der Linse stehe oder die Logistik meiner nächsten Expedition plane, widme ich mich der ruhigen Kunst der Holzschnitzerei, erforsche alternative Fotografietechniken wie die Cyanotypie oder genieße einen perfekten Specialty Pour-Over-Kaffee.
+        </p>
+        <p class="bioText">
+            Durch mein Objektiv lade ich Sie ein, die Welt mit meinen Augen zu sehen: weit, vielschichtig und tief miteinander verbunden.
+        </p>
+    </div>
+</div>
+
+<script>
+    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
+    window.onclick = function() {
+        const dropdown = document.getElementById("langDropdown");
+        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
+    }
+</script>
+</body>
+</html>

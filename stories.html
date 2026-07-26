@@ -3,46 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Stories - Timor Novoselsky</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lora&display=swap');
-
-        /* ביטול סימון כחול בלחיצה */
-        a, button, img, .filterTag, .storyRow, .backButton, .closeLightbox, .scrollTopBtn {
-            -webkit-tap-highlight-color: transparent;
-            -webkit-user-select: none;
-            user-select: none;
-            outline: none;
-        }
-
-        body { background-color: black; color: white; font-family: 'Lora', serif; margin: 0; padding: 20px; }
-        
-        .topVignette { position: fixed; top: 0; left: 0; width: 100%; height: 50px; background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0)); z-index: 1000; pointer-events: none; }
-        .fixedHeader { position: fixed; top: 0; left: 0; width: 100%; background-color: black; z-index: 500; padding: 30px 0; border-bottom: 1px solid #1a1a1a; text-align: center; }
-        .backButton { position: absolute; top: 40px; left: 40px; color: white; text-decoration: none; font-size: 16px; letter-spacing: 2px; }
-        h1 { font-size: 3em; letter-spacing: 5px; text-transform: uppercase; margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 300; }
-
-        .storiesContainer { 
-            max-width: 1000px; margin: 180px auto 100px auto; display: flex; flex-direction: column; gap: 120px; 
-        }
-
-        .storyRow { 
-            display: flex; align-items: center; gap: 60px; 
-            transition: transform 0.4s ease; 
-        }
-        .storyRow:nth-child(even) { flex-direction: row-reverse; }
-
-        .storyImg { width: 50%; height: 450px; object-fit: cover; filter: grayscale(20%); transition: filter 0.5s; }
-        .storyRow:hover .storyImg { filter: grayscale(0%); transform: translateY(-5px); }
-        
-        .storyContent { width: 50%; }
-        .storyTitle { font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 20px; letter-spacing: 1px; }
-        .storyText { font-size: 16px; line-height: 2; color: #aaa; text-align: justify; }
-
-        @media (max-width: 768px) {
-            .storyRow, .storyRow:nth-child(even) { flex-direction: column; gap: 20px; }
-            .storyImg, .storyContent { width: 100%; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -50,6 +11,16 @@
 
 <div class="fixedHeader">
     <a href="index.html" class="backButton"><span>&#8592;</span> BACK</a>
+    <div class="langSelector" onclick="toggleLangMenu(event)">
+        <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path>
+        </svg>
+        <div id="langDropdown" class="langDropdown">
+            <a href="stories.html">EN</a>
+            <a href="stories-de.html">DE</a>
+        </div>
+    </div>
     <h1>Stories</h1>
 </div>
 
@@ -95,5 +66,12 @@
     </div>
 </div>
 
+<script>
+    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
+    window.onclick = function() {
+        const dropdown = document.getElementById("langDropdown");
+        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
+    }
+</script>
 </body>
 </html>
