@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 
 /* ==========================================================================
    1. CORE & RESET STYLES
    ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 a, button, img, .navMenu, .contactBubble, .galleryImg, .filterTag, .closeBtn, .closeModalBtn, .langSelector, .storyCard, .storyRow, .backButton, .closeLightbox, .scrollTopBtn {
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
@@ -20,10 +24,11 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
 /* ==========================================================================
-   2. HEADER, NAVIGATION & VIGNETTE
+   2. HEADER & DESKTOP NAVBAR
    ========================================================================== */
 .topVignette {
     position: fixed;
@@ -38,7 +43,8 @@ body {
 
 .siteContainer {
     width: 100%;
-    max-width: 800px;
+    max-width: 1200px;
+    padding: 0 15px;
 }
 
 header {
@@ -46,13 +52,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 10px;
-    margin-top: 20px;
+    padding-bottom: 15px;
+    margin-top: 15px;
 }
 
 header.galleryHeader {
     text-align: center;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .fixedHeader {
@@ -62,10 +70,13 @@ header.galleryHeader {
     width: 100%;
     background-color: black;
     z-index: 500;
-    padding-top: 35px;
+    padding-top: 25px;
     padding-bottom: 15px;
     transition: opacity 0.2s ease;
     opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .fixedHeader::after {
@@ -81,22 +92,23 @@ header.galleryHeader {
 
 .fixedHeader .langSelector {
     position: absolute;
-    top: 38px;
+    top: 32px;
     right: 40px;
 }
 
 .backButton {
     position: absolute;
-    top: 40px;
+    top: 32px;
     left: 40px;
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: clamp(13px, 1.2vw, 16px);
     letter-spacing: 2px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     transition: opacity 0.3s;
+    z-index: 10;
 }
 .backButton:hover { opacity: 0.6; }
 
@@ -105,19 +117,46 @@ header.galleryHeader {
 h1 { 
     font-family: 'Cormorant Garamond', serif; 
     font-weight: 300;
-    font-size: 42px; 
+    font-size: clamp(2rem, 5vw, 3.5rem); 
     margin: 0; 
     letter-spacing: 2px;
 }
-.subtitle { font-size: 12px; letter-spacing: 7px; text-transform: uppercase; margin-top: 5px; color: #888; }
+.subtitle { font-size: clamp(10px, 1vw, 12px); letter-spacing: 7px; text-transform: uppercase; margin-top: 5px; color: #888; }
 
 .navControls {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
     position: relative;
 }
-.navMenu { cursor: pointer; font-size: 16px; letter-spacing: 2px; z-index: 5; color: #aaa; transition: color 0.3s; }
+
+/* Desktop Inline Navigation Bar */
+.desktopNav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.desktopNav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+.desktopNav a:hover, .desktopNav a.activeNav {
+    color: #fff;
+}
+
+.navMenu { 
+    display: none; 
+    cursor: pointer; 
+    font-size: 15px; 
+    letter-spacing: 2px; 
+    z-index: 5; 
+    color: #aaa; 
+    transition: color 0.3s; 
+}
 .navMenu:hover { color: white; }
 
 .langSelector { position: relative; cursor: pointer; display: flex; align-items: center; z-index: 5; }
@@ -127,6 +166,7 @@ h1 {
 .langDropdown {
     display: none; position: absolute; top: 35px; right: 0; background-color: #111;
     padding: 10px; min-width: 80px; box-shadow: 0 4px 15px rgba(0,0,0,0.8); z-index: 600;
+    border: 1px solid #222;
 }
 .langDropdown.showLang { display: block; }
 .langDropdown a { display: block; color: #aaa; text-decoration: none; font-size: 13px; padding: 8px 0; letter-spacing: 1px; text-align: center; transition: color 0.2s; }
@@ -134,25 +174,33 @@ h1 {
 
 .overlayMenu {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: black; z-index: 100; display: flex; flex-direction: column;
+    background-color: black; z-index: 1000; display: flex; flex-direction: column;
     justify-content: center; align-items: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease;
 }
 .overlayMenu.active { opacity: 1; visibility: visible; }
 .closeBtn { position: absolute; top: 30px; right: 30px; font-size: 40px; cursor: pointer; color: white; }
 
 .menuLinks { display: flex; flex-direction: column; text-align: center; }
-.menuLinks a { color: #aaa; text-decoration: none; font-size: 18px; letter-spacing: 3px; text-transform: uppercase; padding: 12px 0; transition: color 0.3s; }
+.menuLinks a { color: #aaa; text-decoration: none; font-size: 20px; letter-spacing: 3px; text-transform: uppercase; padding: 14px 0; transition: color 0.3s; }
 .menuLinks a:hover { color: white; }
 .menuLinks a.gapAfter { margin-bottom: 40px; }
+
+/* Responsive Header Switch (Mobile vs Desktop) */
+@media (max-width: 899px) {
+    .desktopNav { display: none; }
+    .navMenu { display: block; }
+    .fixedHeader .backButton { left: 20px; top: 25px; }
+    .fixedHeader .langSelector { right: 20px; top: 25px; }
+}
 
 /* ==========================================================================
    3. HOME PAGE (INDEX)
    ========================================================================== */
 .mainDisplay { 
     width: 100%; 
-    height: 480px; 
+    height: clamp(320px, 50vh, 560px); 
     position: relative; 
-    margin-top: 50px; 
+    margin-top: 40px; 
 }
 
 .slideImg { 
@@ -177,24 +225,35 @@ h1 {
     transform: translateY(0);
 }
 
-.bioSection { margin: 50px 0; line-height: 1.8; color: #bbb; font-size: 15px; text-align: justify; }
+.bioSection { 
+    margin: 60px auto; 
+    max-width: 850px;
+    line-height: 1.9; 
+    color: #bbb; 
+    font-size: clamp(0.95rem, 1.2vw, 1.15rem); 
+    text-align: justify; 
+}
 
 .storiesSection {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 100%;
     margin-bottom: 80px;
-    gap: 25px;
+    gap: 30px;
 }
+@media (max-width: 768px) {
+    .storiesSection { grid-template-columns: 1fr; gap: 40px; }
+}
+
 .storyCard {
-    width: 31%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     cursor: pointer;
 }
 .storyImgWrapper {
     width: 100%;
-    height: 140px;
+    height: 200px;
     overflow: hidden;
 }
 .storyImg {
@@ -206,23 +265,23 @@ h1 {
 }
 .storyCard:hover .storyImg { 
     filter: grayscale(0%); 
-    transform: scale(1.04); 
+    transform: scale(1.05); 
 }
 .storyTitle {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    margin: 12px 0 6px 0;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin: 14px 0 8px 0;
     letter-spacing: 1px;
 }
 .storySnippet {
-    font-size: 13px;
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
     line-height: 1.6;
     color: #888;
 }
 
 .verticalFeature { 
     width: 100%; 
-    height: 2400px; 
+    height: clamp(800px, 150vh, 2200px); 
     position: relative; 
     margin: 80px 0 30px 0; 
     overflow: hidden; 
@@ -239,20 +298,20 @@ h1 {
 }
 
 .bottomCushion {
-    height: 45vh;
+    height: 35vh;
     width: 100%;
 }
 
 /* ==========================================================================
-   4. GALLERIES (LANDSCAPES, WILDLIFE, CULTURE)
+   4. GALLERIES & RESPONSIVE GRID LAYOUT
    ========================================================================== */
 .filterContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 18px;
     margin-bottom: 15px;
-    max-width: 800px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -260,10 +319,10 @@ h1 {
 .filterTag {
     color: rgba(255, 255, 255, 0.4);
     cursor: pointer;
-    font-size: 15px;
+    font-size: clamp(13px, 1.1vw, 15px);
     letter-spacing: 2px;
     text-transform: uppercase;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 .filterTag.activeTag {
@@ -272,37 +331,79 @@ h1 {
     padding-bottom: 2px;
 }
 
+/* CSS Grid Gallery Layout */
 .galleryContainer { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 15px; 
-    max-width: 1000px; 
-    margin: 260px auto 0 auto; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
+    width: 100%;
+    max-width: 1200px; 
+    margin: 240px auto 0 auto; 
     padding-bottom: 100px;
 }
 
 .galleryImg {
+    width: 100%;
     object-fit: cover;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s ease, box-shadow 0.4s ease, opacity 0.5s ease;
     cursor: pointer;
+    border-radius: 2px;
 }
 .galleryImg:hover {
-    transform: scale(1.01);
+    transform: scale(1.025);
+    filter: brightness(1.08);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+    z-index: 2;
 }
 
-.imgSmall { width: calc(50% - 8px); height: 350px; }
-.imgLarge { width: 100%; height: 500px; }
+.imgSmall { 
+    height: 320px; 
+    grid-column: span 1;
+}
+
+.imgLarge { 
+    height: 480px; 
+    grid-column: span 2;
+}
+
+/* Tablet & Mobile Media Queries for Gallery Grid */
+@media (max-width: 1023px) and (min-width: 600px) {
+    .galleryContainer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        margin-top: 220px;
+    }
+    .imgSmall, .imgLarge {
+        grid-column: span 1;
+        height: 300px;
+    }
+}
+
+@media (max-width: 599px) {
+    .galleryContainer {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 200px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .imgSmall, .imgLarge {
+        grid-column: span 1;
+        height: 280px;
+    }
+}
 
 /* ==========================================================================
-   5. LIGHTBOX & SCROLL TO TOP
+   5. ENHANCED LIGHTBOX & SCROLL TO TOP
    ========================================================================== */
 .scrollTopBtn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: rgba(255, 255, 255, 0.1);
-    width: 60px; 
-    height: 60px;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    width: 55px; 
+    height: 55px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -314,7 +415,7 @@ h1 {
     z-index: 1000;
 }
 .scrollTopBtn:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-5px);
 }
 .scrollTopBtn.showBtn {
@@ -322,56 +423,74 @@ h1 {
     visibility: visible;
 }
 .scrollBtnSvg {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
 }
 
+/* Lightbox Modal */
 .lightboxOverlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.98);
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
     z-index: 2000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .lightboxOverlay.activeLightbox {
     opacity: 1;
     visibility: visible;
 }
 .lightboxImg {
-    max-width: 90%;
-    max-height: 75vh;
+    max-width: 92vw;
+    max-height: 82vh;
     object-fit: contain;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+    border-radius: 2px;
 }
 .lightboxCaption {
-    margin-top: 25px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 18px;
-    letter-spacing: 2px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(14px, 1.3vw, 18px);
+    letter-spacing: 1.5px;
     text-align: center;
-    max-width: 80%;
+    max-width: 85%;
+    font-family: 'Lora', serif;
 }
+
 .closeLightbox {
     position: absolute;
-    top: 30px;
-    right: 40px;
-    font-size: 35px;
+    top: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
     color: white;
     cursor: pointer;
     font-family: sans-serif;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    z-index: 2005;
 }
-.closeLightbox:hover { opacity: 1; }
+.closeLightbox:hover { 
+    opacity: 1; 
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.08);
+}
 
 /* ==========================================================================
    6. ABOUT PAGE
@@ -381,27 +500,27 @@ h1 {
 .aboutImage::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, black); }
 
 .aboutContent { width: 55%; padding: 120px 80px 80px 60px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; }
-.bioText { font-size: 16px; line-height: 2.2; color: #bbb; text-align: justify; margin-bottom: 25px; }
+.bioText { font-size: clamp(0.95rem, 1.2vw, 1.15rem); line-height: 2.1; color: #bbb; text-align: justify; margin-bottom: 25px; }
 .bioText strong { color: white; font-weight: normal; }
 
 @media (max-width: 900px) {
     .aboutContainer { flex-direction: column; }
     .aboutImage { width: 100%; height: 50vh; }
     .aboutImage::after { background: linear-gradient(to bottom, transparent, black); }
-    .aboutContent { width: 100%; padding: 60px 30px; }
+    .aboutContent { width: 100%; padding: 60px 25px; }
 }
 
 /* ==========================================================================
    7. CONTACT PAGE & CONTACT MODAL
    ========================================================================== */
-.contactContainer { width: 100%; max-width: 600px; padding: 40px; text-align: center; box-sizing: border-box; }
-.contactSubtitle { font-size: 16px; color: #888; margin-bottom: 50px; letter-spacing: 1px; }
+.contactContainer { width: 100%; max-width: 600px; padding: 40px 20px; text-align: center; box-sizing: border-box; }
+.contactSubtitle { font-size: clamp(0.9rem, 1.3vw, 1.1rem); color: #888; margin-bottom: 50px; letter-spacing: 1px; }
 
 .contactForm { display: flex; flex-direction: column; gap: 40px; }
 .inputGroup { position: relative; }
 .inputGroup input, .inputGroup textarea { 
     width: 100%; background: transparent; border: none; border-bottom: 1px solid #444; 
-    color: white; font-family: 'Lora', serif; font-size: 16px; padding: 10px 0; box-sizing: border-box; resize: none; 
+    color: white; font-family: 'Lora', serif; font-size: 16px; padding: 12px 0; box-sizing: border-box; resize: none; 
 }
 .inputGroup input:focus, .inputGroup textarea:focus { outline: none; border-bottom-color: white; }
 .inputGroup input::placeholder, .inputGroup textarea::placeholder { color: #555; text-transform: uppercase; letter-spacing: 2px; font-size: 13px; }
@@ -459,12 +578,12 @@ h1 {
 }
 .modalContent {
     background-color: #111;
-    padding: 30px;
+    padding: 35px;
     width: 90%;
-    max-width: 400px;
+    max-width: 440px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
     border: 1px solid #222;
 }
 
@@ -484,7 +603,7 @@ h1 {
 
 .modalTitle {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     margin: -10px 0 10px 0;
     letter-spacing: 1px;
 }
@@ -518,38 +637,46 @@ h1 {
    8. STORIES PAGE
    ========================================================================== */
 .storiesContainer { 
-    max-width: 1000px; margin: 180px auto 100px auto; display: flex; flex-direction: column; gap: 120px; 
+    max-width: 1000px; 
+    margin: 200px auto 100px auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 100px; 
+    padding: 0 15px;
 }
 
 .storyRow { 
-    display: flex; align-items: center; gap: 60px; 
+    display: flex; 
+    align-items: center; 
+    gap: 50px; 
     transition: transform 0.4s ease; 
 }
 .storyRow:nth-child(even) { flex-direction: row-reverse; }
 
-.storyImg { width: 50%; height: 450px; object-fit: cover; filter: grayscale(20%); transition: filter 0.5s, transform 0.5s; }
+.storyImg { width: 50%; height: 420px; object-fit: cover; filter: grayscale(20%); transition: filter 0.5s, transform 0.5s; border-radius: 2px; }
 .storyRow:hover .storyImg { filter: grayscale(0%); transform: translateY(-5px); }
 
 .storyContent { width: 50%; }
-.storyTitle { font-family: 'Cormorant Garamond', serif; font-size: 32px; margin-bottom: 20px; letter-spacing: 1px; }
-.storyText { font-size: 16px; line-height: 2; color: #aaa; text-align: justify; }
+.storyTitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 18px; letter-spacing: 1px; }
+.storyText { font-size: clamp(0.95rem, 1.1vw, 1.1rem); line-height: 1.9; color: #aaa; text-align: justify; }
 
 @media (max-width: 768px) {
+    .storiesContainer { margin-top: 180px; gap: 60px; }
     .storyRow, .storyRow:nth-child(even) { flex-direction: column; gap: 20px; }
-    .storyImg, .storyContent { width: 100%; }
+    .storyImg, .storyContent { width: 100%; height: 300px; }
 }
 
 /* ==========================================================================
    9. FOOTER
    ========================================================================== */
-footer { margin-top: 20px; padding-top: 40px; border-top: 1px solid #222; text-align: center; color: #666; font-size: 14px; }
-.footerQuote { font-style: italic; margin-bottom: 25px; letter-spacing: 1px; }
+footer { margin-top: 40px; padding-top: 40px; border-top: 1px solid #222; text-align: center; color: #666; font-size: 14px; width: 100%; }
+.footerQuote { font-style: italic; margin-bottom: 25px; letter-spacing: 1px; font-size: clamp(0.9rem, 1.2vw, 1.1rem); }
 
 .footerNav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
     margin-top: 20px;
     margin-bottom: 40px;
 }
