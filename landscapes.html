@@ -86,7 +86,7 @@
             <img src="images/landscapes/Bietschhorn2.JPG" class="galleryImg" data-categories="landscapes" data-title="Bietschhorn Ridge" data-subtitle="High altitude ridge bathed in ethereal mountain light." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Burchen.JPG" class="galleryImg" data-categories="landscapes" data-title="B&#25c;rchen" data-subtitle="Tranquil mountain village framed by larch forests." onclick="openLightbox(this)">
+            <img src="images/landscapes/Burchen.JPG" class="galleryImg" data-categories="landscapes" data-title="Bürchen" data-subtitle="Tranquil mountain village framed by larch forests." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem wide-img">
             <img src="images/landscapes/Creux du Van1.JPG" class="galleryImg" data-categories="landscapes" data-title="Creux du Van" data-subtitle="Dramatic natural rock cirque carved by ancient ice." onclick="openLightbox(this)">
@@ -95,7 +95,7 @@
             <img src="images/landscapes/Creux du Van2.JPG" class="galleryImg" data-categories="landscapes" data-title="Creux du Van Cliff" data-subtitle="Panoramic precipice overlooking Jura forest canopies." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Dossemhutte.JPG" class="galleryImg" data-categories="landscapes" data-title="Dossen-H&#25c;tte" data-subtitle="High alpine refuge overlooking pristine glacier views." onclick="openLightbox(this)">
+            <img src="images/landscapes/Dossemhutte.JPG" class="galleryImg" data-categories="landscapes" data-title="Dossen-Hütte" data-subtitle="High alpine refuge overlooking pristine glacier views." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
             <img src="images/landscapes/Dossemhutte1.JPG" class="galleryImg" data-categories="landscapes" data-title="Dossen Horizon" data-subtitle="Solitary ridge path reaching toward the cloud line." onclick="openLightbox(this)">
@@ -110,13 +110,13 @@
             <img src="images/landscapes/Gantrisch3.JPG" class="galleryImg" data-categories="landscapes" data-title="Gantrisch Lake" data-subtitle="Mirror-still alpine waters reflecting silent crags." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Lotschenhutte.JPG" class="galleryImg" data-categories="landscapes" data-title="L&#25c;tschenpass" data-subtitle="Historic mountain pass nestled among glacial fields." onclick="openLightbox(this)">
+            <img src="images/landscapes/Lotschenhutte.JPG" class="galleryImg" data-categories="landscapes" data-title="Lötschenpass" data-subtitle="Historic mountain pass nestled among glacial fields." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem wide-img">
             <img src="images/landscapes/Moosalp.JPG" class="galleryImg" data-categories="landscapes" data-title="Moosalp" data-subtitle="Highland pasture offering sweeping views of four-thousanders." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem wide-img">
-            <img src="images/landscapes/Scharzwasserbrucke1.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasserbr&#25c;cke" data-subtitle="Arching historic bridge spanning a deep wooded canyon." onclick="openLightbox(this)">
+            <img src="images/landscapes/Scharzwasserbrucke1.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasserbrücke" data-subtitle="Arching historic bridge spanning a deep wooded canyon." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
             <img src="images/landscapes/Scharzwasserbrucke2.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasser Gorge" data-subtitle="Wild river carving through lush green sandstone cliffs." onclick="openLightbox(this)">
@@ -197,17 +197,6 @@
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
 
-    function shuffleGallery() {
-        const container = document.querySelector('.galleryMasonry');
-        if (!container) return;
-        const items = Array.from(container.children);
-        for (let i = items.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            container.appendChild(items[j]);
-        }
-    }
-    window.addEventListener('DOMContentLoaded', shuffleGallery);
-
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
         tags.forEach(tag => tag.classList.remove('activeTag'));
@@ -223,7 +212,7 @@
             const categories = catAttr.split(/\s+/);
             
             if (targetCat === 'all' || categories.includes(targetCat)) {
-                item.style.display = 'inline-block';
+                item.style.display = 'flex';
                 setTimeout(() => item.style.opacity = '1', 10);
             } else {
                 item.style.opacity = '0';
@@ -248,20 +237,6 @@
             top: 0,
             behavior: 'smooth'
         });
-    }
-
-    function openLightbox(imgElement) {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightboxImg");
-        const lightboxCaption = document.getElementById("lightboxCaption");
-        
-        lightboxImg.src = imgElement.src;
-        lightboxCaption.textContent = imgElement.getAttribute("caption") || "Bern, Switzerland \u2013 Surrounding Alpine Nature & Rolling Hills";
-        lightbox.classList.add("activeLightbox");
-    }
-
-    function closeLightbox() {
-        document.getElementById("lightbox").classList.remove("activeLightbox");
     }
 
     document.addEventListener('keydown', function(e) {

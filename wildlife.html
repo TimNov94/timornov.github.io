@@ -81,34 +81,34 @@
 
     <div class="galleryContainer">
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=11" class="galleryImg" category="birds" caption="Alpine Chough flying over Eiger, Switzerland" onclick="openLightbox(this)">
+            <img src="images/wildlife/wildlife1.jpg" class="galleryImg" data-categories="birds" data-title="Alpine Chough" data-subtitle="Alpine Chough flying over Eiger, Switzerland" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=12" class="galleryImg" category="birds" caption="Bearded Vulture in the Swiss National Park" onclick="openLightbox(this)">
+            <img src="images/wildlife/wildlife2.jpg" class="galleryImg" data-categories="birds" data-title="Bearded Vulture" data-subtitle="Bearded Vulture in the Swiss National Park" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem wide-img">
+            <img src="images/wildlife/wildlife3.jpg" class="galleryImg" data-categories="mammals" data-title="Guanaco Herd" data-subtitle="Guanaco herd grazing in Torres del Paine, Patagonia" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=13" class="galleryImg" category="mammals" caption="Guanaco herd grazing in Torres del Paine, Patagonia" onclick="openLightbox(this)">
+            <img src="images/wildlife/wildlife4.jpg" class="galleryImg" data-categories="macro" data-title="Mountain Dew" data-subtitle="Dewdrops on mountain flora, Swiss Alps" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=14" class="galleryImg" category="macro" caption="Dewdrops on mountain flora, Swiss Alps" onclick="openLightbox(this)">
+            <img src="images/wildlife/wildlife5.jpg" class="galleryImg" data-categories="birds" data-title="King Penguins" data-subtitle="King Penguins gathering on the shores of South Georgia" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem wide-img">
+            <img src="images/wildlife/wildlife6.jpg" class="galleryImg" data-categories="macro" data-title="Fiordland Moss" data-subtitle="Detailed textures of native moss, Fiordland, New Zealand" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=15" class="galleryImg" category="birds" caption="King Penguins gathering on the shores of South Georgia" onclick="openLightbox(this)">
+            <img src="images/wildlife/wildlife7.jpg" class="galleryImg" data-categories="mammals" data-title="Alpine Ibex" data-subtitle="Alpine Ibex resting on the rocky ridges of Mount Pilatus" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=16" class="galleryImg" category="macro" caption="Detailed textures of native moss, Fiordland, New Zealand" onclick="openLightbox(this)">
+            <img src="images/wildlife/wildlife8.jpg" class="galleryImg" data-categories="mammals" data-title="Swiss Chamois" data-subtitle="Chamois navigating the steep slopes near Interlaken" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem wide-img">
+            <img src="images/wildlife/wildlife9.jpg" class="galleryImg" data-categories="birds" data-title="Snow Petrel" data-subtitle="Snow Petrel gliding against the ice walls of Antarctica" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=17" class="galleryImg" category="mammals" caption="Alpine Ibex resting on the rocky ridges of Mount Pilatus" onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=18" class="galleryImg" category="mammals" caption="Chamois navigating the steep slopes near Interlaken" onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=19" class="galleryImg" category="birds" caption="Snow Petrel gliding against the ice walls of Antarctica" onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=20" class="galleryImg" category="macro" caption="Hidden patterns of mountain lichen" onclick="openLightbox(this)">
+            <img src="images/wildlife/wildlife10.jpg" class="galleryImg" data-categories="macro" data-title="Mountain Lichen" data-subtitle="Hidden patterns of mountain lichen" onclick="openLightbox(this)">
         </div>
     </div>
     <footer>
@@ -162,10 +162,15 @@
         element.classList.add('activeTag');
         
         const items = document.querySelectorAll('.galleryItem');
+        const targetCat = (category || 'all').toLowerCase();
+
         items.forEach(item => {
             const img = item.querySelector('.galleryImg');
-            const imgCategory = img.getAttribute('category');
-            if (category === 'all' || imgCategory === category) {
+            if (!img) return;
+            const catAttr = (img.getAttribute('data-categories') || img.getAttribute('category') || '').toLowerCase();
+            const categories = catAttr.split(/\s+/);
+
+            if (targetCat === 'all' || categories.includes(targetCat)) {
                 item.style.display = 'flex';
                 setTimeout(() => item.style.opacity = '1', 10);
             } else {
@@ -191,20 +196,6 @@
             top: 0,
             behavior: 'smooth'
         });
-    }
-
-    function openLightbox(imgElement) {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightboxImg");
-        const lightboxCaption = document.getElementById("lightboxCaption");
-        
-        lightboxImg.src = imgElement.src;
-        lightboxCaption.textContent = imgElement.getAttribute("caption") || "Bern, Switzerland \u2013 Surrounding Alpine Nature & Rolling Hills";
-        lightbox.classList.add("activeLightbox");
-    }
-
-    function closeLightbox() {
-        document.getElementById("lightbox").classList.remove("activeLightbox");
     }
 
     document.addEventListener('keydown', function(e) {

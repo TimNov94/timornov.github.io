@@ -67,8 +67,8 @@
     </div>
 
     <div class="mainDisplay">
-        <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=50" alt="Main 1">
-        <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=51" alt="Main 2">
+        <img id="slideImage1" class="slideImg activeImg" src="images/home/hero/hero1.jpg" alt="Hero Photography 1">
+        <img id="slideImage2" class="slideImg" src="images/home/hero/hero2.jpg" alt="Hero Photography 2">
     </div>
 
     <div class="bioSection scrollReveal">
@@ -77,21 +77,21 @@
 
     <div class="storiesSection scrollReveal">
         <div class="storyCard">
-            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=40" class="storyImg"></div>
+            <div class="storyImgWrapper"><img src="images/home/hero/hero3.jpg" class="storyImg" alt="The Silence of Patagonia"></div>
             <h3 class="storyTitle">The Silence of Patagonia</h3>
             <p class="storySnippet">A journey into the wind swept wilderness of Torres del Paine, capturing the isolation and grandeur of the Southern edge.</p>
             <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
         </div>
         
         <div class="storyCard">
-            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=41" class="storyImg"></div>
+            <div class="storyImgWrapper"><img src="images/home/hero/hero2.jpg" class="storyImg" alt="Chasing Light in the Swiss Alps"></div>
             <h3 class="storyTitle">Chasing Light in the Swiss Alps</h3>
             <p class="storySnippet">High-altitude photography exploring changing seasons, glaciated peaks, and quiet mountain reflections.</p>
             <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
         </div>
         
         <div class="storyCard">
-            <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=42" class="storyImg"></div>
+            <div class="storyImgWrapper"><img src="images/home/hero/hero4.jpg" class="storyImg" alt="Faces & Traditions of New Zealand"></div>
             <h3 class="storyTitle">Faces & Traditions of New Zealand</h3>
             <p class="storySnippet">Documenting local artisans and coastal communities along the South Island's rugged coastline.</p>
             <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
@@ -99,7 +99,7 @@
     </div>
 
     <div class="verticalFeature scrollReveal">
-        <img src="images/Bern2.JPG" alt="Featured Vertical Image">
+        <img id="verticalImg" src="images/home/vertical/vertical-bg.jpg" alt="Featured Vertical Image">
         <div class="gradientOverlay"></div>
     </div>
 
@@ -126,26 +126,42 @@
         document.getElementById("fullScreenMenu").classList.toggle("active");
     }
 
-    const images = [
-        "https://picsum.photos/800/600?random=50",
-        "https://picsum.photos/800/600?random=51",
-        "https://picsum.photos/800/600?random=52",
-        "https://picsum.photos/800/600?random=53"
+    const heroImages = [
+        "images/home/hero/hero1.jpg",
+        "images/home/hero/hero2.jpg",
+        "images/home/hero/hero3.jpg",
+        "images/home/hero/hero4.jpg",
+        "images/home/hero/hero5.jpg"
     ];
-    let index = 0;
+    let heroIndex = 0;
     const img1 = document.getElementById("slideImage1");
     const img2 = document.getElementById("slideImage2");
 
     function crossFadeGallery() {
-        index = (index + 1) % images.length;
+        heroIndex = (heroIndex + 1) % heroImages.length;
         const activeImg = img1.classList.contains("activeImg") ? img1 : img2;
         const nextImg = activeImg === img1 ? img2 : img1;
         
-        nextImg.src = images[index];
+        nextImg.src = heroImages[heroIndex];
         nextImg.classList.add("activeImg");
         activeImg.classList.remove("activeImg");
     }
     setInterval(crossFadeGallery, 5000);
+
+    const verticalImages = [
+        "images/home/vertical/vertical-bg.jpg",
+        "images/home/vertical/vertical2.jpg",
+        "images/home/vertical/vertical3.jpg"
+    ];
+    let verticalIndex = 0;
+    const verticalImg = document.getElementById("verticalImg");
+
+    function rotateVerticalFeature() {
+        if (!verticalImg) return;
+        verticalIndex = (verticalIndex + 1) % verticalImages.length;
+        verticalImg.src = verticalImages[verticalIndex];
+    }
+    setInterval(rotateVerticalFeature, 8000);
 
     const revealElements = document.querySelectorAll('.scrollReveal');
     const checkReveal = () => {

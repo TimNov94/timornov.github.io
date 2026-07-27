@@ -163,6 +163,20 @@ function toggleFullscreen(event) {
     }
 }
 
+function cleanSpecialCharacters(str) {
+    if (!str) return '';
+    return str
+        .replace(/B&#25c;rchen|Bc;rchen|B&uuml;rchen/gi, 'Bürchen')
+        .replace(/Dossen-H&#25c;tte|Dossenh&#25c;tte/gi, 'Dossen-Hütte')
+        .replace(/L&#25c;tschenpass/gi, 'Lötschenpass')
+        .replace(/Schwarzwasserbr&#25c;cke/gi, 'Schwarzwasserbrücke')
+        .replace(/&#25c;/g, 'ü')
+        .replace(/&uuml;/gi, 'ü')
+        .replace(/&auml;/gi, 'ä')
+        .replace(/&ouml;/gi, 'ö')
+        .replace(/&szlig;/gi, 'ß');
+}
+
 function openLightbox(imgElement) {
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightboxImg");
@@ -173,8 +187,11 @@ function openLightbox(imgElement) {
     
     lightboxImg.src = imgElement.src;
     
-    const title = imgElement.getAttribute("data-title") || imgElement.getAttribute("caption") || "";
-    const subtitle = imgElement.getAttribute("data-subtitle") || "";
+    let title = imgElement.getAttribute("data-title") || imgElement.getAttribute("caption") || imgElement.alt || "";
+    let subtitle = imgElement.getAttribute("data-subtitle") || "";
+    
+    title = cleanSpecialCharacters(title);
+    subtitle = cleanSpecialCharacters(subtitle);
     
     if (lightboxTitle) lightboxTitle.textContent = title;
     if (lightboxSubtitle) {

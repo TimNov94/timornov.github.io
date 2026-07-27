@@ -83,31 +83,31 @@
 
     <div class="galleryContainer">
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=201" class="galleryImg" data-categories="portraits dailylife" caption="An elder smiling in the local market" onclick="openLightbox(this)">
+            <img src="images/culture/culture1.jpg" class="galleryImg" data-categories="portraits dailylife" data-title="Market Elder" data-subtitle="An elder smiling in the local market" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=202" class="galleryImg" data-categories="festivals" caption="Colorful celebrations during the spring festival" onclick="openLightbox(this)">
+            <img src="images/culture/culture2.jpg" class="galleryImg" data-categories="festivals" data-title="Spring Celebration" data-subtitle="Colorful celebrations during the spring festival" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem wide-img">
+            <img src="images/culture/culture3.jpg" class="galleryImg" data-categories="street dailylife" data-title="Morning Alleyways" data-subtitle="Morning rush in the narrow alleyways" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=203" class="galleryImg" data-categories="street dailylife" caption="Morning rush in the narrow alleyways" onclick="openLightbox(this)">
+            <img src="images/culture/culture4.jpg" class="galleryImg" data-categories="artisans portraits" data-title="The Wood Carver" data-subtitle="A local wood carver focusing on intricate details in his workshop" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=204" class="galleryImg" data-categories="artisans portraits" caption="A local wood carver focusing on intricate details in his workshop" onclick="openLightbox(this)">
+            <img src="images/culture/culture5.jpg" class="galleryImg" data-categories="dailylife" data-title="Village Tea Time" data-subtitle="Tea time conversation among friends" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem wide-img">
+            <img src="images/culture/culture6.jpg" class="galleryImg" data-categories="festivals street" data-title="Traditional Dancers" data-subtitle="Dancers moving to the rhythm of traditional drums" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=205" class="galleryImg" data-categories="dailylife" caption="Tea time conversation among friends" onclick="openLightbox(this)">
+            <img src="images/culture/culture7.jpg" class="galleryImg" data-categories="artisans dailylife" data-title="Textile Weaving" data-subtitle="Weaving traditional textiles in the village" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=206" class="galleryImg" data-categories="festivals street" caption="Dancers moving to the rhythm of traditional drums" onclick="openLightbox(this)">
+            <img src="images/culture/culture8.jpg" class="galleryImg" data-categories="portraits" data-title="Quiet Reflection" data-subtitle="A moment of quiet reflection" onclick="openLightbox(this)">
         </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=207" class="galleryImg" data-categories="artisans dailylife" caption="Weaving traditional textiles in the village" onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=208" class="galleryImg" data-categories="portraits" caption="A moment of quiet reflection" onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=209" class="galleryImg" data-categories="street" caption="Evening light casting long shadows on the city square" onclick="openLightbox(this)">
+        <div class="galleryItem wide-img">
+            <img src="images/culture/culture9.jpg" class="galleryImg" data-categories="street" data-title="Evening Light" data-subtitle="Evening light casting long shadows on the city square" onclick="openLightbox(this)">
         </div>
     </div>
     <footer>
@@ -161,10 +161,14 @@
         element.classList.add('activeTag');
         
         const items = document.querySelectorAll('.galleryItem');
+        const targetCat = (category || 'all').toLowerCase();
+
         items.forEach(item => {
             const img = item.querySelector('.galleryImg');
-            const categories = img.getAttribute('data-categories').split(' ');
-            if (category === 'all' || categories.includes(category)) {
+            if (!img) return;
+            const catAttr = (img.getAttribute('data-categories') || '').toLowerCase();
+            const categories = catAttr.split(/\s+/);
+            if (targetCat === 'all' || categories.includes(targetCat)) {
                 item.style.display = 'flex';
                 setTimeout(() => item.style.opacity = '1', 10);
             } else {
@@ -190,20 +194,6 @@
             top: 0,
             behavior: 'smooth'
         });
-    }
-
-    function openLightbox(imgElement) {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightboxImg");
-        const lightboxCaption = document.getElementById("lightboxCaption");
-        
-        lightboxImg.src = imgElement.src;
-        lightboxCaption.textContent = imgElement.getAttribute("caption") || "Bern, Switzerland \u2013 Surrounding Alpine Nature & Rolling Hills";
-        lightbox.classList.add("activeLightbox");
-    }
-
-    function closeLightbox() {
-        document.getElementById("lightbox").classList.remove("activeLightbox");
     }
 
     document.addEventListener('keydown', function(e) {

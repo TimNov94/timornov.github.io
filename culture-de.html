@@ -83,31 +83,31 @@
 
     <div class="galleryContainer">
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=201" class="galleryImg" data-categories="portraits dailylife" caption="Ein Älterer lächelt auf dem lokalen Markt" onclick="openLightbox(this)">
+            <img src="images/culture/culture1.jpg" class="galleryImg" data-categories="portraits dailylife" data-title="Marktältester" data-subtitle="Ein Älterer lächelt auf dem lokalen Markt" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=202" class="galleryImg" data-categories="festivals" caption="Farbenfrohe Feierlichkeiten während des Frühlingsfestes" onclick="openLightbox(this)">
+            <img src="images/culture/culture2.jpg" class="galleryImg" data-categories="festivals" data-title="Frühlingsfest" data-subtitle="Farbenfrohe Feierlichkeiten während des Frühlingsfestes" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem wide-img">
+            <img src="images/culture/culture3.jpg" class="galleryImg" data-categories="street dailylife" data-title="Morgendliche Gassen" data-subtitle="Morgendliches Treiben in den engen Gassen" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=203" class="galleryImg" data-categories="street dailylife" caption="Morgendliches Treiben in den engen Gassen" onclick="openLightbox(this)">
+            <img src="images/culture/culture4.jpg" class="galleryImg" data-categories="artisans portraits" data-title="Der Holzschnitzer" data-subtitle="Ein lokaler Holzschnitzer konzentriert auf feine Details in seiner Werkstatt" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=204" class="galleryImg" data-categories="artisans portraits" caption="Ein lokaler Holzschnitzer konzentriert auf feine Details in seiner Werkstatt" onclick="openLightbox(this)">
+            <img src="images/culture/culture5.jpg" class="galleryImg" data-categories="dailylife" data-title="Teezeit im Dorf" data-subtitle="Gespräch bei einer Tasse Tee unter Freunden" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem wide-img">
+            <img src="images/culture/culture6.jpg" class="galleryImg" data-categories="festivals street" data-title="Traditionelle Tänzer" data-subtitle="Tänzer bewegen sich zum Rhythmus traditioneller Trommeln" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=205" class="galleryImg" data-categories="dailylife" caption="Gespräch bei einer Tasse Tee unter Freunden" onclick="openLightbox(this)">
+            <img src="images/culture/culture7.jpg" class="galleryImg" data-categories="artisans dailylife" data-title="Textilweberei" data-subtitle="Weben traditioneller Textilien im Dorf" onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=206" class="galleryImg" data-categories="festivals street" caption="Tänzer bewegen sich zum Rhythmus traditioneller Trommeln" onclick="openLightbox(this)">
+            <img src="images/culture/culture8.jpg" class="galleryImg" data-categories="portraits" data-title="Stille Reflexion" data-subtitle="Ein Moment stiller Reflexion" onclick="openLightbox(this)">
         </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=207" class="galleryImg" data-categories="artisans dailylife" caption="Weben traditioneller Textilien im Dorf" onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/800/600?random=208" class="galleryImg" data-categories="portraits" caption="Ein Moment stiller Reflexion" onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem">
-            <img src="https://picsum.photos/1200/600?random=209" class="galleryImg" data-categories="street" caption="Abendlicht wirft lange Schatten auf den Stadtplatz" onclick="openLightbox(this)">
+        <div class="galleryItem wide-img">
+            <img src="images/culture/culture9.jpg" class="galleryImg" data-categories="street" data-title="Abendlicht" data-subtitle="Abendlicht wirft lange Schatten auf den Stadtplatz" onclick="openLightbox(this)">
         </div>
     </div>
     <footer>
@@ -161,10 +161,14 @@
         element.classList.add('activeTag');
         
         const items = document.querySelectorAll('.galleryItem');
+        const targetCat = (category || 'all').toLowerCase();
+
         items.forEach(item => {
             const img = item.querySelector('.galleryImg');
-            const categories = img.getAttribute('data-categories').split(' ');
-            if (category === 'all' || categories.includes(category)) {
+            if (!img) return;
+            const catAttr = (img.getAttribute('data-categories') || '').toLowerCase();
+            const categories = catAttr.split(/\s+/);
+            if (targetCat === 'all' || categories.includes(targetCat)) {
                 item.style.display = 'flex';
                 setTimeout(() => item.style.opacity = '1', 10);
             } else {
@@ -190,20 +194,6 @@
             top: 0,
             behavior: 'smooth'
         });
-    }
-
-    function openLightbox(imgElement) {
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightboxImg");
-        const lightboxCaption = document.getElementById("lightboxCaption");
-        
-        lightboxImg.src = imgElement.src;
-        lightboxCaption.textContent = imgElement.getAttribute("caption") || "Bern, Schweiz \u2013 Umgebende alpine Natur & Hügellandschaften";
-        lightbox.classList.add("activeLightbox");
-    }
-
-    function closeLightbox() {
-        document.getElementById("lightbox").classList.remove("activeLightbox");
     }
 
     document.addEventListener('keydown', function(e) {
