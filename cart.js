@@ -135,3 +135,27 @@ function goBack(defaultUrl) {
         window.location.href = defaultUrl || (document.documentElement.lang === 'de' || window.location.pathname.includes('-de') ? 'index-de.html' : 'index.html');
     }
 }
+
+function toggleFullscreen(event) {
+    if (event) event.stopPropagation();
+    const lightboxImg = document.getElementById('lightboxImg');
+    if (!lightboxImg) return;
+    
+    if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        if (lightboxImg.requestFullscreen) {
+            lightboxImg.requestFullscreen();
+        } else if (lightboxImg.webkitRequestFullscreen) {
+            lightboxImg.webkitRequestFullscreen();
+        } else if (lightboxImg.msRequestFullscreen) {
+            lightboxImg.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}
