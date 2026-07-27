@@ -76,8 +76,8 @@
         <div id="lightboxCaption" class="lightboxTitle"></div>
         <button class="lightboxBuyBtn" onclick="buyDownload(event)">Digitale Datei in hoher Auflösung kaufen (35 CHF)</button>
         <div class="lightboxSpecs">
-            Format: Master JPEG in voller Auflösung<br>
-            Empfohlene Druckgröße: Bis zu 60×90 cm @ 300 DPI<br>
+            Format: Hochauflösende digitale Datei<br>
+            <span id="printSizeSpec">Empfohlene Druckgröße: Bis zu 60×90 cm</span><br>
             Lizenz: Inklusive Lizenz für den privaten Kunstdruck
         </div>
     </div>
@@ -144,9 +144,26 @@
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightboxImg");
         const lightboxCaption = document.getElementById("lightboxCaption");
+        const printSizeSpec = document.getElementById("printSizeSpec");
         
         lightboxImg.src = imgElement.src;
         lightboxCaption.textContent = imgElement.getAttribute("caption") || "";
+
+        const w = imgElement.naturalWidth || imgElement.clientWidth || 800;
+        const h = imgElement.naturalHeight || imgElement.clientHeight || 600;
+        const ratio = Math.max(w / h, h / w);
+
+        let printSizeText = "Bis zu 60×90 cm";
+        if (ratio >= 1.8) {
+            printSizeText = "Bis zu 50×100 cm";
+        } else if (ratio <= 1.4) {
+            printSizeText = "Bis zu 60×80 cm";
+        }
+
+        if (printSizeSpec) {
+            printSizeSpec.textContent = "Empfohlene Druckgröße: " + printSizeText;
+        }
+        
         lightbox.classList.add("activeLightbox");
     }
 
@@ -156,7 +173,7 @@
 
     function buyDownload(event) {
         event.stopPropagation();
-        alert('Kauf des hochauflösenden Downloads gestartet (50 CHF). Vielen Dank!');
+        alert('Kauf der hochauflösenden digitalen Datei gestartet (35 CHF). Vielen Dank!');
     }
 
     document.addEventListener('keydown', function(e) {
