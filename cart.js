@@ -98,11 +98,11 @@ function closeCart() {
 
 function addCurrentLightboxToCart() {
     const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxTitle = document.getElementById('lightboxTitle') || document.getElementById('lightboxCaption');
     if (!lightboxImg || !lightboxImg.src) return;
     
     const src = lightboxImg.getAttribute('src') || lightboxImg.src;
-    const title = (lightboxCaption ? lightboxCaption.textContent : '') || 'Fine Art Photograph';
+    const title = (lightboxTitle && lightboxTitle.textContent.trim()) ? lightboxTitle.textContent.trim() : 'Fine Art Photograph';
     
     if (typeof closeLightbox === 'function') {
         closeLightbox();
