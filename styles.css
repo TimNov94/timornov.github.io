@@ -591,6 +591,64 @@ body {
     border-radius: 0 !important;
 }
 
+/* Lightbox Details, Clean Minimalist Buy Button & Simplified Specs */
+.lightboxDetails {
+    margin-top: 22px;
+    text-align: center;
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightboxTitle {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    color: #d0d0d0;
+    margin-bottom: 14px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.lightboxBuyBtn, .buyBtn {
+    background: transparent !important;
+    color: #c19a6b !important;
+    border: none !important;
+    padding: 6px 12px;
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    margin-bottom: 10px;
+    outline: none;
+    box-shadow: none !important;
+    border-radius: 0;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.lightboxBuyBtn:hover, .buyBtn:hover {
+    color: #ffffff !important;
+    background: transparent !important;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+}
+
+.lightboxSpecs, .printSpecs {
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    color: #888888;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
 .closeLightbox {
     position: absolute;
     top: 25px;

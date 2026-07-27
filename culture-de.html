@@ -138,12 +138,9 @@
         <img id="lightboxImg" class="lightboxImg" src="" alt="">
     </div>
     <div class="lightboxDetails" onclick="event.stopPropagation()">
-        <div id="lightboxCaption" class="lightboxTitle"></div>
-        <button class="lightboxBuyBtn" onclick="addCurrentLightboxToCart()">IN DEN WARENKORB (35 CHF)</button>
-        <div class="lightboxSpecs">
-            Format: Hochauflösende digitale Datei (Master-JPEG)<br>
-            Lizenz: Inklusive Lizenz für den privaten Kunstdruck
-        </div>
+        <div id="lightboxCaption" class="lightboxTitle">Bern, Schweiz &#8211; Umgebende alpine Natur &amp; Hügellandschaften</div>
+        <button class="lightboxBuyBtn" onclick="addCurrentLightboxToCart()">IN DEN WARENKORB &#8212; 35 CHF</button>
+        <div class="lightboxSpecs">Inklusive persönlicher Fine-Art-Drucklizenz</div>
     </div>
 </div>
 
@@ -200,7 +197,7 @@
         const lightboxCaption = document.getElementById("lightboxCaption");
         
         lightboxImg.src = imgElement.src;
-        lightboxCaption.textContent = imgElement.getAttribute("caption") || "";
+        lightboxCaption.textContent = imgElement.getAttribute("caption") || "Bern, Schweiz \u2013 Umgebende alpine Natur & Hügellandschaften";
         lightbox.classList.add("activeLightbox");
     }
 

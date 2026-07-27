@@ -120,12 +120,9 @@
         <img id="lightboxImg" class="lightboxImg" src="" alt="">
     </div>
     <div class="lightboxDetails" onclick="event.stopPropagation()">
-        <div id="lightboxCaption" class="lightboxTitle"></div>
-        <button class="lightboxBuyBtn" onclick="addCurrentLightboxToCart()">ADD TO CART (35 CHF)</button>
-        <div class="lightboxSpecs">
-            Format: High-Resolution Digital File (Master JPEG)<br>
-            License: Personal Fine Art Print License Included
-        </div>
+        <div id="lightboxCaption" class="lightboxTitle">Bern, Switzerland &#8211; Surrounding Alpine Nature &amp; Rolling Hills</div>
+        <button class="lightboxBuyBtn" onclick="addCurrentLightboxToCart()">ADD TO CART &#8212; 35 CHF</button>
+        <div class="lightboxSpecs">Includes Personal Fine Art Print License</div>
     </div>
 </div>
 
@@ -193,7 +190,7 @@
         const lightboxCaption = document.getElementById("lightboxCaption");
         
         lightboxImg.src = imgElement.src;
-        lightboxCaption.textContent = imgElement.getAttribute("caption") || "";
+        lightboxCaption.textContent = imgElement.getAttribute("caption") || "Bern, Switzerland \u2013 Surrounding Alpine Nature & Rolling Hills";
         lightbox.classList.add("activeLightbox");
     }
 
