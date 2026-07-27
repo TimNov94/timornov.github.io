@@ -91,6 +91,12 @@
     <div class="closeLightbox">&times;</div>
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
     <div id="lightboxCaption" class="lightboxCaption"></div>
+    <a href="#" class="buyBtn" onclick="buyDownload(event)">Buy High-Res Digital Download (35 CHF)</a>
+    <div class="printSpecs" onclick="event.stopPropagation()">
+        Format: Full-Resolution Master JPEG (from 35MB RAW)<br>
+        Recommended Print Size: Up to 60×90 cm (24×36 in) @ 300 DPI<br>
+        License: Personal Fine Art Print License Included
+    </div>
 </div>
 
 <div id="scrollTopBtn" class="scrollTopBtn" onclick="scrollToTop(event)">
@@ -151,6 +157,11 @@
 
     function closeLightbox() {
         document.getElementById("lightbox").classList.remove("activeLightbox");
+    }
+
+    function buyDownload(event) {
+        event.stopPropagation();
+        alert('Digital high-resolution download purchase initiated for 35 CHF. Thank you!');
     }
 
     document.addEventListener('keydown', function(e) {

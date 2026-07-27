@@ -91,6 +91,12 @@
     <div class="closeLightbox">&times;</div>
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
     <div id="lightboxCaption" class="lightboxCaption"></div>
+    <a href="#" class="buyBtn" onclick="buyDownload(event)">Digitale Datei in hoher Auflösung kaufen (35 CHF)</a>
+    <div class="printSpecs" onclick="event.stopPropagation()">
+        Format: Master JPEG in voller Auflösung<br>
+        Empfohlene Druckgröße: Bis zu 60×90 cm @ 300 DPI<br>
+        Lizenz: Inklusive Lizenz für den privaten Kunstdruck
+    </div>
 </div>
 
 <div id="scrollTopBtn" class="scrollTopBtn" onclick="scrollToTop(event)">
@@ -151,6 +157,11 @@
 
     function closeLightbox() {
         document.getElementById("lightbox").classList.remove("activeLightbox");
+    }
+
+    function buyDownload(event) {
+        event.stopPropagation();
+        alert('Kauf der hochauflösenden digitalen Datei gestartet (35 CHF). Vielen Dank!');
     }
 
     document.addEventListener('keydown', function(e) {
