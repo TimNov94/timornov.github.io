@@ -19,6 +19,8 @@
         </div>
         
         <div class="navControls">
+            <div class="cartNavBtn" onclick="openCart()">CART (<span class="cartTriggerBadge">0</span>)</div>
+            
             <div class="langSwitch">
                 <a href="wildlife.html" class="langOption activeLang">EN</a>
                 <span class="langDivider">|</span>
@@ -40,6 +42,26 @@
         <a href="stories.html" class="gapAfter">Stories</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
+    </div>
+</div>
+
+<!-- Side Cart Drawer -->
+<div id="sideCartOverlay" class="sideCartOverlay" onclick="closeCart()"></div>
+<div id="sideCartDrawer" class="sideCartDrawer">
+    <div class="cartDrawerHeader">
+        <div class="cartDrawerTitle">Your Cart</div>
+        <div class="closeCartBtn" onclick="closeCart()">&#10005;</div>
+    </div>
+    <div id="cartItemsList" class="cartItemsList">
+        <div id="cartEmptyMsg" class="cartEmptyMsg">Your cart is currently empty.</div>
+    </div>
+    <div class="cartDrawerFooter">
+        <div class="cartSubtotalRow">
+            <span>Subtotal</span>
+            <span id="cartSubtotalAmount">0 CHF</span>
+        </div>
+        <div class="cartDeliveryNote">Digital files delivered instantly via email.</div>
+        <button class="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
     </div>
 </div>
 
@@ -93,7 +115,7 @@
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
     <div class="lightboxDetails" onclick="event.stopPropagation()">
         <div id="lightboxCaption" class="lightboxTitle"></div>
-        <button class="lightboxBuyBtn" onclick="buyDownload(event)">Buy High-Res Digital Download (35 CHF)</button>
+        <button class="lightboxBuyBtn" onclick="addCurrentLightboxToCart()">ADD TO CART (35 CHF)</button>
         <div class="lightboxSpecs">
             Format: High-Resolution Digital File (Master JPEG)<br>
             License: Personal Fine Art Print License Included
@@ -107,6 +129,7 @@
     </svg>
 </div>
 
+<script src="cart.js"></script>
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
 
@@ -161,14 +184,10 @@
         document.getElementById("lightbox").classList.remove("activeLightbox");
     }
 
-    function buyDownload(event) {
-        event.stopPropagation();
-        alert('Digital high-resolution download purchase initiated (35 CHF). Thank you!');
-    }
-
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeLightbox();
+            closeCart();
         }
     });
 </script>

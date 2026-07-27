@@ -20,6 +20,8 @@
         </div>
         
         <div class="navControls">
+            <div class="cartNavBtn" onclick="openCart()">CART (<span class="cartTriggerBadge">0</span>)</div>
+            
             <div class="langSwitch">
                 <a href="index.html" class="langOption activeLang">EN</a>
                 <span class="langDivider">|</span>
@@ -44,6 +46,26 @@
         </div>
     </div>
 
+    <!-- Side Cart Drawer -->
+    <div id="sideCartOverlay" class="sideCartOverlay" onclick="closeCart()"></div>
+    <div id="sideCartDrawer" class="sideCartDrawer">
+        <div class="cartDrawerHeader">
+            <div class="cartDrawerTitle">Your Cart</div>
+            <div class="closeCartBtn" onclick="closeCart()">&#10005;</div>
+        </div>
+        <div id="cartItemsList" class="cartItemsList">
+            <div id="cartEmptyMsg" class="cartEmptyMsg">Your cart is currently empty.</div>
+        </div>
+        <div class="cartDrawerFooter">
+            <div class="cartSubtotalRow">
+                <span>Subtotal</span>
+                <span id="cartSubtotalAmount">0 CHF</span>
+            </div>
+            <div class="cartDeliveryNote">Digital files delivered instantly via email.</div>
+            <button class="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
     <div class="mainDisplay">
         <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=50" alt="Main 1">
         <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=51" alt="Main 2">
@@ -58,26 +80,31 @@
             <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=40" class="storyImg"></div>
             <h3 class="storyTitle">The Silence of Patagonia</h3>
             <p class="storySnippet">A journey into the wind swept wilderness of Torres del Paine, capturing the isolation and grandeur of the Southern edge.</p>
+            <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
         </div>
+        
         <div class="storyCard">
             <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=41" class="storyImg"></div>
-            <h3 class="storyTitle">Shadows of Bhutan</h3>
-            <p class="storySnippet">Exploring ancient monasteries and the subtle, deep rooted cultural textures hidden high within the Eastern Himalayas.</p>
+            <h3 class="storyTitle">Chasing Light in the Swiss Alps</h3>
+            <p class="storySnippet">High-altitude photography exploring changing seasons, glaciated peaks, and quiet mountain reflections.</p>
+            <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
         </div>
+        
         <div class="storyCard">
             <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=42" class="storyImg"></div>
-            <h3 class="storyTitle">Alpine Transitions</h3>
-            <p class="storySnippet">Documenting the shifting light across the vertical granite walls and freezing glacial streams of the Swiss Alps.</p>
+            <h3 class="storyTitle">Faces & Traditions of New Zealand</h3>
+            <p class="storySnippet">Documenting local artisans and coastal communities along the South Island's rugged coastline.</p>
+            <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
         </div>
     </div>
 
-    <div class="verticalFeature scrollReveal">
-        <div class="gradientOverlay"></div>
-        <img src="https://picsum.photos/600/900?random=95" alt="Feature">
+    <div class="quoteSection scrollReveal">
+        <blockquote class="homeQuote">"To take a photograph is to align the head, the eye, and the heart."</blockquote>
+        <div class="quoteAuthor">— Henri Cartier-Bresson</div>
     </div>
 
     <footer>
-        <div class="footerQuote">"Capturing the silence between the moments."</div>
+        <div class="footerQuote">"To take a photograph is to align the head, the eye, and the heart." — Henri Cartier-Bresson</div>
         <div class="footerNav">
             <a href="wildlife.html">Wildlife</a>
             <a href="landscapes.html">Landscapes</a>
@@ -86,57 +113,26 @@
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
-        <div class="copyrightText">© 2026 Timor Novoselsky. All rights reserved.</div>
+        <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
     </footer>
 </div>
 
-<div class="bottomCushion"></div>
-
-<div class="contactBubble" onclick="openContactModal()">
-    <svg class="bubbleIcon" viewBox="0 0 24 24">
-        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-    </svg>
-</div>
-
-<div id="contactModal" class="contactModal" onclick="closeContactModal(event)">
-    <div class="modalContent" onclick="event.stopPropagation()">
-        <div class="closeModalBtn" onclick="closeContactModal(event, true)">&times;</div>
-        <h2 class="modalTitle">Contact</h2>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Message" rows="5" required></textarea>
-        <button type="button">Send Message</button>
-    </div>
-</div>
-
+<script src="cart.js"></script>
 <script>
-    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    
-    window.onclick = function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
+    function toggleMenu() {
+        document.getElementById("fullScreenMenu").classList.toggle("active");
     }
 
-    function openContactModal() { document.getElementById("contactModal").classList.add("activeModal"); }
-    
-    function closeContactModal(event, force=false) { 
-        if(force || (event && event.target.classList.contains("contactModal"))) {
-            document.getElementById("contactModal").classList.remove("activeModal"); 
-        }
-    }
-    
-    const images = [ 
-        "https://picsum.photos/800/600?random=50", 
-        "https://picsum.photos/800/600?random=51", 
-        "https://picsum.photos/800/600?random=52", 
+    const images = [
+        "https://picsum.photos/800/600?random=50",
+        "https://picsum.photos/800/600?random=51",
+        "https://picsum.photos/800/600?random=52",
         "https://picsum.photos/800/600?random=53"
     ];
-    
     let index = 0;
     const img1 = document.getElementById("slideImage1");
     const img2 = document.getElementById("slideImage2");
-    
+
     function crossFadeGallery() {
         index = (index + 1) % images.length;
         const activeImg = img1.classList.contains("activeImg") ? img1 : img2;

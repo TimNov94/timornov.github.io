@@ -19,6 +19,8 @@
         </div>
         
         <div class="navControls">
+            <div class="cartNavBtn" onclick="openCart()">WARENKORB (<span class="cartTriggerBadge">0</span>)</div>
+            
             <div class="langSwitch">
                 <a href="stories.html" class="langOption">EN</a>
                 <span class="langDivider">|</span>
@@ -43,45 +45,55 @@
     </div>
 </div>
 
+<!-- Side Cart Drawer (DE) -->
+<div id="sideCartOverlay" class="sideCartOverlay" onclick="closeCart()"></div>
+<div id="sideCartDrawer" class="sideCartDrawer">
+    <div class="cartDrawerHeader">
+        <div class="cartDrawerTitle">Ihr Warenkorb</div>
+        <div class="closeCartBtn" onclick="closeCart()">&#10005;</div>
+    </div>
+    <div id="cartItemsList" class="cartItemsList">
+        <div id="cartEmptyMsg" class="cartEmptyMsg">Ihr Warenkorb ist derzeit leer.</div>
+    </div>
+    <div class="cartDrawerFooter">
+        <div class="cartSubtotalRow">
+            <span>Zwischensumme</span>
+            <span id="cartSubtotalAmount">0 CHF</span>
+        </div>
+        <div class="cartDeliveryNote">Digitale Dateien werden sofort per E-Mail geliefert.</div>
+        <button class="checkoutBtn" onclick="proceedToCheckout()">Zur Kasse gehen</button>
+    </div>
+</div>
+
 <div class="storiesContainer">
     <div class="storyRow">
-        <img src="https://picsum.photos/600/400?random=10" class="storyImg">
+        <img src="https://picsum.photos/800/600?random=101" class="storyImg">
         <div class="storyContent">
-            <div class="storyTitle">Die Stille der alpinen Morgendämmerung</div>
-            <div class="storyText">
-                Auf dem Grat um 5:00 Uhr morgens, während mir ein eisiger Wind ins Gesicht blies, wartete ich auf den ersten Sonnenstrahl, der die Schneegipfel berührte. In diesen ruhigen Momenten vor Sonnenaufgang offenbaren die Berge eine Gelassenheit, die sich schwer in Worte fassen lässt. Die Stille ist tief – nur gelegentlich unterbrochen von einer Windböe und dem Knirschen der Stiefel auf dem Frost.
-            </div>
+            <h2 class="storyHeading">Die Stille Patagoniens</h2>
+            <div class="storyText">Eine Reise in die windgepeitschte Wildnis von Torres del Paine, die die Einsamkeit und Erhabenheit des Südens festhält. Auf Wanderungen durch unvorhersehbares Wetter offenbart die Landschaft gefrorene Bergspitzen, türkisblaue Gletscherseen und einsame Guanakos auf weiten Pampas.</div>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/600/400?random=11" class="storyImg">
+        <img src="https://picsum.photos/800/600?random=102" class="storyImg">
         <div class="storyContent">
-            <div class="storyTitle">Wandern durch Patagoniens Winde</div>
-            <div class="storyText">
-                Patagonien beugt sich nicht für Reisende; Reisende müssen sich Patagonien anpassen. Das Verfolgen von Guanakos durch die goldenen Steppen, während Wolken über Torres del Paine jagten, lehrte mich Geduld. Jedes Foto hier ist ein Kampf mit den Elementen, doch genau dieser Rhythmus verleiht der Landschaft ihre Seele.
-            </div>
+            <h2 class="storyHeading">Lichtjagd in den Schweizer Alpen</h2>
+            <p class="storyText">Hochgebirgsfotografie auf der Suche nach wechselnden Jahreszeiten in alpinen Tälern, vergletscherten Gipfeln und stillen Bergseen. Vom Morgengrauen über dem Eiger bis zur goldenen Abenddämmerung bei Zermatt dokumentiert diese Serie die Kraft der Natur.</p>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/600/400?random=12" class="storyImg">
+        <img src="https://picsum.photos/800/600?random=103" class="storyImg">
         <div class="storyContent">
-            <div class="storyTitle">Gesichter der Bergpfade</div>
-            <div class="storyText">
-                Es ist leicht, sich auf die große Weite der Natur zu konzentrieren, aber die menschlichen Begegnungen entlang entlegener Pfade verleihen der Reise ihren wahren Gehalt. Das Teilen von heißem Tee mit lokalen Hirten in hoch gelegenen Hütten erinnerte mich daran, dass Wärme und Gastfreundschaft eine universelle Sprache sprechen.
-            </div>
+            <h2 class="storyHeading">Gesichter & Traditionen Neuseelands</h2>
+            <p class="storyText">Dokumentation lokaler Kunsthandwerker, Küstengemeinschaften und des indigenen Erbes entlang der rauen Südinsel. Hinter der beeindruckenden Kulisse steht die tiefe menschliche Verbindung zur Natur und die Bewahrung jahrhundertealter Traditionen.</p>
         </div>
     </div>
 </div>
 
+<script src="cart.js"></script>
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 </script>
 
 </body>

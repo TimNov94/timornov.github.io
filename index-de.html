@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Timor Novoselsky | Fotografie</title>
+    <title>Timor Novoselsky - Fotografie</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,6 +20,8 @@
         </div>
         
         <div class="navControls">
+            <div class="cartNavBtn" onclick="openCart()">WARENKORB (<span class="cartTriggerBadge">0</span>)</div>
+            
             <div class="langSwitch">
                 <a href="index.html" class="langOption">EN</a>
                 <span class="langDivider">|</span>
@@ -44,40 +46,65 @@
         </div>
     </div>
 
+    <!-- Side Cart Drawer (DE) -->
+    <div id="sideCartOverlay" class="sideCartOverlay" onclick="closeCart()"></div>
+    <div id="sideCartDrawer" class="sideCartDrawer">
+        <div class="cartDrawerHeader">
+            <div class="cartDrawerTitle">Ihr Warenkorb</div>
+            <div class="closeCartBtn" onclick="closeCart()">&#10005;</div>
+        </div>
+        <div id="cartItemsList" class="cartItemsList">
+            <div id="cartEmptyMsg" class="cartEmptyMsg">Ihr Warenkorb ist derzeit leer.</div>
+        </div>
+        <div class="cartDrawerFooter">
+            <div class="cartSubtotalRow">
+                <span>Zwischensumme</span>
+                <span id="cartSubtotalAmount">0 CHF</span>
+            </div>
+            <div class="cartDeliveryNote">Digitale Dateien werden sofort per E-Mail geliefert.</div>
+            <button class="checkoutBtn" onclick="proceedToCheckout()">Zur Kasse gehen</button>
+        </div>
+    </div>
+
     <div class="mainDisplay">
-        <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=50" alt="Hauptbild 1">
-        <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=51" alt="Hauptbild 2">
+        <img id="slideImage1" class="slideImg activeImg" src="https://picsum.photos/800/600?random=50" alt="Main 1">
+        <img id="slideImage2" class="slideImg" src="https://picsum.photos/800/600?random=51" alt="Main 2">
     </div>
 
     <div class="bioSection scrollReveal">
-        Ich bin Timor, ein Fotograf, der von der unberührten Schönheit unserer Welt fasziniert ist. Ob die imponierenden Gipfel Patagoniens oder die stillen, erhabenen Landschaften der Schweiz – mein Objektiv widmet sich dem visuellen Erzählen von Geschichten durch Natur und Kultur. Während ich mich auf meinen bevorstehenden Umzug nach Bern vorbereite, suche ich stets nach den flüchtigen, authentischen Momenten, die einen Ort prägen. Meine Arbeit besteht nicht nur darin, das Gesehene zu dokumentieren; es geht darum, das Gefühl der Unabhängigkeit, den Geist des Reisens und die einzigartigen Facetten der begegneten Kulturen in visuelle Narrative zu übersetzen. Willkommen auf meiner Reise.
+        Ich bin Timor, ein Fotograf, der von der unverfälschten Schönheit unserer Welt fasziniert ist. Ob es die aufragenden Gipfel Patagoniens sind oder die stillen, erhabenen Landschaften der Schweiz – mein Objektiv ist stets darauf gerichtet, Geschichten durch Natur und Kultur zu erzählen. Während ich mich auf meinen bevorstehenden Umzug nach Bern vorbereite, suche ich nach jenen flüchtigen, authentischen Momenten, die einen Ort ausmachen. In meiner Arbeit geht es nicht nur darum, das Gesehene zu dokumentieren; es geht darum, das Gefühl von Unabhängigkeit, den Geist des Reisens und die einzigartigen Texturen der von mir entdeckten Kulturen in visuelle Narrativen zu übersetzen. Willkommen auf meiner Reise.
     </div>
 
     <div class="storiesSection scrollReveal">
-        <div class="storyCard" onclick="window.location.href='stories-de.html'">
+        <div class="storyCard">
             <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=40" class="storyImg"></div>
             <h3 class="storyTitle">Die Stille Patagoniens</h3>
-            <p class="storySnippet">Eine Reise in die windgepeitschte Wildnis von Torres del Paine, die die Abgeschiedenheit und Erhabenheit des Südens einfängt.</p>
+            <p class="storySnippet">Eine Reise in die windgepeitschte Wildnis von Torres del Paine, die die Einsamkeit und Erhabenheit des Südens festhält.</p>
+            <a href="stories-de.html" class="readMoreLink">GESCHICHTE LESEN &rarr;</a>
         </div>
-        <div class="storyCard" onclick="window.location.href='stories-de.html'">
+        
+        <div class="storyCard">
             <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=41" class="storyImg"></div>
-            <h3 class="storyTitle">Schatten von Bhutan</h3>
-            <p class="storySnippet">Erkundung alter Klöster und der feinen, tief verwurzelten kulturellen Strukturen im östlichen Himalaya.</p>
+            <h3 class="storyTitle">Lichtjagd in den Schweizer Alpen</h3>
+            <p class="storySnippet">Hochgebirgsfotografie auf der Suche nach wechselnden Jahreszeiten, vergletscherten Gipfeln und stillen Bergspiegelungen.</p>
+            <a href="stories-de.html" class="readMoreLink">GESCHICHTE LESEN &rarr;</a>
         </div>
-        <div class="storyCard" onclick="window.location.href='stories-de.html'">
+        
+        <div class="storyCard">
             <div class="storyImgWrapper"><img src="https://picsum.photos/400/300?random=42" class="storyImg"></div>
-            <h3 class="storyTitle">Alpine Übergänge</h3>
-            <p class="storySnippet">Dokumentation des wechselnden Lichts über den steilen Granitwänden und eiskalten Gletscherbächen der Schweizer Alpen.</p>
+            <h3 class="storyTitle">Gesichter & Traditionen Neuseelands</h3>
+            <p class="storySnippet">Dokumentation lokaler Kunsthandwerker und Küstengemeinschaften entlang der rauen Südinsel.</p>
+            <a href="stories-de.html" class="readMoreLink">GESCHICHTE LESEN &rarr;</a>
         </div>
     </div>
 
-    <div class="verticalFeature scrollReveal">
-        <div class="gradientOverlay"></div>
-        <img src="https://picsum.photos/600/900?random=95" alt="Feature">
+    <div class="quoteSection scrollReveal">
+        <blockquote class="homeQuote">"Ein Foto zu machen bedeutet, Kopf, Auge und Herz auf dieselbe Linie zu bringen."</blockquote>
+        <div class="quoteAuthor">— Henri Cartier-Bresson</div>
     </div>
 
     <footer>
-        <div class="footerQuote">"Die Stille zwischen den Momenten einfangen."</div>
+        <div class="footerQuote">"Ein Foto zu machen bedeutet, Kopf, Auge und Herz auf dieselbe Linie zu bringen." — Henri Cartier-Bresson</div>
         <div class="footerNav">
             <a href="wildlife-de.html">Wildtiere</a>
             <a href="landscapes-de.html">Landschaften</a>
@@ -86,57 +113,26 @@
             <a href="about-de.html">Über mich</a>
             <a href="contact-de.html">Kontakt</a>
         </div>
-        <div class="copyrightText">© 2026 Timor Novoselsky. Alle Rechte vorbehalten.</div>
+        <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALLE RECHTE VORBEHALTEN.</div>
     </footer>
 </div>
 
-<div class="bottomCushion"></div>
-
-<div class="contactBubble" onclick="openContactModal()">
-    <svg class="bubbleIcon" viewBox="0 0 24 24">
-        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-    </svg>
-</div>
-
-<div id="contactModal" class="contactModal" onclick="closeContactModal(event)">
-    <div class="modalContent" onclick="event.stopPropagation()">
-        <div class="closeModalBtn" onclick="closeContactModal(event, true)">&times;</div>
-        <h2 class="modalTitle">Kontakt</h2>
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="E-Mail" required>
-        <textarea placeholder="Nachricht" rows="5" required></textarea>
-        <button type="button">Nachricht Senden</button>
-    </div>
-</div>
-
+<script src="cart.js"></script>
 <script>
-    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    
-    window.onclick = function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
+    function toggleMenu() {
+        document.getElementById("fullScreenMenu").classList.toggle("active");
     }
 
-    function openContactModal() { document.getElementById("contactModal").classList.add("activeModal"); }
-    
-    function closeContactModal(event, force=false) { 
-        if(force || (event && event.target.classList.contains("contactModal"))) {
-            document.getElementById("contactModal").classList.remove("activeModal"); 
-        }
-    }
-    
-    const images = [ 
-        "https://picsum.photos/800/600?random=50", 
-        "https://picsum.photos/800/600?random=51", 
-        "https://picsum.photos/800/600?random=52", 
+    const images = [
+        "https://picsum.photos/800/600?random=50",
+        "https://picsum.photos/800/600?random=51",
+        "https://picsum.photos/800/600?random=52",
         "https://picsum.photos/800/600?random=53"
     ];
-    
     let index = 0;
     const img1 = document.getElementById("slideImage1");
     const img2 = document.getElementById("slideImage2");
-    
+
     function crossFadeGallery() {
         index = (index + 1) % images.length;
         const activeImg = img1.classList.contains("activeImg") ? img1 : img2;

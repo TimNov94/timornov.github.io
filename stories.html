@@ -19,6 +19,8 @@
         </div>
         
         <div class="navControls">
+            <div class="cartNavBtn" onclick="openCart()">CART (<span class="cartTriggerBadge">0</span>)</div>
+            
             <div class="langSwitch">
                 <a href="stories.html" class="langOption activeLang">EN</a>
                 <span class="langDivider">|</span>
@@ -43,45 +45,55 @@
     </div>
 </div>
 
+<!-- Side Cart Drawer -->
+<div id="sideCartOverlay" class="sideCartOverlay" onclick="closeCart()"></div>
+<div id="sideCartDrawer" class="sideCartDrawer">
+    <div class="cartDrawerHeader">
+        <div class="cartDrawerTitle">Your Cart</div>
+        <div class="closeCartBtn" onclick="closeCart()">&#10005;</div>
+    </div>
+    <div id="cartItemsList" class="cartItemsList">
+        <div id="cartEmptyMsg" class="cartEmptyMsg">Your cart is currently empty.</div>
+    </div>
+    <div class="cartDrawerFooter">
+        <div class="cartSubtotalRow">
+            <span>Subtotal</span>
+            <span id="cartSubtotalAmount">0 CHF</span>
+        </div>
+        <div class="cartDeliveryNote">Digital files delivered instantly via email.</div>
+        <button class="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+</div>
+
 <div class="storiesContainer">
     <div class="storyRow">
-        <img src="https://picsum.photos/600/400?random=10" class="storyImg">
+        <img src="https://picsum.photos/800/600?random=101" class="storyImg">
         <div class="storyContent">
-            <div class="storyTitle">The Silence of the Alpine Dawn</div>
-            <div class="storyText">
-                Standing atop the ridge at 5:00 AM, freezing wind biting at my face, I waited for the first ray of light to hit the snow peaks. In those quiet moments before sunrise, the mountains reveal a calm that is impossible to capture in words. The silence is profound—broken only by the occasional gust of wind and the crunch of boots on frost.
-            </div>
+            <h2 class="storyHeading">The Silence of Patagonia</h2>
+            <div class="storyText">A journey into the wind-swept wilderness of Torres del Paine, capturing the isolation and grand scale of South America's southern tip. Trekking through unpredictable weather, the landscape reveals frozen mountain spires, turquoise glacial lakes, and solitary guanacos grazing on open pampas.</div>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/600/400?random=11" class="storyImg">
+        <img src="https://picsum.photos/800/600?random=102" class="storyImg">
         <div class="storyContent">
-            <div class="storyTitle">Wandering Patagonia's Winds</div>
-            <div class="storyText">
-                Patagonia does not bend for travelers; travelers must adapt to Patagonia. Tracking guanacos through the golden steppes while clouds raced across Torres del Paine taught me patience. Every photo here is a battle with the elements, but that grit is precisely what gives the landscape its soul.
-            </div>
+            <h2 class="storyHeading">Chasing Light in the Swiss Alps</h2>
+            <p class="storyText">High-altitude photography exploring changing seasons across alpine valleys, glaciated peaks, and quiet mountain lakes. From dawn light breaking over Eiger to golden dusk reflections near Zermatt, this collection documents nature's enduring power and subtle shifts.</p>
         </div>
     </div>
 
     <div class="storyRow">
-        <img src="https://picsum.photos/600/400?random=12" class="storyImg">
+        <img src="https://picsum.photos/800/600?random=103" class="storyImg">
         <div class="storyContent">
-            <div class="storyTitle">Faces of the Mountain Trails</div>
-            <div class="storyText">
-                It’s easy to focus on nature’s grand scale, but the human connections along remote trails are what ground the journey. Shared hot tea with local shepherds in high mountain huts reminded me that warmth and hospitality speak a universal language.
-            </div>
+            <h2 class="storyHeading">Faces & Traditions of New Zealand</h2>
+            <p class="storyText">Documenting local artisans, coastal communities, and indigenous heritage along the South Island's rugged coast. Beyond stunning scenery lies deep human connection—people living in harmony with nature and preserving ancestral traditions for future generations.</p>
         </div>
     </div>
 </div>
 
+<script src="cart.js"></script>
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 </script>
 
 </body>

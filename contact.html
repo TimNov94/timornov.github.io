@@ -19,6 +19,8 @@
         </div>
         
         <div class="navControls">
+            <div class="cartNavBtn" onclick="openCart()">CART (<span class="cartTriggerBadge">0</span>)</div>
+            
             <div class="langSwitch">
                 <a href="contact.html" class="langOption activeLang">EN</a>
                 <span class="langDivider">|</span>
@@ -43,33 +45,60 @@
     </div>
 </div>
 
-<div class="contactPageContainer">
-    <div class="contactContainer">
-        <h1 class="pageTitle">Get in Touch</h1>
-        <div class="contactSubtitle">For print inquiries, assignments, or general questions</div>
-        
-        <form class="contactForm" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
-            <div class="inputGroup">
-                <input type="text" placeholder="Your Name" required>
-            </div>
-            <div class="inputGroup">
-                <input type="email" placeholder="Your Email" required>
-            </div>
-            <div class="inputGroup">
-                <textarea rows="4" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="sendBtn">Send Message</button>
-        </form>
+<!-- Side Cart Drawer -->
+<div id="sideCartOverlay" class="sideCartOverlay" onclick="closeCart()"></div>
+<div id="sideCartDrawer" class="sideCartDrawer">
+    <div class="cartDrawerHeader">
+        <div class="cartDrawerTitle">Your Cart</div>
+        <div class="closeCartBtn" onclick="closeCart()">&#10005;</div>
+    </div>
+    <div id="cartItemsList" class="cartItemsList">
+        <div id="cartEmptyMsg" class="cartEmptyMsg">Your cart is currently empty.</div>
+    </div>
+    <div class="cartDrawerFooter">
+        <div class="cartSubtotalRow">
+            <span>Subtotal</span>
+            <span id="cartSubtotalAmount">0 CHF</span>
+        </div>
+        <div class="cartDeliveryNote">Digital files delivered instantly via email.</div>
+        <button class="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
     </div>
 </div>
 
+<div class="contactContainer">
+    <div class="contactHeader">
+        <h1 class="contactTitle">Get in Touch</h1>
+        <div class="contactSubtitle">For print inquiries, licensing, editorial assignments, or collaborative projects across Switzerland and worldwide.</div>
+    </div>
+
+    <form class="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your message has been sent.');">
+        <div class="formGroup">
+            <label class="formLabel">Your Name</label>
+            <input type="text" class="formInput" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="formGroup">
+            <label class="formLabel">Email Address</label>
+            <input type="email" class="formInput" placeholder="name@example.com" required>
+        </div>
+
+        <div class="formGroup">
+            <label class="formLabel">Subject</label>
+            <input type="text" class="formInput" placeholder="Print Inquiry / Collaboration / Licensing" required>
+        </div>
+
+        <div class="formGroup">
+            <label class="formLabel">Message</label>
+            <textarea class="formTextarea" placeholder="Tell me about your project, print request, or ideas..." required></textarea>
+        </div>
+
+        <button type="submit" class="submitBtn">SEND MESSAGE</button>
+    </form>
+</div>
+
+<script src="cart.js"></script>
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 </script>
 
 </body>

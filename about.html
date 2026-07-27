@@ -19,6 +19,8 @@
         </div>
         
         <div class="navControls">
+            <div class="cartNavBtn" onclick="openCart()">CART (<span class="cartTriggerBadge">0</span>)</div>
+            
             <div class="langSwitch">
                 <a href="about.html" class="langOption activeLang">EN</a>
                 <span class="langDivider">|</span>
@@ -43,29 +45,60 @@
     </div>
 </div>
 
-<div class="aboutContainer">
-    <div class="aboutImage"></div>
-    <div class="aboutContent">
-        <h1>Behind the Lens</h1>
-        <p class="bioText">
-            My name is <strong>Timor Novoselsky</strong>. For years, photography has been my way of connecting with the wildest corners of our planet. From capturing rare alpine wildlife to documenting the quiet rhythms of remote mountain communities, my passion lies in authentic storytelling.
-        </p>
-        <p class="bioText">
-            I am currently preparing for an exciting new chapter: moving to <strong>Bern, Switzerland</strong>. This relocation marks both a personal and creative milestone, bringing me closer to the heart of the European Alps.
-        </p>
-        <p class="bioText">
-            Whether working in extreme weather conditions or waiting hours for a single frame, I approach every project with patience, respect for nature, and an eye for minimalist beauty.
-        </p>
+<!-- Side Cart Drawer -->
+<div id="sideCartOverlay" class="sideCartOverlay" onclick="closeCart()"></div>
+<div id="sideCartDrawer" class="sideCartDrawer">
+    <div class="cartDrawerHeader">
+        <div class="cartDrawerTitle">Your Cart</div>
+        <div class="closeCartBtn" onclick="closeCart()">&#10005;</div>
+    </div>
+    <div id="cartItemsList" class="cartItemsList">
+        <div id="cartEmptyMsg" class="cartEmptyMsg">Your cart is currently empty.</div>
+    </div>
+    <div class="cartDrawerFooter">
+        <div class="cartSubtotalRow">
+            <span>Subtotal</span>
+            <span id="cartSubtotalAmount">0 CHF</span>
+        </div>
+        <div class="cartDeliveryNote">Digital files delivered instantly via email.</div>
+        <button class="checkoutBtn" onclick="proceedToCheckout()">Proceed to Checkout</button>
     </div>
 </div>
 
+<div class="aboutContainer">
+    <div class="aboutTextSection">
+        <h1 class="aboutTitle">About Timor</h1>
+        <div class="aboutBio">
+            <p>I am a travel, landscape, and wildlife photographer driven by an endless curiosity for remote places and authentic cultural narratives. For me, photography is an act of quiet observation—capturing fleeting light, untouched wilderness, and human connection in its rawest form.</p>
+            
+            <p>My work reflects a deep reverence for nature, whether navigating the rugged wind-swept steppes of Patagonia, tracking wildlife across alpine ridges, or documenting heritage communities in New Zealand. As I transition to my new home in Bern, Switzerland, I look forward to exploring the heart of Europe's alpine landscapes and sharing new visual stories.</p>
+        </div>
+
+        <div class="philosophyBox">
+            <div class="philosophyTitle">PHILOSOPHY</div>
+            <div class="philosophyText">"Photography is not about taking what is already there; it is about honoring the atmosphere of a moment and leaving space for the viewer to feel the wilderness."</div>
+        </div>
+
+        <div class="gearSection">
+            <div class="gearTitle">EQUIPMENT & GEAR</div>
+            <ul class="gearList">
+                <li>Sony Alpha Full-Frame Bodies</li>
+                <li>FE 16-35mm f/2.8 GM (Landscapes & Architecture)</li>
+                <li>FE 70-200mm f/2.8 GM OSS II (Wildlife & Details)</li>
+                <li>FE 100-400mm f/4.5-5.6 GM OSS (Telephoto Wildlife)</li>
+                <li>Carbon Fiber Tripods & Formatt-Hitech Filters</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="aboutImageSection">
+        <img src="https://picsum.photos/600/800?random=88" class="portraitImg" alt="Timor Novoselsky">
+    </div>
+</div>
+
+<script src="cart.js"></script>
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 </script>
 
 </body>
