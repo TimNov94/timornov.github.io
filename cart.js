@@ -137,17 +137,20 @@ function goBack(defaultUrl) {
 }
 
 function toggleFullscreen(event) {
-    if (event) event.stopPropagation();
-    const lightboxImg = document.getElementById('lightboxImg');
-    if (!lightboxImg) return;
+    if (event) {
+        event.stopPropagation();
+        if (event.preventDefault) event.preventDefault();
+    }
+    const img = document.getElementById('lightboxImg');
+    if (!img) return;
     
     if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
-        if (lightboxImg.requestFullscreen) {
-            lightboxImg.requestFullscreen();
-        } else if (lightboxImg.webkitRequestFullscreen) {
-            lightboxImg.webkitRequestFullscreen();
-        } else if (lightboxImg.msRequestFullscreen) {
-            lightboxImg.msRequestFullscreen();
+        if (img.requestFullscreen) {
+            img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+            img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) {
+            img.msRequestFullscreen();
         }
     } else {
         if (document.exitFullscreen) {

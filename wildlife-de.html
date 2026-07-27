@@ -129,13 +129,15 @@
 </div>
 
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
-    <div class="fullscreenBtn" onclick="toggleFullscreen(event)" title="Vollbild">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
-        </svg>
+    <div class="closeLightbox" onclick="closeLightbox()">&times;</div>
+    <div class="lightboxImgWrapper" onclick="event.stopPropagation()">
+        <button class="fullscreenBtn" onclick="toggleFullscreen(event)" title="Vollbild">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+        </button>
+        <img id="lightboxImg" class="lightboxImg" src="" alt="">
     </div>
-    <div class="closeLightbox">&times;</div>
-    <img id="lightboxImg" class="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
     <div class="lightboxDetails" onclick="event.stopPropagation()">
         <div id="lightboxCaption" class="lightboxTitle"></div>
         <button class="lightboxBuyBtn" onclick="addCurrentLightboxToCart()">IN DEN WARENKORB (35 CHF)</button>
