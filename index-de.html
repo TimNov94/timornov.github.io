@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timor Novoselsky - Fotografie</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -72,7 +73,7 @@
     </div>
 
     <div class="bioSection scrollReveal">
-        Ich bin Timor, ein Fotograf, der von der unverfälschten Schönheit unserer Welt fasziniert ist. Ob es die aufragenden Gipfel Patagoniens sind oder die stillen, erhabenen Landschaften der Schweiz – mein Objektiv ist stets darauf gerichtet, Geschichten durch Natur und Kultur zu erzählen. Während ich mich auf meinen bevorstehenden Umzug nach Bern vorbereite, suche ich nach jenen flüchtigen, authentischen Momenten, die einen Ort ausmachen. In meiner Arbeit geht es nicht nur darum, das Gesehene zu dokumentieren; es geht darum, das Gefühl von Unabhängigkeit, den Geist des Reisens und die einzigartigen Texturen der von mir entdeckten Kulturen in visuelle Narrativen zu übersetzen. Willkommen auf meiner Reise.
+        Ich bin Timor, ein Fotograf, der von der unverfälschten Schönheit unserer Welt fasziniert ist. Von den aufragenden Gipfeln Patagoniens bis zu den stillen Landschaften rund um mein Zuhause in Bern, Schweiz – mein Objektiv richtet sich auf das Erzählen von Geschichten durch Natur und Kultur. Ich suche nach jenen flüchtigen, authentischen Momenten, die einen Ort ausmachen, und übersetze den Geist des unabhängigen Reisens und raue Texturen in visuelle Narrativen. Willkommen auf meiner Reise.
     </div>
 
     <div class="storiesSection scrollReveal">
@@ -99,7 +100,8 @@
     </div>
 
     <div class="verticalFeature scrollReveal">
-        <img id="verticalImg" src="images/home/vertical/vertical-bg.jpg" alt="Ausgewähltes Hochformatbild">
+        <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical-bg.jpg" alt="Ausgewähltes Hochformatbild 1">
+        <img id="verticalImage2" class="slideImg" src="images/home/vertical/vertical2.jpg" alt="Ausgewähltes Hochformatbild 2">
         <div class="gradientOverlay"></div>
     </div>
 
@@ -126,43 +128,61 @@
         document.getElementById("fullScreenMenu").classList.toggle("active");
     }
 
-    const heroImages = [
-        "images/home/hero/hero1.jpg",
-        "images/home/hero/hero2.jpg",
-        "images/home/hero/hero3.jpg",
-        "images/home/hero/hero4.jpg",
-        "images/home/hero/hero5.jpg"
-    ];
-    let heroIndex = 0;
-    const img1 = document.getElementById("slideImage1");
-    const img2 = document.getElementById("slideImage2");
+    /* --- Top Hero Carousel: 2000ms Interval --- */
+    (function initHeroCarousel() {
+        const heroImages = [
+            "images/home/hero/hero1.jpg",
+            "images/home/hero/hero2.jpg",
+            "images/home/hero/hero3.jpg",
+            "images/home/hero/hero4.jpg",
+            "images/home/hero/hero5.jpg"
+        ];
+        let heroIndex = 0;
+        const heroImg1 = document.getElementById("slideImage1");
+        const heroImg2 = document.getElementById("slideImage2");
 
-    function crossFadeGallery() {
-        heroIndex = (heroIndex + 1) % heroImages.length;
-        const activeImg = img1.classList.contains("activeImg") ? img1 : img2;
-        const nextImg = activeImg === img1 ? img2 : img1;
-        
-        nextImg.src = heroImages[heroIndex];
-        nextImg.classList.add("activeImg");
-        activeImg.classList.remove("activeImg");
-    }
-    setInterval(crossFadeGallery, 5000);
+        if (!heroImg1 || !heroImg2) return;
 
-    const verticalImages = [
-        "images/home/vertical/vertical-bg.jpg",
-        "images/home/vertical/vertical2.jpg",
-        "images/home/vertical/vertical3.jpg"
-    ];
-    let verticalIndex = 0;
-    const verticalImg = document.getElementById("verticalImg");
+        function crossFadeHero() {
+            heroIndex = (heroIndex + 1) % heroImages.length;
+            const activeImg = heroImg1.classList.contains("activeImg") ? heroImg1 : heroImg2;
+            const nextImg = activeImg === heroImg1 ? heroImg2 : heroImg1;
+            
+            nextImg.src = heroImages[heroIndex];
+            nextImg.classList.add("activeImg");
+            activeImg.classList.remove("activeImg");
+        }
 
-    function rotateVerticalFeature() {
-        if (!verticalImg) return;
-        verticalIndex = (verticalIndex + 1) % verticalImages.length;
-        verticalImg.src = verticalImages[verticalIndex];
-    }
-    setInterval(rotateVerticalFeature, 8000);
+        setInterval(crossFadeHero, 2000);
+    })();
 
+    /* --- Bottom Vertical Feature Carousel: 5000ms Interval --- */
+    (function initVerticalCarousel() {
+        const verticalImages = [
+            "images/home/vertical/vertical-bg.jpg",
+            "images/home/vertical/vertical2.jpg",
+            "images/home/vertical/vertical3.jpg"
+        ];
+        let verticalIndex = 0;
+        const vertImg1 = document.getElementById("verticalImage1");
+        const vertImg2 = document.getElementById("verticalImage2");
+
+        if (!vertImg1 || !vertImg2) return;
+
+        function crossFadeVertical() {
+            verticalIndex = (verticalIndex + 1) % verticalImages.length;
+            const activeImg = vertImg1.classList.contains("activeImg") ? vertImg1 : vertImg2;
+            const nextImg = activeImg === vertImg1 ? vertImg2 : vertImg1;
+            
+            nextImg.src = verticalImages[verticalIndex];
+            nextImg.classList.add("activeImg");
+            activeImg.classList.remove("activeImg");
+        }
+
+        setInterval(crossFadeVertical, 5000);
+    })();
+
+    /* --- Scroll Reveal Handler --- */
     const revealElements = document.querySelectorAll('.scrollReveal');
     const checkReveal = () => {
         revealElements.forEach(el => {

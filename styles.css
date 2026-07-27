@@ -272,11 +272,12 @@ body {
 
 .bioSection { 
     margin: 40px auto 70px auto; 
-    max-width: 850px;
+    width: 100%;
+    max-width: 100%;
     line-height: 2.0; 
     color: #bbb; 
     font-size: clamp(0.95rem, 1.2vw, 1.15rem); 
-    text-align: justify; 
+    text-align: center; 
 }
 
 .storiesSection {
@@ -325,20 +326,25 @@ body {
 
 .verticalFeature { 
     width: 100%; 
-    max-width: 900px;
-    height: auto;
     aspect-ratio: 4 / 5;
-    max-height: 1100px;
     position: relative; 
-    margin: 60px auto 40px auto; 
+    margin: 60px 0 40px 0; 
     overflow: hidden; 
     border-radius: 2px;
 }
 .verticalFeature img { 
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
     display: block; 
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
+}
+.verticalFeature img.activeImg {
+    opacity: 1;
 }
 
 .gradientOverlay {
@@ -349,6 +355,7 @@ body {
     height: 100%;
     background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.85) 100%);
     pointer-events: none;
+    z-index: 2;
 }
 
 .bottomCushion {
@@ -1270,4 +1277,310 @@ footer {
 }
 .legalNav a:hover {
     color: #ffffff;
+}
+
+/* ==========================================================================
+   13. COMPREHENSIVE MOBILE RESPONSIVENESS & TOUCH UI/UX (AUDIT & OVERHAUL)
+   ========================================================================== */
+
+/* Universal Touch & Accessibility Enhancements */
+a, button, input, textarea, select, .navMenu, .cartNavBtn, .filterTag, .closeBtn, .closeCartBtn, .closeLightbox, .scrollTopBtn, .checkoutBtn, .lightboxBuyBtn, .sendBtn {
+    touch-action: manipulation;
+}
+
+/* Tablet & Mobile Breakpoints (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Base Layout & Spacing */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .pageContainer, .siteContainer {
+        margin-top: 100px;
+        margin-bottom: 40px;
+        padding: 0 16px;
+    }
+
+    /* Fixed Header Navigation */
+    .fixedHeader {
+        height: 70px;
+    }
+
+    .headerInner {
+        padding: 0 16px;
+        gap: 12px;
+    }
+
+    .branding h1 {
+        font-size: clamp(20px, 5.2vw, 26px);
+        letter-spacing: 1.5px;
+    }
+
+    .subtitle {
+        font-size: 8px;
+        letter-spacing: 3px;
+        margin-top: 2px;
+    }
+
+    .navControls {
+        gap: 16px;
+    }
+
+    .cartNavBtn, .langSwitch, .navMenu {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .langSwitch {
+        gap: 6px;
+    }
+
+    /* Home Page Hero & Sections */
+    .mainDisplay {
+        height: clamp(260px, 45vh, 420px);
+        margin-top: 5px;
+        margin-bottom: 35px;
+    }
+
+    .bioSection {
+        margin: 30px auto 50px auto;
+        padding: 0 8px;
+        font-size: 1rem;
+        line-height: 1.75;
+        text-align: center;
+    }
+
+    .storiesSection {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-bottom: 50px;
+    }
+
+    .storyImgWrapper {
+        height: 240px;
+    }
+
+    .storyTitle {
+        font-size: 1.35rem;
+        margin: 12px 0 6px 0;
+    }
+
+    .storySnippet {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .readMoreLink {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 0;
+    }
+
+    .verticalFeature {
+        aspect-ratio: 4 / 5;
+        height: auto;
+        min-height: 380px;
+        margin: 40px 0 30px 0;
+    }
+
+    /* Page Titles & Headers */
+    .pageTitle, h1.galleryTitle {
+        font-size: clamp(1.8rem, 7vw, 2.6rem);
+        margin-bottom: 10px;
+        letter-spacing: 3px;
+    }
+
+    .filterRowWrapper {
+        margin: 5px 0 30px 0;
+        gap: 16px;
+    }
+
+    .filterContainer {
+        gap: 14px;
+    }
+
+    .filterTag {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        padding: 6px 10px;
+    }
+
+    .backNavBtn {
+        font-size: 0.85rem;
+        min-height: 44px;
+    }
+
+    /* Galleries Grid */
+    .galleryContainer, .galleryMasonry {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 10px 0 60px 0;
+    }
+
+    .galleryItem.wide,
+    .galleryItem.wide-img {
+        grid-column: span 1 !important;
+    }
+
+    .galleryImg, .galleryItem img {
+        min-height: 240px;
+        max-height: 420px;
+    }
+
+    /* Lightbox Modal */
+    .lightboxOverlay {
+        padding: 12px;
+    }
+
+    .lightboxImgWrapper {
+        max-width: 96vw;
+        max-height: 65vh;
+    }
+
+    .lightboxImg {
+        max-width: 96vw;
+        max-height: 65vh;
+    }
+
+    .fullscreenBtn {
+        top: 12px;
+        left: 12px;
+        padding: 10px;
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .closeLightbox {
+        top: 15px;
+        right: 15px;
+        width: 44px;
+        height: 44px;
+        font-size: 26px;
+    }
+
+    .lightboxDetails {
+        margin-top: 16px;
+        padding: 0 10px;
+    }
+
+    .lightboxTitle {
+        font-size: 1.15rem;
+    }
+
+    .lightboxSubtitle {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    .lightboxBuyBtn, .buyBtn {
+        min-height: 44px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Side Cart Drawer */
+    .sideCartDrawer {
+        width: 100vw;
+        max-width: 100vw;
+    }
+
+    /* Footer Centering & Touch Spacing */
+    footer {
+        margin: 50px auto 30px auto;
+        padding: 0 15px;
+    }
+
+    .footerQuote {
+        font-size: 0.9rem;
+        margin: 12px auto;
+    }
+
+    .footerNav {
+        flex-direction: column;
+        gap: 16px;
+        margin: 20px auto;
+    }
+
+    .footerNav a {
+        font-size: 13px;
+        letter-spacing: 2px;
+        padding: 6px 0;
+        display: inline-block;
+    }
+
+    .legalNav {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 0.8rem;
+        margin: 15px auto;
+    }
+
+    .copyrightText {
+        font-size: 10px;
+        margin: 15px auto;
+    }
+
+    /* Floating Scroll-to-top & Contact Bubbles */
+    .scrollTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .contactBubble {
+        bottom: 20px;
+        left: 20px;
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* Small Smartphone Breakpoints (max-width: 480px) */
+@media (max-width: 480px) {
+    .branding h1 {
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 7px;
+        letter-spacing: 2px;
+    }
+
+    .navControls {
+        gap: 10px;
+    }
+
+    .langDivider {
+        display: none;
+    }
+
+    .langSwitch {
+        flex-direction: column;
+        gap: 2px;
+        font-size: 10px;
+    }
+
+    .cartNavBtn {
+        font-size: 11px;
+    }
+
+    .navMenu {
+        font-size: 11px;
+    }
+
+    .mainDisplay {
+        height: 240px;
+    }
+
+    .bioSection {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
 }

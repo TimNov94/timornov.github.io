@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -72,7 +73,7 @@
     </div>
 
     <div class="bioSection scrollReveal">
-        I am Timor, a photographer captivated by the raw beauty of our world. Whether it's the towering peaks of Patagonia or the quiet, serene landscapes of Switzerland, my lens is always focused on storytelling through nature and culture. As I prepare for my upcoming move to Bern, I find myself looking for those fleeting, authentic moments that define a place. My work is not just about documenting what I see; it's about translating the feeling of independence, the spirit of travel, and the unique textures of the cultures I encounter into visual narratives. Welcome to my journey.
+        I am Timor, a photographer captivated by the raw beauty of our world. From the towering peaks of Patagonia to the serene landscapes surrounding my home in Bern, Switzerland, my lens focuses on storytelling through nature and culture. I look for those fleeting authentic moments that define a place, translating the spirit of independent travel and raw textures into visual narratives. Welcome to my journey.
     </div>
 
     <div class="storiesSection scrollReveal">
@@ -99,7 +100,8 @@
     </div>
 
     <div class="verticalFeature scrollReveal">
-        <img id="verticalImg" src="images/home/vertical/vertical-bg.jpg" alt="Featured Vertical Image">
+        <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical-bg.jpg" alt="Featured Vertical Image 1">
+        <img id="verticalImage2" class="slideImg" src="images/home/vertical/vertical2.jpg" alt="Featured Vertical Image 2">
         <div class="gradientOverlay"></div>
     </div>
 
@@ -126,43 +128,61 @@
         document.getElementById("fullScreenMenu").classList.toggle("active");
     }
 
-    const heroImages = [
-        "images/home/hero/hero1.jpg",
-        "images/home/hero/hero2.jpg",
-        "images/home/hero/hero3.jpg",
-        "images/home/hero/hero4.jpg",
-        "images/home/hero/hero5.jpg"
-    ];
-    let heroIndex = 0;
-    const img1 = document.getElementById("slideImage1");
-    const img2 = document.getElementById("slideImage2");
+    /* --- Top Hero Carousel: 2000ms Interval --- */
+    (function initHeroCarousel() {
+        const heroImages = [
+            "images/home/hero/hero1.jpg",
+            "images/home/hero/hero2.jpg",
+            "images/home/hero/hero3.jpg",
+            "images/home/hero/hero4.jpg",
+            "images/home/hero/hero5.jpg"
+        ];
+        let heroIndex = 0;
+        const heroImg1 = document.getElementById("slideImage1");
+        const heroImg2 = document.getElementById("slideImage2");
 
-    function crossFadeGallery() {
-        heroIndex = (heroIndex + 1) % heroImages.length;
-        const activeImg = img1.classList.contains("activeImg") ? img1 : img2;
-        const nextImg = activeImg === img1 ? img2 : img1;
-        
-        nextImg.src = heroImages[heroIndex];
-        nextImg.classList.add("activeImg");
-        activeImg.classList.remove("activeImg");
-    }
-    setInterval(crossFadeGallery, 5000);
+        if (!heroImg1 || !heroImg2) return;
 
-    const verticalImages = [
-        "images/home/vertical/vertical-bg.jpg",
-        "images/home/vertical/vertical2.jpg",
-        "images/home/vertical/vertical3.jpg"
-    ];
-    let verticalIndex = 0;
-    const verticalImg = document.getElementById("verticalImg");
+        function crossFadeHero() {
+            heroIndex = (heroIndex + 1) % heroImages.length;
+            const activeImg = heroImg1.classList.contains("activeImg") ? heroImg1 : heroImg2;
+            const nextImg = activeImg === heroImg1 ? heroImg2 : heroImg1;
+            
+            nextImg.src = heroImages[heroIndex];
+            nextImg.classList.add("activeImg");
+            activeImg.classList.remove("activeImg");
+        }
 
-    function rotateVerticalFeature() {
-        if (!verticalImg) return;
-        verticalIndex = (verticalIndex + 1) % verticalImages.length;
-        verticalImg.src = verticalImages[verticalIndex];
-    }
-    setInterval(rotateVerticalFeature, 8000);
+        setInterval(crossFadeHero, 2000);
+    })();
 
+    /* --- Bottom Vertical Feature Carousel: 5000ms Interval --- */
+    (function initVerticalCarousel() {
+        const verticalImages = [
+            "images/home/vertical/vertical-bg.jpg",
+            "images/home/vertical/vertical2.jpg",
+            "images/home/vertical/vertical3.jpg"
+        ];
+        let verticalIndex = 0;
+        const vertImg1 = document.getElementById("verticalImage1");
+        const vertImg2 = document.getElementById("verticalImage2");
+
+        if (!vertImg1 || !vertImg2) return;
+
+        function crossFadeVertical() {
+            verticalIndex = (verticalIndex + 1) % verticalImages.length;
+            const activeImg = vertImg1.classList.contains("activeImg") ? vertImg1 : vertImg2;
+            const nextImg = activeImg === vertImg1 ? vertImg2 : vertImg1;
+            
+            nextImg.src = verticalImages[verticalIndex];
+            nextImg.classList.add("activeImg");
+            activeImg.classList.remove("activeImg");
+        }
+
+        setInterval(crossFadeVertical, 5000);
+    })();
+
+    /* --- Scroll Reveal Handler --- */
     const revealElements = document.querySelectorAll('.scrollReveal');
     const checkReveal = () => {
         revealElements.forEach(el => {
