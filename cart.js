@@ -127,3 +127,11 @@ function proceedToCheckout() {
 document.addEventListener('DOMContentLoaded', () => {
     updateCartUI();
 });
+
+function goBack(defaultUrl) {
+    if (document.referrer && document.referrer.indexOf(window.location.host) !== -1) {
+        window.history.back();
+    } else {
+        window.location.href = defaultUrl || (document.documentElement.lang === 'de' || window.location.pathname.includes('-de') ? 'index-de.html' : 'index.html');
+    }
+}

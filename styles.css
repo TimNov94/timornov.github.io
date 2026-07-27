@@ -71,6 +71,33 @@ body {
     align-items: center;
 }
 
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.backNavBtn {
+    background: transparent;
+    border: none;
+    color: #a0a0a0;
+    font-family: 'Lora', serif;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    outline: none;
+}
+.backNavBtn:hover {
+    color: #ffffff;
+}
+
 .branding {
     text-align: left;
 }
