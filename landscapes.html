@@ -53,11 +53,19 @@
         </div>
     </div>
 
-    <div class="galleryContainer">
-        <img src="images/Bern1.JPG" class="galleryImg imgLarge" data-categories="cityscape" caption="Bern, Switzerland - Historic Old Town & Aare River View" onclick="openLightbox(this)">
-        <img src="images/Bern2.JPG" class="galleryImg imgSmall" data-categories="cityscape" caption="Bern, Switzerland - Panoramic Urban Vista" onclick="openLightbox(this)">
-        <img src="images/Bern3.JPG" class="galleryImg imgSmall" data-categories="cityscape" caption="Bern, Switzerland - Architectural Heritage & Streetscape" onclick="openLightbox(this)">
-        <img src="images/Bern4.JPG" class="galleryImg imgLarge" data-categories="landscapes" caption="Bern, Switzerland - Surrounding Alpine Nature & Rolling Hills" onclick="openLightbox(this)">
+    <div class="galleryMasonry">
+        <div class="galleryItem">
+            <img src="images/Bern1.JPG" class="galleryImg" data-categories="cityscape" caption="Bern, Switzerland - Historic Old Town & Aare River View" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/Bern2.JPG" class="galleryImg" data-categories="cityscape" caption="Bern, Switzerland - Panoramic Urban Vista" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/Bern3.JPG" class="galleryImg" data-categories="cityscape" caption="Bern, Switzerland - Architectural Heritage & Streetscape" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/Bern4.JPG" class="galleryImg" data-categories="landscapes" caption="Bern, Switzerland - Surrounding Alpine Nature & Rolling Hills" onclick="openLightbox(this)">
+        </div>
     </div>
 </div>
 
@@ -77,20 +85,32 @@
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
 
+    function shuffleGallery() {
+        const container = document.querySelector('.galleryMasonry');
+        if (!container) return;
+        const items = Array.from(container.children);
+        for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            container.appendChild(items[j]);
+        }
+    }
+    window.addEventListener('DOMContentLoaded', shuffleGallery);
+
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
         tags.forEach(tag => tag.classList.remove('activeTag'));
         element.classList.add('activeTag');
         
-        const images = document.querySelectorAll('.galleryImg');
-        images.forEach(img => {
+        const items = document.querySelectorAll('.galleryItem');
+        items.forEach(item => {
+            const img = item.querySelector('.galleryImg');
             const categories = img.getAttribute('data-categories').split(' ');
             if (category === 'all' || categories.includes(category)) {
-                img.style.display = '';
-                setTimeout(() => img.style.opacity = '1', 10);
+                item.style.display = 'inline-block';
+                setTimeout(() => item.style.opacity = '1', 10);
             } else {
-                img.style.opacity = '0';
-                img.style.display = 'none';
+                item.style.opacity = '0';
+                item.style.display = 'none';
             }
         });
     }
