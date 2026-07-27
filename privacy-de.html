@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Kontakt - Timor Novoselsky</title>
+    <title>Datenschutz - Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,9 +22,9 @@
             <div class="cartNavBtn" onclick="openCart()">WARENKORB (<span class="cartTriggerBadge">0</span>)</div>
             
             <div class="langSwitch">
-                <a href="contact.html" class="langOption">EN</a>
+                <a href="privacy.html" class="langOption">EN</a>
                 <span class="langDivider">|</span>
-                <a href="contact-de.html" class="langOption activeLang">DE</a>
+                <a href="privacy-de.html" class="langOption activeLang">DE</a>
             </div>
             
             <div class="navMenu" onclick="toggleMenu()">MENÜ</div>
@@ -65,35 +65,29 @@
     </div>
 </div>
 
-<div class="contactContainer">
-    <div class="contactHeader">
-        <h1 class="contactTitle">Kontakt Aufnehmen</h1>
-        <div class="contactSubtitle">Für Anfragen zu Kunstdrucken, Lizenzen, redaktionelle Aufträge oder Kooperationsprojekte in der Schweiz und weltweit.</div>
+<div class="legalContainer">
+    <h1 class="legalMainTitle">Datenschutzerklärung</h1>
+
+    <div class="legalSection">
+        <div class="legalSectionTitle">Datenerhebung & Nutzung</div>
+        <div class="legalText">
+            Wir erfassen nur personenbezogene Daten (wie Ihre E-Mail-Adresse und Ihren Namen), die strikt erforderlich sind, um Ihren digitalen Kauf zu verarbeiten und Ihre Bestellung über sichere Zahlungsanbieter (Gumroad/Stripe) zuzustellen. Wir speichern oder verarbeiten Zahlungsdaten nicht direkt auf unseren Servern.
+        </div>
     </div>
 
-    <form class="contactForm" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Nachricht! Sie wurde erfolgreich gesendet.');">
-        <div class="formGroup">
-            <label class="formLabel">Ihr Name</label>
-            <input type="text" class="formInput" placeholder="Vollständigen Namen eingeben" required>
+    <div class="legalSection">
+        <div class="legalSectionTitle">Cookies & Tracking</div>
+        <div class="legalText">
+            Diese Website verwendet nur minimale, essenzielle funktionale Cookies (z. B. den lokalen Speicher Ihres Browsers zur Speicherung Ihrer Warenkorb-Artikel). Wir verwenden keine aufdringlichen Tracking-Dienste, Werbe-Pixel oder Analyse-Tools von Drittanbietern. Wir verkaufen oder teilen Ihre persönlichen Daten niemals mit Dritte.
         </div>
+    </div>
 
-        <div class="formGroup">
-            <label class="formLabel">E-Mail-Adresse</label>
-            <input type="email" class="formInput" placeholder="name@beispiel.ch" required>
+    <div class="legalSection">
+        <div class="legalSectionTitle">Ihre Rechte (Schweizer DSG & DSGVO)</div>
+        <div class="legalText">
+            Nach dem Schweizer Bundesgesetz über den Datenschutz (DSG/FADP) und der europäischen Datenschutz-Grundverordnung (DSGVO/GDPR) haben Sie jederzeit das Recht, Auskunft über Ihre im Zusammenhang mit Ihrer Bestellung gespeicherten personenbezogenen Daten zu verlangen, deren Berichtigung zu fordern oder die vollständige Löschung zu beantragen.
         </div>
-
-        <div class="formGroup">
-            <label class="formLabel">Betreff</label>
-            <input type="text" class="formInput" placeholder="Kunstdruck-Anfrage / Kooperation / Lizenzierung" required>
-        </div>
-
-        <div class="formGroup">
-            <label class="formLabel">Nachricht</label>
-            <textarea class="formTextarea" placeholder="Schreiben Sie mir über Ihr Projekt, Ihre Druckwünsche oder Ideen..." required></textarea>
-        </div>
-
-        <button type="submit" class="submitBtn">NACHRICHT SENDEN</button>
-    </form>
+    </div>
 
     <footer>
         <div class="footerQuote">"Ein Foto zu machen bedeutet, Kopf, Auge und Herz auf dieselbe Linie zu bringen." — Henri Cartier-Bresson</div>

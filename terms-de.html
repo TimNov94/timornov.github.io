@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Kontakt - Timor Novoselsky</title>
+    <title>AGB & Lizenz - Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,9 +22,9 @@
             <div class="cartNavBtn" onclick="openCart()">WARENKORB (<span class="cartTriggerBadge">0</span>)</div>
             
             <div class="langSwitch">
-                <a href="contact.html" class="langOption">EN</a>
+                <a href="terms.html" class="langOption">EN</a>
                 <span class="langDivider">|</span>
-                <a href="contact-de.html" class="langOption activeLang">DE</a>
+                <a href="terms-de.html" class="langOption activeLang">DE</a>
             </div>
             
             <div class="navMenu" onclick="toggleMenu()">MENÜ</div>
@@ -65,35 +65,29 @@
     </div>
 </div>
 
-<div class="contactContainer">
-    <div class="contactHeader">
-        <h1 class="contactTitle">Kontakt Aufnehmen</h1>
-        <div class="contactSubtitle">Für Anfragen zu Kunstdrucken, Lizenzen, redaktionelle Aufträge oder Kooperationsprojekte in der Schweiz und weltweit.</div>
+<div class="legalContainer">
+    <h1 class="legalMainTitle">AGB & Lizenzvereinbarung</h1>
+
+    <div class="legalSection">
+        <div class="legalSectionTitle">Digitale Produkte</div>
+        <div class="legalText">
+            Alle auf dieser Website getätigten Käufe sind hochauflösende digitale Bild-Downloads, die sofort nach dem Kauf geliefert werden. Es werden keine physischen Drucke versendet, sofern dies nicht ausdrücklich im Rahmen einer individuellen Vereinbarung geregelt ist.
+        </div>
     </div>
 
-    <form class="contactForm" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Nachricht! Sie wurde erfolgreich gesendet.');">
-        <div class="formGroup">
-            <label class="formLabel">Ihr Name</label>
-            <input type="text" class="formInput" placeholder="Vollständigen Namen eingeben" required>
+    <div class="legalSection">
+        <div class="legalSectionTitle">Lizenz für den privaten Gebrauch</div>
+        <div class="legalText">
+            Der Kauf eines Bildes gewährt Ihnen eine einfache, nicht übertragbare Lizenz für den privaten Gebrauch, einschließlich des privaten Kunstdrucks und der Präsentation in Ihren Wohn- oder Privaträumen. Die kommerzielle Nutzung, der Weiterverkauf, die Unterlizenzierung, die öffentliche Weiterverbreitung oder die Änderung sind ohne vorherige schriftliche Zustimmung von Timor Novoselsky strengstens untersagt.
         </div>
+    </div>
 
-        <div class="formGroup">
-            <label class="formLabel">E-Mail-Adresse</label>
-            <input type="email" class="formInput" placeholder="name@beispiel.ch" required>
+    <div class="legalSection">
+        <div class="legalSectionTitle">Rückerstattungsrichtlinie</div>
+        <div class="legalText">
+            Aufgrund der digitalen Natur hochauflösender Master-Dateien sind alle Verkäufe nach Beginn des Downloads endgültig. Sollten Sie technische Probleme mit einer Datei oder einem Download-Link haben, kontaktieren Sie uns bitte für sofortige Unterstützung.
         </div>
-
-        <div class="formGroup">
-            <label class="formLabel">Betreff</label>
-            <input type="text" class="formInput" placeholder="Kunstdruck-Anfrage / Kooperation / Lizenzierung" required>
-        </div>
-
-        <div class="formGroup">
-            <label class="formLabel">Nachricht</label>
-            <textarea class="formTextarea" placeholder="Schreiben Sie mir über Ihr Projekt, Ihre Druckwünsche oder Ideen..." required></textarea>
-        </div>
-
-        <button type="submit" class="submitBtn">NACHRICHT SENDEN</button>
-    </form>
+    </div>
 
     <footer>
         <div class="footerQuote">"Ein Foto zu machen bedeutet, Kopf, Auge und Herz auf dieselbe Linie zu bringen." — Henri Cartier-Bresson</div>
