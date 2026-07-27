@@ -65,52 +65,42 @@
     </div>
 </div>
 
-<div class="contactContainer">
-    <div class="contactHeader">
-        <h1 class="contactTitle">Get in Touch</h1>
-        <div class="contactSubtitle">For print inquiries, licensing, editorial assignments, or collaborative projects across Switzerland and worldwide.</div>
-    </div>
-
+<div class="contactPageContainer">
+    <h1 class="pageTitle">Get in Touch</h1>
+    <p class="contactSubtitle">For print inquiries, licensing, editorial assignments, or collaborative projects across Switzerland and worldwide.</p>
+    
     <form class="contactForm" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your message has been sent.');">
-        <div class="formGroup">
-            <label class="formLabel">Your Name</label>
-            <input type="text" class="formInput" placeholder="Enter your full name" required>
+        <div class="inputGroup">
+            <input type="text" placeholder="YOUR NAME" required>
         </div>
-
-        <div class="formGroup">
-            <label class="formLabel">Email Address</label>
-            <input type="email" class="formInput" placeholder="name@example.com" required>
+        <div class="inputGroup">
+            <input type="email" placeholder="EMAIL ADDRESS" required>
         </div>
-
-        <div class="formGroup">
-            <label class="formLabel">Subject</label>
-            <input type="text" class="formInput" placeholder="Print Inquiry / Collaboration / Licensing" required>
+        <div class="inputGroup">
+            <input type="text" placeholder="SUBJECT" required>
         </div>
-
-        <div class="formGroup">
-            <label class="formLabel">Message</label>
-            <textarea class="formTextarea" placeholder="Tell me about your project, print request, or ideas..." required></textarea>
+        <div class="inputGroup">
+            <textarea rows="4" placeholder="MESSAGE" required></textarea>
         </div>
-
-        <button type="submit" class="submitBtn">SEND MESSAGE</button>
+        <button type="submit" class="sendBtn">SEND MESSAGE</button>
     </form>
-
-    <footer>
-        <div class="footerQuote">"To take a photograph is to align the head, the eye, and the heart." — Henri Cartier-Bresson</div>
-        <div class="footerNav">
-            <a href="wildlife.html">Wildlife</a>
-            <a href="landscapes.html">Landscapes</a>
-            <a href="culture.html">People and Culture</a>
-            <a href="stories.html">Stories</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="legalNav">
-            <a href="terms.html">Terms & License</a> | <a href="privacy.html">Privacy Policy</a>
-        </div>
-        <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
-    </footer>
 </div>
+
+<footer>
+    <div class="footerQuote">"To take a photograph is to align the head, the eye, and the heart." — Henri Cartier-Bresson</div>
+    <div class="footerNav">
+        <a href="wildlife.html">Wildlife</a>
+        <a href="landscapes.html">Landscapes</a>
+        <a href="culture.html">People and Culture</a>
+        <a href="stories.html">Stories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <div class="legalNav">
+        <a href="terms.html">Terms & License</a> | <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
+</footer>
 
 <script src="cart.js"></script>
 <script>
