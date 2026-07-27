@@ -68,12 +68,14 @@
 <div class="pageContainer">
     <div class="pageHeader">
         <h1 class="pageTitle">Wildlife</h1>
-        <div class="filterContainer">
+        <div class="filterRowWrapper">
             <button class="backNavBtn" onclick="goBack('index.html')">&#8592; BACK</button>
-            <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
-            <div class="filterTag" onclick="filterGallery('birds', this)">Birds</div>
-            <div class="filterTag" onclick="filterGallery('mammals', this)">Mammals</div>
-            <div class="filterTag" onclick="filterGallery('macro', this)">Macro</div>
+            <div class="filterContainer">
+                <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
+                <div class="filterTag" onclick="filterGallery('birds', this)">Birds</div>
+                <div class="filterTag" onclick="filterGallery('mammals', this)">Mammals</div>
+                <div class="filterTag" onclick="filterGallery('macro', this)">Macro & Insects</div>
+            </div>
         </div>
     </div>
 
@@ -110,7 +112,7 @@
         </div>
     </div>
     <footer>
-        <div class="footerQuote">"To take a photograph is to align the head, the eye, and the heart." — Henri Cartier-Bresson</div>
+    <div class="footerQuote">"Silent moments shaped by light, nature, and time."</div>
         <div class="footerNav">
             <a href="wildlife.html">Wildlife</a>
             <a href="landscapes.html">Landscapes</a>

@@ -350,28 +350,37 @@ body {
 /* ==========================================================================
    5. GALLERIES & RESPONSIVE GRID LAYOUT (30px Gap & Smooth Hover)
    ========================================================================== */
+.filterRowWrapper {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 40px 0;
+}
+
+.filterRowWrapper .backNavBtn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
 .filterContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 22px;
-    margin: 10px auto 40px auto;
-    max-width: 1100px;
+    margin: 0 auto;
+    max-width: 900px;
     width: 100%;
-    position: relative;
-}
-
-.filterContainer .backNavBtn {
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .subpageHeaderRow {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1300px;
     margin: 0 auto 30px auto;
     display: flex;
     justify-content: flex-start;
@@ -379,12 +388,15 @@ body {
 }
 
 @media (max-width: 850px) {
-    .filterContainer .backNavBtn {
+    .filterRowWrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .filterRowWrapper .backNavBtn {
         position: static;
         transform: none;
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 12px;
+        align-self: flex-start;
+        margin-bottom: 5px;
     }
 }
 
@@ -846,8 +858,17 @@ body {
 /* ==========================================================================
    10. FOOTER
    ========================================================================== */
-footer { margin-top: 60px; padding: 40px 0; border-top: 1px solid #1a1a1a; text-align: center; color: #666; font-size: 14px; width: 100%; }
-.footerQuote { font-style: italic; margin-bottom: 25px; letter-spacing: 1px; font-size: clamp(0.9rem, 1.2vw, 1.1rem); }
+.footerQuote { 
+    font-family: 'Lora', serif;
+    font-style: italic; 
+    color: #888888; 
+    font-size: 0.95rem; 
+    letter-spacing: 1px; 
+    margin: 40px auto; 
+    text-align: center;
+    line-height: 1.6;
+    max-width: 800px;
+}
 
 .footerNav {
     display: flex;
