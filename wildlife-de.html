@@ -95,8 +95,7 @@
         <div id="lightboxCaption" class="lightboxTitle"></div>
         <button class="lightboxBuyBtn" onclick="buyDownload(event)">Digitale Datei in hoher Auflösung kaufen (35 CHF)</button>
         <div class="lightboxSpecs">
-            Format: Hochauflösende digitale Datei<br>
-            <span id="printSizeSpec">Empfohlene Druckgröße: Bis zu 60×90 cm</span><br>
+            Format: Hochauflösende digitale Datei (Master-JPEG)<br>
             Lizenz: Inklusive Lizenz für den privaten Kunstdruck
         </div>
     </div>
@@ -152,28 +151,9 @@
         const lightbox = document.getElementById("lightbox");
         const lightboxImg = document.getElementById("lightboxImg");
         const lightboxCaption = document.getElementById("lightboxCaption");
-        const printSizeSpec = document.getElementById("printSizeSpec");
         
         lightboxImg.src = imgElement.src;
         lightboxCaption.textContent = imgElement.getAttribute("caption") || "";
-
-        const width = imgElement.naturalWidth || imgElement.width || 800;
-        const height = imgElement.naturalHeight || imgElement.height || 600;
-        const ratio = width / height;
-
-        let printSize = "Bis zu 60×80 cm";
-        if (Math.abs(ratio - 1) < 0.15) {
-            printSize = "Bis zu 70×70 cm";
-        } else if (ratio > 1.7 || ratio < 0.6) {
-            printSize = "Bis zu 50×100 cm";
-        } else if ((ratio > 1.35 && ratio <= 1.7) || (ratio >= 0.6 && ratio < 0.75)) {
-            printSize = "Bis zu 60×90 cm";
-        }
-
-        if (printSizeSpec) {
-            printSizeSpec.textContent = "Empfohlene Druckgröße: " + printSize;
-        }
-        
         lightbox.classList.add("activeLightbox");
     }
 
