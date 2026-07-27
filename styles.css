@@ -915,24 +915,39 @@ body {
 /* ==========================================================================
    10. FOOTER
    ========================================================================== */
+footer {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .footerQuote { 
     font-family: 'Lora', serif;
     font-style: italic; 
     color: #888888; 
     font-size: 0.95rem; 
     letter-spacing: 1px; 
-    margin: 40px auto; 
+    margin: 15px auto; 
     text-align: center;
     line-height: 1.6;
     max-width: 800px;
+    width: 100%;
 }
 
 .socialLinkRow {
-    margin-top: 35px;
+    margin: 15px auto;
+    text-align: center;
     font-size: 0.9rem;
     color: #888888;
     letter-spacing: 1px;
     font-family: 'Lora', serif;
+    width: 100%;
 }
 
 .socialLinkRow a {
@@ -951,9 +966,11 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 25px;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin: 15px auto;
+    text-align: center;
+    width: 100%;
 }
 .footerNav a, .footerNav a:visited {
     color: #888888;
@@ -966,10 +983,13 @@ body {
 .footerNav a:hover { color: #ffffff; }
 
 .copyrightText {
+    margin: 15px auto;
+    text-align: center;
     font-size: 11px;
     color: #444444;
     letter-spacing: 1px;
     text-transform: uppercase;
+    width: 100%;
 }
 
 /* ==========================================================================
@@ -1201,11 +1221,12 @@ body {
 }
 
 .legalNav {
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin: 15px auto;
+    text-align: center;
     font-size: 0.8rem;
     color: #666666;
     letter-spacing: 1px;
+    width: 100%;
 }
 .legalNav a, .legalNav a:visited {
     color: #888888;
