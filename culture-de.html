@@ -156,19 +156,21 @@
         lightboxImg.src = imgElement.src;
         lightboxCaption.textContent = imgElement.getAttribute("caption") || "";
 
-        const w = imgElement.naturalWidth || imgElement.clientWidth || 800;
-        const h = imgElement.naturalHeight || imgElement.clientHeight || 600;
-        const ratio = Math.max(w / h, h / w);
+        const width = imgElement.naturalWidth || imgElement.width || 800;
+        const height = imgElement.naturalHeight || imgElement.height || 600;
+        const ratio = width / height;
 
-        let printSizeText = "Bis zu 60×90 cm";
-        if (ratio >= 1.8) {
-            printSizeText = "Bis zu 50×100 cm";
-        } else if (ratio <= 1.4) {
-            printSizeText = "Bis zu 60×80 cm";
+        let printSize = "Bis zu 60×80 cm";
+        if (Math.abs(ratio - 1) < 0.15) {
+            printSize = "Bis zu 70×70 cm";
+        } else if (ratio > 1.7 || ratio < 0.6) {
+            printSize = "Bis zu 50×100 cm";
+        } else if ((ratio > 1.35 && ratio <= 1.7) || (ratio >= 0.6 && ratio < 0.75)) {
+            printSize = "Bis zu 60×90 cm";
         }
 
         if (printSizeSpec) {
-            printSizeSpec.textContent = "Empfohlene Druckgröße: " + printSizeText;
+            printSizeSpec.textContent = "Empfohlene Druckgröße: " + printSize;
         }
         
         lightbox.classList.add("activeLightbox");
