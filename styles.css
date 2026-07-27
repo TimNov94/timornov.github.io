@@ -12,7 +12,7 @@ a, a:visited, a:link, a:hover, a:active {
     text-decoration: none;
 }
 
-a, button, img, .navMenu, .contactBubble, .galleryImg, .filterTag, .closeBtn, .closeModalBtn, .langSelector, .storyCard, .storyRow, .closeLightbox, .scrollTopBtn {
+a, button, img, .navMenu, .contactBubble, .galleryImg, .filterTag, .closeBtn, .closeModalBtn, .storyCard, .storyRow, .closeLightbox, .scrollTopBtn {
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
     user-select: none;
@@ -108,7 +108,7 @@ body {
 .navMenu { 
     display: block; 
     cursor: pointer; 
-    font-size: 15px; 
+    font-size: 14px; 
     letter-spacing: 2px; 
     z-index: 5; 
     color: #aaaaaa; 
@@ -117,46 +117,37 @@ body {
 }
 .navMenu:hover { color: #ffffff; }
 
-.langSelector { 
-    position: relative; 
-    cursor: pointer; 
-    display: flex; 
-    align-items: center; 
-    z-index: 5; 
+/* Minimalist Inline Language Selector */
+.langSwitch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
-.globeIcon { 
-    width: 20px; 
-    height: 20px; 
-    opacity: 0.65; 
-    transition: opacity 0.2s ease; 
-}
-.globeIcon:hover { opacity: 1; }
 
-.langDropdown {
-    display: none; 
-    position: absolute; 
-    top: 35px; 
-    right: 0; 
-    background-color: #111111;
-    padding: 8px 12px; 
-    min-width: 80px; 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.9); 
-    z-index: 600;
-    border: 1px solid #222222;
-    border-radius: 4px;
+.langOption {
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-family: 'Lora', serif;
+    font-weight: 400;
 }
-.langDropdown.showLang { display: block; }
-.langDropdown a, .langDropdown a:visited { 
-    display: block; 
-    color: #aaaaaa; 
-    text-decoration: none; 
-    font-size: 13px; 
-    padding: 6px 0; 
-    letter-spacing: 1px; 
-    text-align: center; 
-    transition: color 0.2s ease; 
+
+.langOption:hover {
+    color: rgba(255, 255, 255, 0.85);
 }
-.langDropdown a:hover { color: #ffffff; }
+
+.langOption.activeLang {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.langDivider {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 12px;
+}
 
 /* Full Screen Overlay Menu */
 .overlayMenu {
@@ -249,8 +240,8 @@ body {
 
 .scrollReveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .scrollReveal.revealed {
     opacity: 1;
@@ -335,7 +326,7 @@ body {
 }
 
 /* ==========================================================================
-   5. GALLERIES & RESPONSIVE GRID LAYOUT (30px Gap)
+   5. GALLERIES & RESPONSIVE GRID LAYOUT (30px Gap & Smooth Hover)
    ========================================================================== */
 .filterContainer {
     display: flex;
@@ -467,7 +458,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.96);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     z-index: 2000;
     display: flex;
     flex-direction: column;

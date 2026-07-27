@@ -19,15 +19,10 @@
         </div>
         
         <div class="navControls">
-            <div class="langSelector" onclick="toggleLangMenu(event)">
-                <svg class="globeIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 014-10z"></path>
-                </svg>
-                <div id="langDropdown" class="langDropdown">
-                    <a href="stories.html">EN</a>
-                    <a href="stories-de.html">DE</a>
-                </div>
+            <div class="langSwitch">
+                <a href="stories.html" class="langOption">EN</a>
+                <span class="langDivider">|</span>
+                <a href="stories-de.html" class="langOption activeLang">DE</a>
             </div>
             
             <div class="navMenu" onclick="toggleMenu()">MENÜ</div>
