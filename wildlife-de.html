@@ -91,12 +91,14 @@
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
     <div class="closeLightbox">&times;</div>
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
-    <div id="lightboxCaption" class="lightboxCaption"></div>
-    <a href="#" class="buyBtn" onclick="buyDownload(event)">Digitale Datei in hoher Auflösung kaufen (35 CHF)</a>
-    <div class="printSpecs" onclick="event.stopPropagation()">
-        Format: Master JPEG in voller Auflösung<br>
-        Empfohlene Druckgröße: Bis zu 60×90 cm @ 300 DPI<br>
-        Lizenz: Inklusive Lizenz für den privaten Kunstdruck
+    <div class="lightboxDetails" onclick="event.stopPropagation()">
+        <div id="lightboxCaption" class="lightboxTitle"></div>
+        <button class="lightboxBuyBtn" onclick="buyDownload(event)">Digitale Datei in hoher Auflösung kaufen (35 CHF)</button>
+        <div class="lightboxSpecs">
+            Format: Master JPEG in voller Auflösung<br>
+            Empfohlene Druckgröße: Bis zu 60×90 cm @ 300 DPI<br>
+            Lizenz: Inklusive Lizenz für den privaten Kunstdruck
+        </div>
     </div>
 </div>
 

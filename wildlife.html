@@ -91,12 +91,14 @@
 <div id="lightbox" class="lightboxOverlay" onclick="closeLightbox()">
     <div class="closeLightbox">&times;</div>
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
-    <div id="lightboxCaption" class="lightboxCaption"></div>
-    <a href="#" class="buyBtn" onclick="buyDownload(event)">Buy High-Res Digital Download (35 CHF)</a>
-    <div class="printSpecs" onclick="event.stopPropagation()">
-        Format: Full-Resolution Master JPEG (from 35MB RAW)<br>
-        Recommended Print Size: Up to 60×90 cm (24×36 in) @ 300 DPI<br>
-        License: Personal Fine Art Print License Included
+    <div class="lightboxDetails" onclick="event.stopPropagation()">
+        <div id="lightboxCaption" class="lightboxTitle"></div>
+        <button class="lightboxBuyBtn" onclick="buyDownload(event)">Buy High-Res Digital Download (35 CHF)</button>
+        <div class="lightboxSpecs">
+            Format: Full-Resolution Master JPEG (from 35MB RAW)<br>
+            Recommended Print Size: Up to 60×90 cm (24×36 in) @ 300 DPI<br>
+            License: Personal Fine Art Print License Included
+        </div>
     </div>
 </div>
 
