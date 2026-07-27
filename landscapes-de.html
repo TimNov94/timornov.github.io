@@ -45,33 +45,19 @@
 
 <div class="pageContainer">
     <div class="pageHeader">
-        <h1 class="pageTitle">Landschaften</h1>
+        <h1 class="pageTitle">Landschaften & Stadtansichten</h1>
         <div class="filterContainer">
             <div class="filterTag activeTag" onclick="filterGallery('all', this)">Alle</div>
-            <div class="filterTag" onclick="filterGallery('mountains', this)">Berge</div>
-            <div class="filterTag" onclick="filterGallery('lakes', this)">Seen</div>
-            <div class="filterTag" onclick="filterGallery('forests', this)">Wälder</div>
-            <div class="filterTag" onclick="filterGallery('sea', this)">Meer</div>
-            <div class="filterTag" onclick="filterGallery('desert', this)">Wüste</div>
-            <div class="filterTag" onclick="filterGallery('city', this)">Stadt</div>
+            <div class="filterTag" onclick="filterGallery('landscapes', this)">Landschaften</div>
+            <div class="filterTag" onclick="filterGallery('cityscape', this)">Stadtansichten</div>
         </div>
     </div>
 
     <div class="galleryContainer">
-        <img src="https://picsum.photos/800/600?random=111" class="galleryImg imgSmall" data-categories="city" caption="Kreuzende Pfade der Stadtarchitektur" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=112" class="galleryImg imgSmall" data-categories="desert mountains" caption="Karge Gipfel beim Sonnenuntergang" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=113" class="galleryImg imgLarge" data-categories="sea mountains" caption="Klippen treffen auf den rauhen Ozean" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=114" class="galleryImg imgSmall" data-categories="forests mountains" caption="Pinienbäume bedecken das Tal" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=115" class="galleryImg imgSmall" data-categories="lakes forests" caption="Verborgenes Gewässer tief im Wald" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=116" class="galleryImg imgLarge" data-categories="desert" caption="Endlose Dünen erstrecken sich bis zum Horizont" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=117" class="galleryImg imgSmall" data-categories="sea city" caption="Lichter der Küstenstadt verblassen im Wasser" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=118" class="galleryImg imgSmall" data-categories="lakes mountains" caption="Spiegelungen verschneiter Gipfel" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=119" class="galleryImg imgLarge" data-categories="city mountains" caption="Metropole umgeben von riesigen Bergketten" onclick="openLightbox(this)">
+        <img src="images/Bern1.JPG" class="galleryImg imgLarge" data-categories="cityscape" caption="Bern, Schweiz - Historische Altstadt & Aare-Blick" onclick="openLightbox(this)">
+        <img src="images/Bern2.JPG" class="galleryImg imgSmall" data-categories="cityscape" caption="Bern, Schweiz - Panoramablick auf die Stadt" onclick="openLightbox(this)">
+        <img src="images/Bern3.JPG" class="galleryImg imgSmall" data-categories="cityscape" caption="Bern, Schweiz - Architektonisches Erbe & Stadtbild" onclick="openLightbox(this)">
+        <img src="images/Bern4.JPG" class="galleryImg imgLarge" data-categories="landscapes" caption="Bern, Schweiz - Umliegende alpine Natur & Hügellandschaft" onclick="openLightbox(this)">
     </div>
 </div>
 
@@ -79,6 +65,7 @@
     <div class="closeLightbox">&times;</div>
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
     <div id="lightboxCaption" class="lightboxCaption"></div>
+    <a href="#" class="buyBtn" onclick="buyDownload(event)">High-Res Download kaufen (50 CHF)</a>
 </div>
 
 <div id="scrollTopBtn" class="scrollTopBtn" onclick="scrollToTop(event)">
@@ -89,11 +76,6 @@
 
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
@@ -143,6 +125,11 @@
 
     function closeLightbox() {
         document.getElementById("lightbox").classList.remove("activeLightbox");
+    }
+
+    function buyDownload(event) {
+        event.stopPropagation();
+        alert('Kauf des hochauflösenden Downloads gestartet (50 CHF). Vielen Dank!');
     }
 
     document.addEventListener('keydown', function(e) {

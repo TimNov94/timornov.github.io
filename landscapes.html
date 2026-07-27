@@ -45,33 +45,19 @@
 
 <div class="pageContainer">
     <div class="pageHeader">
-        <h1 class="pageTitle">Landscapes</h1>
+        <h1 class="pageTitle">Landscapes & Cityscapes</h1>
         <div class="filterContainer">
             <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
-            <div class="filterTag" onclick="filterGallery('mountains', this)">Mountains</div>
-            <div class="filterTag" onclick="filterGallery('lakes', this)">Lakes</div>
-            <div class="filterTag" onclick="filterGallery('forests', this)">Forests</div>
-            <div class="filterTag" onclick="filterGallery('sea', this)">Sea</div>
-            <div class="filterTag" onclick="filterGallery('desert', this)">Desert</div>
-            <div class="filterTag" onclick="filterGallery('city', this)">City</div>
+            <div class="filterTag" onclick="filterGallery('landscapes', this)">Landscapes</div>
+            <div class="filterTag" onclick="filterGallery('cityscape', this)">Cityscape</div>
         </div>
     </div>
 
     <div class="galleryContainer">
-        <img src="https://picsum.photos/800/600?random=111" class="galleryImg imgSmall" data-categories="city" caption="Urban architecture crossing paths" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=112" class="galleryImg imgSmall" data-categories="desert mountains" caption="Dry peaks at sunset" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=113" class="galleryImg imgLarge" data-categories="sea mountains" caption="Cliffs meeting the rough ocean" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=114" class="galleryImg imgSmall" data-categories="forests mountains" caption="Pine trees covering the valley" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=115" class="galleryImg imgSmall" data-categories="lakes forests" caption="Hidden waters deep in the woods" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=116" class="galleryImg imgLarge" data-categories="desert" caption="Endless dunes stretching to the horizon" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=117" class="galleryImg imgSmall" data-categories="sea city" caption="Coastal town lights fading into the water" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=118" class="galleryImg imgSmall" data-categories="lakes mountains" caption="Mirror reflections of snowy peaks" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=119" class="galleryImg imgLarge" data-categories="city mountains" caption="Metropolis surrounded by giant ridges" onclick="openLightbox(this)">
+        <img src="images/Bern1.JPG" class="galleryImg imgLarge" data-categories="cityscape" caption="Bern, Switzerland - Historic Old Town & Aare River View" onclick="openLightbox(this)">
+        <img src="images/Bern2.JPG" class="galleryImg imgSmall" data-categories="cityscape" caption="Bern, Switzerland - Panoramic Urban Vista" onclick="openLightbox(this)">
+        <img src="images/Bern3.JPG" class="galleryImg imgSmall" data-categories="cityscape" caption="Bern, Switzerland - Architectural Heritage & Streetscape" onclick="openLightbox(this)">
+        <img src="images/Bern4.JPG" class="galleryImg imgLarge" data-categories="landscapes" caption="Bern, Switzerland - Surrounding Alpine Nature & Rolling Hills" onclick="openLightbox(this)">
     </div>
 </div>
 
@@ -79,6 +65,7 @@
     <div class="closeLightbox">&times;</div>
     <img id="lightboxImg" class="lightboxImg" src="" alt="">
     <div id="lightboxCaption" class="lightboxCaption"></div>
+    <a href="#" class="buyBtn" onclick="buyDownload(event)">Buy High-Res Download (50 CHF)</a>
 </div>
 
 <div id="scrollTopBtn" class="scrollTopBtn" onclick="scrollToTop(event)">
@@ -89,11 +76,6 @@
 
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
@@ -143,6 +125,11 @@
 
     function closeLightbox() {
         document.getElementById("lightbox").classList.remove("activeLightbox");
+    }
+
+    function buyDownload(event) {
+        event.stopPropagation();
+        alert('Digital high-resolution download purchase initiated for Bern photograph (50 CHF). Thank you!');
     }
 
     document.addEventListener('keydown', function(e) {
