@@ -162,3 +162,30 @@ function toggleFullscreen(event) {
         }
     }
 }
+
+function openLightbox(imgElement) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxTitle = document.getElementById("lightboxTitle") || document.getElementById("lightboxCaption");
+    const lightboxSubtitle = document.getElementById("lightboxSubtitle");
+    
+    if (!lightbox || !lightboxImg) return;
+    
+    lightboxImg.src = imgElement.src;
+    
+    const title = imgElement.getAttribute("data-title") || imgElement.getAttribute("caption") || "";
+    const subtitle = imgElement.getAttribute("data-subtitle") || "";
+    
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxSubtitle) {
+        lightboxSubtitle.textContent = subtitle;
+        lightboxSubtitle.style.display = subtitle ? 'block' : 'none';
+    }
+    
+    lightbox.classList.add("activeLightbox");
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    if (lightbox) lightbox.classList.remove("activeLightbox");
+}

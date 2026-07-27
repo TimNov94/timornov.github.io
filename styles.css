@@ -416,15 +416,13 @@ body {
 }
 
 /* ==========================================
-   FLOATING NO-CROP GALLERY GRID
+   FLOATING NO-CROP GALLERY GRID (3 COLUMNS)
    ========================================== */
 
 .galleryContainer, .galleryMasonry {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 60px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -432,7 +430,7 @@ body {
 }
 
 .galleryItem {
-  width: calc(50% - 20px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,7 +438,7 @@ body {
 }
 
 .galleryItem:nth-child(even) {
-  margin-top: 70px;
+  margin-top: 0;
 }
 
 .galleryImg, 
@@ -463,18 +461,19 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .galleryContainer, .galleryMasonry {
-    gap: 40px 0;
-    padding: 20px 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 30px 20px 80px 20px;
   }
-  
-  .galleryItem {
-    width: 100%;
-  }
-  
-  .galleryItem:nth-child(even) {
-    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .galleryContainer, .galleryMasonry {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px 15px 60px 15px;
   }
 }
 
@@ -603,14 +602,24 @@ body {
 }
 
 .lightboxTitle {
-    font-family: 'Lora', serif;
-    font-size: 0.95rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
     font-weight: 300;
-    letter-spacing: 1.5px;
-    color: #d0d0d0;
-    margin-bottom: 14px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.lightboxSubtitle {
+    font-family: 'Lora', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #a0a0a0;
+    margin-bottom: 16px;
     text-align: center;
     line-height: 1.5;
+    max-width: 580px;
 }
 
 .lightboxBuyBtn, .buyBtn {
