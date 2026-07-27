@@ -55,19 +55,36 @@
     </div>
 
     <div class="galleryContainer">
-        <img src="https://picsum.photos/800/600?random=11" class="galleryImg imgSmall" category="birds" caption="Alpine Chough flying over Eiger, Switzerland" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=12" class="galleryImg imgSmall" category="birds" caption="Bearded Vulture in the Swiss National Park" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/1200/600?random=13" class="galleryImg imgLarge" category="mammals" caption="Guanaco herd grazing in Torres del Paine, Patagonia" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=14" class="galleryImg imgSmall" category="macro" caption="Dewdrops on mountain flora, Swiss Alps" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=15" class="galleryImg imgSmall" category="birds" caption="King Penguins gathering on the shores of South Georgia" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/1200/600?random=16" class="galleryImg imgLarge" category="macro" caption="Detailed textures of native moss, Fiordland, New Zealand" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=17" class="galleryImg imgSmall" category="mammals" caption="Alpine Ibex resting on the rocky ridges of Mount Pilatus" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=18" class="galleryImg imgSmall" category="mammals" caption="Chamois navigating the steep slopes near Interlaken" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/1200/600?random=19" class="galleryImg imgLarge" category="birds" caption="Snow Petrel gliding against the ice walls of Antarctica" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=20" class="galleryImg imgSmall" category="macro" caption="Hidden patterns of mountain lichen" onclick="openLightbox(this)">
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=11" class="galleryImg" category="birds" caption="Alpine Chough flying over Eiger, Switzerland" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=12" class="galleryImg" category="birds" caption="Bearded Vulture in the Swiss National Park" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/1200/600?random=13" class="galleryImg" category="mammals" caption="Guanaco herd grazing in Torres del Paine, Patagonia" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=14" class="galleryImg" category="macro" caption="Dewdrops on mountain flora, Swiss Alps" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=15" class="galleryImg" category="birds" caption="King Penguins gathering on the shores of South Georgia" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/1200/600?random=16" class="galleryImg" category="macro" caption="Detailed textures of native moss, Fiordland, New Zealand" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=17" class="galleryImg" category="mammals" caption="Alpine Ibex resting on the rocky ridges of Mount Pilatus" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=18" class="galleryImg" category="mammals" caption="Chamois navigating the steep slopes near Interlaken" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/1200/600?random=19" class="galleryImg" category="birds" caption="Snow Petrel gliding against the ice walls of Antarctica" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=20" class="galleryImg" category="macro" caption="Hidden patterns of mountain lichen" onclick="openLightbox(this)">
+        </div>
     </div>
 </div>
 
@@ -85,26 +102,22 @@
 
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
         tags.forEach(tag => tag.classList.remove('activeTag'));
         element.classList.add('activeTag');
         
-        const images = document.querySelectorAll('.galleryImg');
-        images.forEach(img => {
+        const items = document.querySelectorAll('.galleryItem');
+        items.forEach(item => {
+            const img = item.querySelector('.galleryImg');
             const imgCategory = img.getAttribute('category');
             if (category === 'all' || imgCategory === category) {
-                img.style.display = '';
-                setTimeout(() => img.style.opacity = '1', 10);
+                item.style.display = 'flex';
+                setTimeout(() => item.style.opacity = '1', 10);
             } else {
-                img.style.opacity = '0';
-                img.style.display = 'none';
+                item.style.opacity = '0';
+                item.style.display = 'none';
             }
         });
     }

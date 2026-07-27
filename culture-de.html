@@ -57,20 +57,33 @@
     </div>
 
     <div class="galleryContainer">
-        <img src="https://picsum.photos/800/600?random=201" class="galleryImg imgSmall" data-categories="portraits dailylife" caption="Ein Älterer lächelt auf dem lokalen Markt" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=202" class="galleryImg imgSmall" data-categories="festivals" caption="Farbenfrohe Feierlichkeiten während des Frühlingsfestes" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=203" class="galleryImg imgLarge" data-categories="street dailylife" caption="Morgendliches Treiben in den engen Gassen" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=204" class="galleryImg imgSmall" data-categories="artisans portraits" caption="Ein lokaler Holzschnitzer konzentriert auf feine Details in seiner Werkstatt" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=205" class="galleryImg imgSmall" data-categories="dailylife" caption="Gespräch bei einer Tasse Tee unter Freunden" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=206" class="galleryImg imgLarge" data-categories="festivals street" caption="Tänzer bewegen sich zum Rhythmus traditioneller Trommeln" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/800/600?random=207" class="galleryImg imgSmall" data-categories="artisans dailylife" caption="Weben traditioneller Textilien im Dorf" onclick="openLightbox(this)">
-        <img src="https://picsum.photos/800/600?random=208" class="galleryImg imgSmall" data-categories="portraits" caption="Ein Moment stiller Reflexion" onclick="openLightbox(this)">
-        
-        <img src="https://picsum.photos/1200/600?random=209" class="galleryImg imgLarge" data-categories="street" caption="Abendlicht wirft lange Schatten auf den Stadtplatz" onclick="openLightbox(this)">
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=201" class="galleryImg" data-categories="portraits dailylife" caption="Ein Älterer lächelt auf dem lokalen Markt" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=202" class="galleryImg" data-categories="festivals" caption="Farbenfrohe Feierlichkeiten während des Frühlingsfestes" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/1200/600?random=203" class="galleryImg" data-categories="street dailylife" caption="Morgendliches Treiben in den engen Gassen" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=204" class="galleryImg" data-categories="artisans portraits" caption="Ein lokaler Holzschnitzer konzentriert auf feine Details in seiner Werkstatt" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=205" class="galleryImg" data-categories="dailylife" caption="Gespräch bei einer Tasse Tee unter Freunden" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/1200/600?random=206" class="galleryImg" data-categories="festivals street" caption="Tänzer bewegen sich zum Rhythmus traditioneller Trommeln" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=207" class="galleryImg" data-categories="artisans dailylife" caption="Weben traditioneller Textilien im Dorf" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/800/600?random=208" class="galleryImg" data-categories="portraits" caption="Ein Moment stiller Reflexion" onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="https://picsum.photos/1200/600?random=209" class="galleryImg" data-categories="street" caption="Abendlicht wirft lange Schatten auf den Stadtplatz" onclick="openLightbox(this)">
+        </div>
     </div>
 </div>
 
@@ -88,26 +101,22 @@
 
 <script>
     function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-    function toggleLangMenu(event) { event.stopPropagation(); document.getElementById("langDropdown").classList.toggle("showLang"); }
-    window.addEventListener('click', function() {
-        const dropdown = document.getElementById("langDropdown");
-        if (dropdown && dropdown.classList.contains("showLang")) { dropdown.classList.remove("showLang"); }
-    });
 
     function filterGallery(category, element) {
         const tags = document.querySelectorAll('.filterTag');
         tags.forEach(tag => tag.classList.remove('activeTag'));
         element.classList.add('activeTag');
         
-        const images = document.querySelectorAll('.galleryImg');
-        images.forEach(img => {
+        const items = document.querySelectorAll('.galleryItem');
+        items.forEach(item => {
+            const img = item.querySelector('.galleryImg');
             const categories = img.getAttribute('data-categories').split(' ');
             if (category === 'all' || categories.includes(category)) {
-                img.style.display = '';
-                setTimeout(() => img.style.opacity = '1', 10);
+                item.style.display = 'flex';
+                setTimeout(() => item.style.opacity = '1', 10);
             } else {
-                img.style.opacity = '0';
-                img.style.display = 'none';
+                item.style.opacity = '0';
+                item.style.display = 'none';
             }
         });
     }
