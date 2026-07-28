@@ -206,3 +206,36 @@ function closeLightbox() {
     const lightbox = document.getElementById("lightbox");
     if (lightbox) lightbox.classList.remove("activeLightbox");
 }
+
+function openStoryModal(imgSrc, title, subtitle, fullText) {
+    const modal = document.getElementById("storyModal");
+    const modalImg = document.getElementById("storyModalImg");
+    const modalTitle = document.getElementById("storyModalTitle");
+    const modalSubtitle = document.getElementById("storyModalSubtitle");
+    const modalText = document.getElementById("storyModalText");
+
+    if (!modal || !modalImg) return;
+
+    modalImg.src = imgSrc;
+    if (modalTitle) modalTitle.textContent = title || "";
+    if (modalSubtitle) {
+        modalSubtitle.textContent = subtitle || "";
+        modalSubtitle.style.display = subtitle ? "block" : "none";
+    }
+    if (modalText) modalText.innerHTML = fullText || "";
+
+    modal.classList.add("activeStoryModal");
+}
+
+function closeStoryModal() {
+    const modal = document.getElementById("storyModal");
+    if (modal) modal.classList.remove("activeStoryModal");
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+        closeCart();
+        closeStoryModal();
+    }
+});

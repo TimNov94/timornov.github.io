@@ -70,31 +70,35 @@
     <div class="subpageHeaderRow">
         <button class="backNavBtn" onclick="goBack('index.html')">&#8592; BACK</button>
     </div>
-    <div class="storyRow">
-        <img src="images/home/hero/hero3.jpg" class="storyImg" alt="The Silence of Patagonia">
-        <div class="storyContent">
-            <h2 class="storyHeading">The Silence of Patagonia</h2>
-            <div class="storyText">A journey into the wind-swept wilderness of Torres del Paine, capturing the isolation and grand scale of South America's southern tip. Trekking through unpredictable weather, the landscape reveals frozen mountain spires, turquoise glacial lakes, and solitary guanacos grazing on open pampas.</div>
+
+    <div class="storiesGrid">
+        <!-- Story 1: Bhutan Rhododendron Festival -->
+        <div class="storyCardBox" onclick="openStoryModal('images/home/hero/hero1.jpg', 'Rhododendron Festival: Spring at Dochula Pass', 'DOCHULA PASS & LAMPELRI, BHUTAN', 'Spring in the Himalayas arrives not with a quiet whisper, but with a sudden burst of color across the high mountain passes. Up at Dochula Pass, surrounded by the quiet presence of 108 stone chortens, the air changes around April. This is when native rhododendrons bloom, transforming dense pine forests into vibrant shades of crimson, pink, and pure white.<br><br>The annual festival at nearby Lampelri Botanical Park celebrates this transformation. Bhutan is home to over forty species of rhododendrons, ranging from delicate bushes to massive forest trees. To local communities, these blossoms symbolise purity, endurance, and natural harmony. Traditional healers have used their petals for generations, and during the festival, families gather from surrounding valleys to celebrate the new season.<br><br>Standing on the edge of the clearing with a camera in hand, the experience becomes sensory. The air smells of damp pine needles and faint incense. In the background, the low resonance of long horns and rhythmic wooden drums accompanies mask dancers in brightly colored silk robes. Watching the celebrations unfold through the lens offers a rare moment of stillness. One moment you are surrounded by cool mountain fog, and the next, a soft ray of light cuts through the canopy, illuminating thousands of petals against mossy bark. It is an invitation to slow down and observe a world moving at its own natural rhythm.')">
+            <div class="storyCardImgWrapper">
+                <img src="images/home/hero/hero1.jpg" class="storyCardImg" alt="Rhododendron Festival: Spring at Dochula Pass">
+            </div>
+            <div class="storyCardBody">
+                <h2 class="storyCardTitle">Rhododendron Festival: Spring at Dochula Pass</h2>
+                <p class="storyCardText">Spring in the Himalayas arrives not with a quiet whisper, but with a sudden burst of color across the high mountain passes...</p>
+                <button class="readMoreLink">READ STORY &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Story 2: Antarctica Penguins -->
+        <div class="storyCardBox" onclick="openStoryModal('images/home/hero/hero3.jpg', 'Silent Shores: Meeting Penguins in Antarctica', 'ANTARCTICA & SOUTHERN OCEAN', 'Crossing the Southern Ocean aboard the MV Ushuaia, a humble red vessel built for icy waters, felt like leaving the modern world completely behind. By late November, as spring slowly turns to summer in the polar region, the ice opens up just enough to let you through. Standing on the narrow deck with cold wind against your face, the vastness of the white continent suddenly reaches out to greet you.<br><br>Stepping off the Zodiac onto the rocky, snow covered shore, the silence is what hits you first, quickly followed by the lively energy of local wildlife. November is a special time on the frozen continent. It is the beginning of the nesting season, where thousands of Gentoo and Chinstrap penguins cover the hillsides, busy building nests out of small pebbles. Watching them balance carefully on the snow, calling out to their partners, and fearlessly waddling past your camera lens is a deeply humbling sight.<br><br>Through the camera viewfinder, you quickly learn that penguins are full of character. They pay little attention to human visitors, moving with purpose through their harsh yet beautiful home. Sitting quietly on a cold rock as the sea mist rolls in, watching a small penguin pause and look directly into the lens, you realize how privileged you are to witness this untouched corner of Earth. It is a world where nature reigns supreme, offering raw moments of clarity and wonder that stay with you forever.')">
+            <div class="storyCardImgWrapper">
+                <img src="images/home/hero/hero3.jpg" class="storyCardImg" alt="Silent Shores: Meeting Penguins in Antarctica">
+            </div>
+            <div class="storyCardBody">
+                <h2 class="storyCardTitle">Silent Shores: Meeting Penguins in Antarctica</h2>
+                <p class="storyCardText">Crossing the Southern Ocean aboard the MV Ushuaia felt like leaving the modern world completely behind...</p>
+                <button class="readMoreLink">READ STORY &rarr;</button>
+            </div>
         </div>
     </div>
 
-    <div class="storyRow">
-        <img src="images/home/hero/hero2.jpg" class="storyImg" alt="Chasing Light in the Swiss Alps">
-        <div class="storyContent">
-            <h2 class="storyHeading">Chasing Light in the Swiss Alps</h2>
-            <p class="storyText">High-altitude photography exploring changing seasons across alpine valleys, glaciated peaks, and quiet mountain lakes. From dawn light breaking over Eiger to golden dusk reflections near Zermatt, this collection documents nature's enduring power and subtle shifts.</p>
-        </div>
-    </div>
-
-    <div class="storyRow">
-        <img src="images/home/hero/hero4.jpg" class="storyImg" alt="Faces & Traditions of New Zealand">
-        <div class="storyContent">
-            <h2 class="storyHeading">Faces & Traditions of New Zealand</h2>
-            <p class="storyText">Documenting local artisans, coastal communities, and indigenous heritage along the South Island's rugged coast. Beyond stunning scenery lies deep human connection—people living in harmony with nature and preserving ancestral traditions for future generations.</p>
-        </div>
-    </div>
     <footer>
-    <div class="footerQuote">"Silent moments shaped by light, nature, and time."</div>
+        <div class="footerQuote">"Silent moments shaped by light, nature, and time."</div>
         <div class="footerNav">
             <a href="wildlife.html">Wildlife</a>
             <a href="landscapes.html">Landscapes</a>
@@ -108,6 +112,19 @@
         </div>
         <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
     </footer>
+</div>
+
+<!-- Story Modal Overlay -->
+<div id="storyModal" class="storyModalOverlay" onclick="closeStoryModal()">
+    <div class="closeStoryModal" onclick="closeStoryModal()">&times;</div>
+    <div class="storyModalCard" onclick="event.stopPropagation()">
+        <img id="storyModalImg" class="storyModalImg" src="" alt="Story Image">
+        <div class="storyModalBody">
+            <h2 id="storyModalTitle" class="storyModalTitle"></h2>
+            <div id="storyModalSubtitle" class="storyModalSubtitle"></div>
+            <div id="storyModalText" class="storyModalText"></div>
+        </div>
+    </div>
 </div>
 
 <script src="cart.js"></script>
