@@ -51,7 +51,9 @@
             <button class="backNavBtn" onclick="goBack('index.html')">&#8592; BACK</button>
             <div class="filterContainer">
                 <div class="filterTag activeTag" onclick="filterGallery('all', this)">All</div>
-                <div class="filterTag" onclick="filterGallery('landscapes', this)">Landscapes</div>
+                <div class="filterTag" onclick="filterGallery('mountains', this)">Mountains</div>
+                <div class="filterTag" onclick="filterGallery('lakes', this)">Lakes &amp; Rivers</div>
+                <div class="filterTag" onclick="filterGallery('forests', this)">Forests &amp; Valleys</div>
                 <div class="filterTag" onclick="filterGallery('cityscape', this)">Cityscape</div>
             </div>
         </div>
@@ -59,76 +61,127 @@
 
     <div class="galleryMasonry">
         <div class="galleryItem">
-            <img src="images/landscapes/Bietschhorn1.JPG" class="galleryImg" data-categories="landscapes" data-title="Bietschhorn" data-subtitle="Majestic alpine peak rising above the Valais wilderness." onclick="openLightbox(this)">
+            <img src="images/landscapes/Adelboden1.jpg" class="galleryImg" alt="Adelboden, Bernese Oberland" data-categories="mountains landscapes" data-title="Adelboden, Bernese Oberland" data-subtitle="Alpine slopes and dramatic peaks above the Engstligental valley." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Bietschhorn2.JPG" class="galleryImg" data-categories="landscapes" data-title="Bietschhorn Ridge" data-subtitle="High altitude ridge bathed in ethereal mountain light." onclick="openLightbox(this)">
+            <img src="images/landscapes/Adelboden2.jpg" class="galleryImg" alt="Adelboden Highlands" data-categories="mountains landscapes" data-title="Adelboden Highlands" data-subtitle="Expansive mountain vistas and quiet alpine pastures in Adelboden." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Burchen.JPG" class="galleryImg" data-categories="landscapes" data-title="Bürchen" data-subtitle="Tranquil mountain village framed by larch forests." onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem wide-img">
-            <img src="images/landscapes/Creux du Van1.JPG" class="galleryImg" data-categories="landscapes" data-title="Creux du Van" data-subtitle="Dramatic natural rock cirque carved by ancient ice." onclick="openLightbox(this)">
+            <img src="images/landscapes/Adelboden3.jpg" class="galleryImg" alt="Adelboden Valley" data-categories="mountains forests landscapes" data-title="Adelboden Valley" data-subtitle="Mist and morning light weaving through the valleys of Adelboden." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Creux du Van2.JPG" class="galleryImg" data-categories="landscapes" data-title="Creux du Van Cliff" data-subtitle="Panoramic precipice overlooking Jura forest canopies." onclick="openLightbox(this)">
+            <img src="images/landscapes/Bietschhorn1.JPG" class="galleryImg" alt="Bietschhorn" data-categories="mountains landscapes" data-title="Bietschhorn" data-subtitle="Majestic alpine peak rising above the Valais wilderness." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Dossemhutte.JPG" class="galleryImg" data-categories="landscapes" data-title="Dossen-Hütte" data-subtitle="High alpine refuge overlooking pristine glacier views." onclick="openLightbox(this)">
+            <img src="images/landscapes/Bietschhorn2.JPG" class="galleryImg" alt="Bietschhorn Ridge" data-categories="mountains landscapes" data-title="Bietschhorn Ridge" data-subtitle="High altitude ridge bathed in ethereal mountain light." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Dossemhutte1.JPG" class="galleryImg" data-categories="landscapes" data-title="Dossen Horizon" data-subtitle="Solitary ridge path reaching toward the cloud line." onclick="openLightbox(this)">
+            <img src="images/landscapes/Burchen.JPG" class="galleryImg" alt="Bürchen" data-categories="mountains forests landscapes" data-title="Bürchen" data-subtitle="Tranquil mountain village framed by larch forests." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Gantrisch1.JPG" class="galleryImg" data-categories="landscapes" data-title="Gantrisch" data-subtitle="Rolling pre-Alpine crests under soft atmospheric haze." onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem wide-img">
-            <img src="images/landscapes/Gantrisch2.JPG" class="galleryImg" data-categories="landscapes" data-title="Gantrisch Summit" data-subtitle="Golden sunset light glowing over Bernese mountain peaks." onclick="openLightbox(this)">
+            <img src="images/landscapes/Creux du Van1.JPG" class="galleryImg" alt="Creux du Van" data-categories="mountains landscapes" data-title="Creux du Van" data-subtitle="Dramatic natural rock cirque carved by ancient ice." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Gantrisch3.JPG" class="galleryImg" data-categories="landscapes" data-title="Gantrisch Lake" data-subtitle="Mirror-still alpine waters reflecting silent crags." onclick="openLightbox(this)">
+            <img src="images/landscapes/Creux du Van2.JPG" class="galleryImg" alt="Creux du Van Cliff" data-categories="mountains forests landscapes" data-title="Creux du Van Cliff" data-subtitle="Panoramic precipice overlooking Jura forest canopies." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Lotschenhutte.JPG" class="galleryImg" data-categories="landscapes" data-title="Lötschenpass" data-subtitle="Historic mountain pass nestled among glacial fields." onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem wide-img">
-            <img src="images/landscapes/Moosalp.JPG" class="galleryImg" data-categories="landscapes" data-title="Moosalp" data-subtitle="Highland pasture offering sweeping views of four-thousanders." onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem wide-img">
-            <img src="images/landscapes/Scharzwasserbrucke1.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasserbrücke" data-subtitle="Arching historic bridge spanning a deep wooded canyon." onclick="openLightbox(this)">
+            <img src="images/landscapes/Dossemhutte.JPG" class="galleryImg" alt="Dossen-Hütte" data-categories="mountains landscapes" data-title="Dossen-Hütte" data-subtitle="High alpine refuge overlooking pristine glacier views." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Scharzwasserbrucke2.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasser Gorge" data-subtitle="Wild river carving through lush green sandstone cliffs." onclick="openLightbox(this)">
+            <img src="images/landscapes/Dossemhutte1.JPG" class="galleryImg" alt="Dossen Horizon" data-categories="mountains landscapes" data-title="Dossen Horizon" data-subtitle="Solitary ridge path reaching toward the cloud line." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Scharzwasserbrucke3.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasser Canyon" data-subtitle="Filtered autumn rays illuminating pristine river stones." onclick="openLightbox(this)">
+            <img src="images/landscapes/Gantrisch1.JPG" class="galleryImg" alt="Gantrisch" data-categories="mountains landscapes" data-title="Gantrisch" data-subtitle="Rolling pre-Alpine crests under soft atmospheric haze." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Scharzwasserbrucke4.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasser Stream" data-subtitle="Cascading torrents winding through timeless rock formations." onclick="openLightbox(this)">
+            <img src="images/landscapes/Gantrisch2.JPG" class="galleryImg" alt="Gantrisch Summit" data-categories="mountains landscapes" data-title="Gantrisch Summit" data-subtitle="Golden sunset light glowing over Bernese mountain peaks." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Scharzwasserbrucke5.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasser Trail" data-subtitle="Solitary forest pathway along the roaring riverbank." onclick="openLightbox(this)">
+            <img src="images/landscapes/Gantrisch3.JPG" class="galleryImg" alt="Gantrisch Lake" data-categories="lakes mountains landscapes" data-title="Gantrisch Lake" data-subtitle="Mirror-still alpine waters reflecting silent crags." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Scharzwasserbrucke6.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasser Cliff" data-subtitle="Monolithic rock wall standing sentinel over the waters." onclick="openLightbox(this)">
+            <img src="images/landscapes/Lotschenhutte.JPG" class="galleryImg" alt="Lötschenpass" data-categories="mountains landscapes" data-title="Lötschenpass" data-subtitle="Historic mountain pass nestled among glacial fields." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/Scharzwasserbrucke7.JPG" class="galleryImg" data-categories="landscapes" data-title="Schwarzwasser Water" data-subtitle="Emerald pool reflecting ancient gorge vegetation." onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem wide-img">
-            <img src="images/landscapes/aletschglacier.JPG" class="galleryImg" data-categories="landscapes" data-title="Aletsch Glacier" data-subtitle="Great ice stream carved into the heart of the Swiss Alps." onclick="openLightbox(this)">
+            <img src="images/landscapes/Moosalp.JPG" class="galleryImg" alt="Moosalp" data-categories="mountains landscapes" data-title="Moosalp" data-subtitle="Highland pasture offering sweeping views of four-thousanders." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/bern1.JPG" class="galleryImg" data-categories="cityscape" data-title="Bern" data-subtitle="Classic sandstone architecture framed by the Alpine horizon." onclick="openLightbox(this)">
-        </div>
-        <div class="galleryItem wide-img">
-            <img src="images/landscapes/bern2.JPG" class="galleryImg" data-categories="cityscape" data-title="Bern Skyline" data-subtitle="Historic rooftops and river bend in morning light." onclick="openLightbox(this)">
+            <img src="images/landscapes/Oeschinensee1.jpg" class="galleryImg" alt="Oeschinensee" data-categories="lakes mountains landscapes" data-title="Oeschinensee" data-subtitle="Pristine glacier-fed lake cradled by towering limestone walls." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/bern3.JPG" class="galleryImg" data-categories="cityscape" data-title="Bern Old Town" data-subtitle="Timeless arcades and cobblestone alleyways." onclick="openLightbox(this)">
+            <img src="images/landscapes/Oeschinensee2.jpg" class="galleryImg" alt="Oeschinensee Reflections" data-categories="lakes mountains landscapes" data-title="Oeschinensee Reflections" data-subtitle="Still alpine waters mirroring the rugged peaks of the Blüemlisalp." onclick="openLightbox(this)">
         </div>
         <div class="galleryItem">
-            <img src="images/landscapes/bern4.JPG" class="galleryImg" data-categories="cityscape" data-title="Bern Countryside" data-subtitle="Gentle rolling hills surrounding the federal capital." onclick="openLightbox(this)">
+            <img src="images/landscapes/Brienz1.jpg" class="galleryImg" alt="Lake Brienz" data-categories="lakes mountains landscapes" data-title="Lake Brienz" data-subtitle="Deep turquoise alpine waters surrounded by steep wooded mountainsides." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Bern Lenk 1.jpg" class="galleryImg" alt="Lenk im Simmental" data-categories="mountains forests landscapes" data-title="Lenk im Simmental" data-subtitle="Lush alpine valley framed by the Wildstrubel massif in the Bernese Oberland." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Jura1.jpg" class="galleryImg" alt="Swiss Jura" data-categories="forests mountains landscapes" data-title="Swiss Jura" data-subtitle="Rolling wooded ridges and open pastures across the Jura mountains." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/La Moleson1.jpg" class="galleryImg" alt="Le Moléson, Fribourg" data-categories="mountains landscapes" data-title="Le Moléson, Fribourg" data-subtitle="Sweeping pre-Alpine ridge views from the summit of Le Moléson." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Morgins Switzerland.jpg" class="galleryImg" alt="Morgins, Valais" data-categories="mountains forests landscapes" data-title="Morgins, Valais" data-subtitle="Quiet alpine trails and forested slopes in the Portes du Soleil region." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Valais1.jpg" class="galleryImg" alt="Valais Alps" data-categories="mountains landscapes" data-title="Valais Alps" data-subtitle="Towering four-thousand-meter peaks under crisp high-altitude skies." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Valais2.jpg" class="galleryImg" alt="Valais High Ridge" data-categories="mountains landscapes" data-title="Valais High Ridge" data-subtitle="Dramatic alpine ridges and glacial valleys in the heart of Valais." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Ticino1.jpg" class="galleryImg" alt="Ticino Valleys" data-categories="mountains forests landscapes" data-title="Ticino Valleys" data-subtitle="Southern alpine light and rugged stone textures in canton Ticino." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Luzern1.jpg" class="galleryImg" alt="Lucerne & Lake Views" data-categories="lakes cityscape mountains" data-title="Lucerne &amp; Lake Views" data-subtitle="Calm waters and alpine silhouettes framing the historic heart of Lucerne." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Sweden-lanscape.JPG" class="galleryImg" alt="Nordic Wilderness, Sweden" data-categories="lakes forests landscapes" data-title="Nordic Wilderness, Sweden" data-subtitle="Expansive northern horizons and tranquil waters in the Swedish countryside." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Scharzwasserbrucke1.JPG" class="galleryImg" alt="Schwarzwasserbrücke" data-categories="forests lakes landscapes" data-title="Schwarzwasserbrücke" data-subtitle="Arching historic bridge spanning a deep wooded canyon." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Scharzwasserbrucke2.JPG" class="galleryImg" alt="Schwarzwasser Gorge" data-categories="lakes forests landscapes" data-title="Schwarzwasser Gorge" data-subtitle="Wild river carving through lush green sandstone cliffs." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Scharzwasserbrucke3.JPG" class="galleryImg" alt="Schwarzwasser Canyon" data-categories="lakes forests landscapes" data-title="Schwarzwasser Canyon" data-subtitle="Filtered autumn rays illuminating pristine river stones." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Scharzwasserbrucke4.JPG" class="galleryImg" alt="Schwarzwasser Stream" data-categories="lakes forests landscapes" data-title="Schwarzwasser Stream" data-subtitle="Cascading torrents winding through timeless rock formations." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Scharzwasserbrucke5.JPG" class="galleryImg" alt="Schwarzwasser Trail" data-categories="forests lakes landscapes" data-title="Schwarzwasser Trail" data-subtitle="Solitary forest pathway along the roaring riverbank." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Scharzwasserbrucke6.JPG" class="galleryImg" alt="Schwarzwasser Cliff" data-categories="forests lakes landscapes" data-title="Schwarzwasser Cliff" data-subtitle="Monolithic rock wall standing sentinel over the waters." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/aletschglacier.JPG" class="galleryImg" alt="Aletsch Glacier" data-categories="mountains landscapes" data-title="Aletsch Glacier" data-subtitle="Great ice stream carved into the heart of the Swiss Alps." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Bremgarten forest Bern.jpg" class="galleryImg" alt="Bremgartenwald, Bern" data-categories="forests landscapes" data-title="Bremgartenwald, Bern" data-subtitle="Soft light filtering through the tranquil canopy of Bremgarten Forest." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/bern1.JPG" class="galleryImg" alt="Bern" data-categories="cityscape" data-title="Bern" data-subtitle="Classic sandstone architecture framed by the Alpine horizon." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/bern2.JPG" class="galleryImg" alt="Bern Skyline" data-categories="cityscape lakes" data-title="Bern Skyline" data-subtitle="Historic rooftops and river bend in morning light." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/bern3.JPG" class="galleryImg" alt="Bern Old Town" data-categories="cityscape" data-title="Bern Old Town" data-subtitle="Timeless arcades and cobblestone alleyways." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/bern4.JPG" class="galleryImg" alt="Bern Countryside" data-categories="cityscape forests" data-title="Bern Countryside" data-subtitle="Gentle rolling hills surrounding the federal capital." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Bern5.jpg" class="galleryImg" alt="Bern Architecture" data-categories="cityscape" data-title="Bern Architecture" data-subtitle="Evening atmosphere across the historic streets and rooftops of Bern." onclick="openLightbox(this)">
+        </div>
+        <div class="galleryItem">
+            <img src="images/landscapes/Bern6.jpg" class="galleryImg" alt="Aare & Old Town, Bern" data-categories="cityscape lakes" data-title="Aare &amp; Old Town, Bern" data-subtitle="The turquoise waters of the Aare curving around the old town of Bern." onclick="openLightbox(this)">
         </div>
     </div>
     <footer>

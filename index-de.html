@@ -70,7 +70,7 @@
     </div>
 
     <div class="verticalFeature scrollReveal">
-        <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical-bg.jpg" alt="Ausgewähltes Hochformatbild 1">
+        <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical1.jpg" alt="Ausgewähltes Hochformatbild 1">
         <img id="verticalImage2" class="slideImg" src="images/home/vertical/vertical2.jpg" alt="Ausgewähltes Hochformatbild 2">
         <div class="gradientOverlay"></div>
     </div>
@@ -98,15 +98,18 @@
         document.getElementById("fullScreenMenu").classList.toggle("active");
     }
 
-    /* --- Top Hero Carousel: 2000ms Interval --- */
+    /* --- Top Hero Carousel: 5000ms Interval --- */
     (function initHeroCarousel() {
         const heroImages = [
             "images/home/hero/hero1.jpg",
             "images/home/hero/hero2.jpg",
             "images/home/hero/hero3.jpg",
             "images/home/hero/hero4.jpg",
-            "images/home/hero/hero5.jpg"
+            "images/home/hero/hero5.jpg",
+            "images/home/hero/hero6.jpg"
         ];
+        heroImages.forEach(src => { const img = new Image(); img.src = src; });
+
         let heroIndex = 0;
         const heroImg1 = document.getElementById("slideImage1");
         const heroImg2 = document.getElementById("slideImage2");
@@ -117,22 +120,34 @@
             heroIndex = (heroIndex + 1) % heroImages.length;
             const activeImg = heroImg1.classList.contains("activeImg") ? heroImg1 : heroImg2;
             const nextImg = activeImg === heroImg1 ? heroImg2 : heroImg1;
-            
+
+            const swap = () => {
+                nextImg.classList.add("activeImg");
+                activeImg.classList.remove("activeImg");
+            };
+
+            nextImg.onload = swap;
             nextImg.src = heroImages[heroIndex];
-            nextImg.classList.add("activeImg");
-            activeImg.classList.remove("activeImg");
+            if (nextImg.complete) {
+                nextImg.onload = null;
+                swap();
+            }
         }
 
-        setInterval(crossFadeHero, 2000);
+        setInterval(crossFadeHero, 5000);
     })();
 
     /* --- Bottom Vertical Feature Carousel: 5000ms Interval --- */
     (function initVerticalCarousel() {
         const verticalImages = [
-            "images/home/vertical/vertical-bg.jpg",
+            "images/home/vertical/vertical1.jpg",
             "images/home/vertical/vertical2.jpg",
-            "images/home/vertical/vertical3.jpg"
+            "images/home/vertical/vertical3.jpg",
+            "images/home/vertical/vertical4.jpg",
+            "images/home/vertical/vertical6.JPG"
         ];
+        verticalImages.forEach(src => { const img = new Image(); img.src = src; });
+
         let verticalIndex = 0;
         const vertImg1 = document.getElementById("verticalImage1");
         const vertImg2 = document.getElementById("verticalImage2");
@@ -143,10 +158,18 @@
             verticalIndex = (verticalIndex + 1) % verticalImages.length;
             const activeImg = vertImg1.classList.contains("activeImg") ? vertImg1 : vertImg2;
             const nextImg = activeImg === vertImg1 ? vertImg2 : vertImg1;
-            
+
+            const swap = () => {
+                nextImg.classList.add("activeImg");
+                activeImg.classList.remove("activeImg");
+            };
+
+            nextImg.onload = swap;
             nextImg.src = verticalImages[verticalIndex];
-            nextImg.classList.add("activeImg");
-            activeImg.classList.remove("activeImg");
+            if (nextImg.complete) {
+                nextImg.onload = null;
+                swap();
+            }
         }
 
         setInterval(crossFadeVertical, 5000);

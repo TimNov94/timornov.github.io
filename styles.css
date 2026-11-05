@@ -802,7 +802,7 @@ body {
     max-width: 1300px;
     margin: 120px auto 0 auto;
 }
-.aboutImage { width: 45%; background: url('images/home/vertical/vertical-bg.jpg') center/cover no-repeat; position: relative; border-radius: 2px; }
+.aboutImage { width: 45%; background: url('images/home/vertical/vertical1.jpg') center/cover no-repeat; position: relative; border-radius: 2px; }
 .aboutImage::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, transparent, black); }
 
 .aboutContent { width: 55%; padding: 60px 80px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; text-align: left; }
