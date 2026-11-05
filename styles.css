@@ -547,7 +547,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-flow: dense;
-  gap: 20px;
+  align-items: center;
+  gap: 30px;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -556,13 +557,11 @@ body {
 
 .galleryItem {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: opacity 0.4s ease, transform 0.4s ease;
-  overflow: hidden;
   border-radius: 2px;
 }
 
@@ -574,13 +573,12 @@ body {
 .galleryImg, 
 .galleryItem img {
   width: 100%;
-  height: 100%;
-  min-height: 280px;
+  height: auto;
   max-height: 480px;
-  object-fit: cover !important;
+  object-fit: contain !important;
   display: block;
   border-radius: 2px;
-  background-color: #111111;
+  background-color: transparent;
   transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -678,14 +676,20 @@ body {
     position: relative;
     display: inline-block;
     max-width: 92vw;
-    max-height: 75vh;
+    max-height: 78vh;
+    transform: scale(0.95);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightboxOverlay.activeLightbox .lightboxImgWrapper {
+    transform: scale(1);
 }
 
 .lightboxImg {
     max-width: 92vw;
-    max-height: 75vh;
+    max-height: 78vh;
     object-fit: contain;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.9);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.95);
     border-radius: 2px;
     display: block;
 }
@@ -731,7 +735,7 @@ body {
     border-radius: 0 !important;
 }
 
-/* Lightbox Details, Clean Minimalist Buy Button & Simplified Specs */
+/* Lightbox Caption & Description */
 .lightboxDetails {
     margin-top: 22px;
     text-align: center;
@@ -748,55 +752,19 @@ body {
     font-weight: 300;
     letter-spacing: 2px;
     color: #ffffff;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     text-align: center;
 }
 
 .lightboxSubtitle {
     font-family: 'Lora', serif;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-style: italic;
-    color: #a0a0a0;
-    margin-bottom: 16px;
+    color: #b0b0b0;
+    margin-bottom: 0;
     text-align: center;
     line-height: 1.5;
     max-width: 580px;
-}
-
-.lightboxBuyBtn, .buyBtn {
-    background: transparent !important;
-    color: #c19a6b !important;
-    border: none !important;
-    padding: 6px 12px;
-    font-family: 'Lora', serif;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color 0.3s ease, opacity 0.3s ease;
-    margin-bottom: 10px;
-    outline: none;
-    box-shadow: none !important;
-    border-radius: 0;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.lightboxBuyBtn:hover, .buyBtn:hover {
-    color: #ffffff !important;
-    background: transparent !important;
-    opacity: 1;
-    transform: none;
-    box-shadow: none;
-}
-
-.lightboxSpecs, .printSpecs {
-    font-family: 'Lora', serif;
-    font-size: 0.85rem;
-    color: #888888;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-    text-align: center;
 }
 
 .closeLightbox {
@@ -1533,8 +1501,8 @@ a, button, input, textarea, select, .navMenu, .cartNavBtn, .filterTag, .closeBtn
     }
 
     .galleryImg, .galleryItem img {
-        min-height: 240px;
-        max-height: 420px;
+        height: auto;
+        max-height: 480px;
     }
 
     /* Lightbox Modal */
