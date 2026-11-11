@@ -115,3 +115,41 @@ document.addEventListener('keydown', function(e) {
         closeStoryModal();
     }
 });
+
+/* ==========================================
+   SMOOTH IMAGE FADE-IN & LAZY LOAD HANDLER
+   ========================================== */
+function initSmoothImageLoading() {
+    const galleryImages = document.querySelectorAll('.galleryImg, .galleryItem img');
+    galleryImages.forEach((img, index) => {
+        if (!img.hasAttribute('decoding')) {
+            img.setAttribute('decoding', 'async');
+        }
+        if (index < 6) {
+            if (!img.hasAttribute('loading')) img.setAttribute('loading', 'eager');
+            if (index < 3 && !img.hasAttribute('fetchpriority')) {
+                img.setAttribute('fetchpriority', 'high');
+            }
+        } else {
+            if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy');
+        }
+    });
+
+    const allFadeImages = document.querySelectorAll('.galleryImg, .slideImg, .storyImg, .storyCardImg, .galleryItem img');
+    allFadeImages.forEach(img => {
+        if (!img.hasAttribute('decoding')) {
+            img.setAttribute('decoding', 'async');
+        }
+        const markLoaded = () => img.classList.add('loaded');
+        if (img.complete && img.naturalWidth > 0) {
+            markLoaded();
+        } else {
+            img.addEventListener('load', markLoaded, { once: true });
+            img.addEventListener('error', markLoaded, { once: true });
+        }
+    });
+}
+
+initSmoothImageLoading();
+document.addEventListener('DOMContentLoaded', initSmoothImageLoading);
+window.addEventListener('pageshow', initSmoothImageLoading);

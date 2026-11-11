@@ -1,114 +1,124 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stories - Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="topVignette"></div>
+    <div class="topVignette"></div>
 
-<header class="fixedHeader">
-    <div class="headerInner">
-        <div class="branding">
-            <a href="index.html">
-                <h1>Timor Novoselsky</h1>
-                <div class="subtitle">PHOTOGRAPHY</div>
-            </a>
-        </div>
-        
-        <div class="navControls">
-            <div class="langSwitch">
-                <a href="stories.html" class="langOption activeLang">EN</a>
-                <span class="langDivider">|</span>
-                <a href="stories-de.html" class="langOption">DE</a>
+    <header class="fixedHeader">
+        <div class="headerInner">
+            <div class="branding">
+                <a href="index.html">
+                    <h1>Timor Novoselsky</h1>
+                    <div class="subtitle">PHOTOGRAPHY</div>
+                </a>
             </div>
-            
-            <div class="navMenu" onclick="toggleMenu()">MENU</div>
-        </div>
-    </div>
-</header>
 
-<div id="fullScreenMenu" class="overlayMenu">
-    <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
-    <div class="menuLinks">
-        <a href="index.html" class="gapAfter">Home</a>
-        <a href="wildlife.html">Wildlife</a>
-        <a href="landscapes.html">Landscapes</a>
-        <a href="culture.html">People and Culture</a>
-        <a href="stories.html" class="gapAfter">Stories</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </div>
-</div>
+            <div class="navControls">
+                <div class="langSwitch">
+                    <a href="stories.html" class="langOption activeLang">EN</a>
+                    <span class="langDivider">|</span>
+                    <a href="stories-de.html" class="langOption">DE</a>
+                </div>
 
-<div class="storiesContainer">
-    <div class="subpageHeaderRow">
-        <button class="backNavBtn" onclick="goBack('index.html')">&#8592; BACK</button>
-    </div>
-
-    <div class="storiesGrid">
-        <!-- Story 1: Bhutan Rhododendron Festival -->
-        <div class="storyCardBox" onclick="openStoryModal('images/home/hero/hero1.jpg', 'Rhododendron Festival: Spring at Dochula Pass', 'DOCHULA PASS & LAMPELRI, BHUTAN', 'Spring in the Himalayas arrives not with a quiet whisper, but with a sudden burst of color across the high mountain passes. Up at Dochula Pass, surrounded by the quiet presence of 108 stone chortens, the air changes around April. This is when native rhododendrons bloom, transforming dense pine forests into vibrant shades of crimson, pink, and pure white.<br><br>The annual festival at nearby Lampelri Botanical Park celebrates this transformation. Bhutan is home to over forty species of rhododendrons, ranging from delicate bushes to massive forest trees. To local communities, these blossoms symbolise purity, endurance, and natural harmony. Traditional healers have used their petals for generations, and during the festival, families gather from surrounding valleys to celebrate the new season.<br><br>Standing on the edge of the clearing with a camera in hand, the experience becomes sensory. The air smells of damp pine needles and faint incense. In the background, the low resonance of long horns and rhythmic wooden drums accompanies mask dancers in brightly colored silk robes. Watching the celebrations unfold through the lens offers a rare moment of stillness. One moment you are surrounded by cool mountain fog, and the next, a soft ray of light cuts through the canopy, illuminating thousands of petals against mossy bark. It is an invitation to slow down and observe a world moving at its own natural rhythm.')">
-            <div class="storyCardImgWrapper">
-                <img src="images/home/hero/hero1.jpg" class="storyCardImg" alt="Rhododendron Festival: Spring at Dochula Pass">
-            </div>
-            <div class="storyCardBody">
-                <h2 class="storyCardTitle">Rhododendron Festival: Spring at Dochula Pass</h2>
-                <p class="storyCardText">Spring in the Himalayas arrives not with a quiet whisper, but with a sudden burst of color across the high mountain passes...</p>
-                <button class="readMoreLink">READ STORY &rarr;</button>
+                <div class="navMenu" onclick="toggleMenu()">MENU</div>
             </div>
         </div>
+    </header>
 
-        <!-- Story 2: Antarctica Penguins -->
-        <div class="storyCardBox" onclick="openStoryModal('images/home/hero/hero3.jpg', 'Silent Shores: Meeting Penguins in Antarctica', 'ANTARCTICA & SOUTHERN OCEAN', 'Crossing the Southern Ocean aboard the MV Ushuaia, a humble red vessel built for icy waters, felt like leaving the modern world completely behind. By late November, as spring slowly turns to summer in the polar region, the ice opens up just enough to let you through. Standing on the narrow deck with cold wind against your face, the vastness of the white continent suddenly reaches out to greet you.<br><br>Stepping off the Zodiac onto the rocky, snow covered shore, the silence is what hits you first, quickly followed by the lively energy of local wildlife. November is a special time on the frozen continent. It is the beginning of the nesting season, where thousands of Gentoo and Chinstrap penguins cover the hillsides, busy building nests out of small pebbles. Watching them balance carefully on the snow, calling out to their partners, and fearlessly waddling past your camera lens is a deeply humbling sight.<br><br>Through the camera viewfinder, you quickly learn that penguins are full of character. They pay little attention to human visitors, moving with purpose through their harsh yet beautiful home. Sitting quietly on a cold rock as the sea mist rolls in, watching a small penguin pause and look directly into the lens, you realize how privileged you are to witness this untouched corner of Earth. It is a world where nature reigns supreme, offering raw moments of clarity and wonder that stay with you forever.')">
-            <div class="storyCardImgWrapper">
-                <img src="images/home/hero/hero3.jpg" class="storyCardImg" alt="Silent Shores: Meeting Penguins in Antarctica">
-            </div>
-            <div class="storyCardBody">
-                <h2 class="storyCardTitle">Silent Shores: Meeting Penguins in Antarctica</h2>
-                <p class="storyCardText">Crossing the Southern Ocean aboard the MV Ushuaia, a humble red vessel built for icy waters, felt like leaving the modern world completely behind...</p>
-                <button class="readMoreLink">READ STORY &rarr;</button>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footerQuote">"Silent moments shaped by light, nature, and time."</div>
-        <div class="footerNav">
+    <div id="fullScreenMenu" class="overlayMenu">
+        <div class="closeBtn" onclick="toggleMenu()">&#10005;</div>
+        <div class="menuLinks">
+            <a href="index.html" class="gapAfter">Home</a>
             <a href="wildlife.html">Wildlife</a>
             <a href="landscapes.html">Landscapes</a>
             <a href="culture.html">People and Culture</a>
-            <a href="stories.html">Stories</a>
+            <a href="stories.html" class="gapAfter">Stories</a>
             <a href="about.html">About</a>
             <a href="contact.html">Contact</a>
         </div>
-        <div class="legalNav">
-            <a href="terms.html">Terms & License</a> | <a href="privacy.html">Privacy Policy</a> | <a href="https://www.instagram.com/timor_nov" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-        <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
-    </footer>
-</div>
+    </div>
 
-<!-- Story Modal Overlay -->
-<div id="storyModal" class="storyModalOverlay" onclick="closeStoryModal()">
-    <div class="closeStoryModal" onclick="closeStoryModal()">&times;</div>
-    <div class="storyModalCard" onclick="event.stopPropagation()">
-        <img id="storyModalImg" class="storyModalImg" src="" alt="Story Image">
-        <div class="storyModalBody">
-            <h2 id="storyModalTitle" class="storyModalTitle"></h2>
-            <div id="storyModalSubtitle" class="storyModalSubtitle"></div>
-            <div id="storyModalText" class="storyModalText"></div>
+    <div class="storiesContainer">
+        <div class="subpageHeaderRow">
+            <button class="backNavBtn" onclick="goBack('index.html')">&#8592; BACK</button>
+        </div>
+
+        <div class="storiesGrid">
+            <!-- Story 1: Bhutan Rhododendron Festival -->
+            <div class="storyCardBox"
+                onclick="openStoryModal('images/home/hero/hero1.jpg', 'Rhododendron Festival: Spring at Dochula Pass', 'DOCHULA PASS & LAMPELRI, BHUTAN', 'Spring in the Himalayas arrives not with a quiet whisper, but with a sudden burst of color across the high mountain passes. Up at Dochula Pass, surrounded by the quiet presence of 108 stone chortens, the air changes around April. This is when native rhododendrons bloom, transforming dense pine forests into vibrant shades of crimson, pink, and pure white.<br><br>The annual festival at nearby Lampelri Botanical Park celebrates this transformation. Bhutan is home to over forty species of rhododendrons, ranging from delicate bushes to massive forest trees. To local communities, these blossoms symbolise purity, endurance, and natural harmony. Traditional healers have used their petals for generations, and during the festival, families gather from surrounding valleys to celebrate the new season.<br><br>Standing on the edge of the clearing with a camera in hand, the experience becomes sensory. The air smells of damp pine needles and faint incense. In the background, the low resonance of long horns and rhythmic wooden drums accompanies mask dancers in brightly colored silk robes. Watching the celebrations unfold through the lens offers a rare moment of stillness. One moment you are surrounded by cool mountain fog, and the next, a soft ray of light cuts through the canopy, illuminating thousands of petals against mossy bark. It is an invitation to slow down and observe a world moving at its own natural rhythm.')">
+                <div class="storyCardImgWrapper">
+                    <img src="images/home/hero/hero1.jpg" class="storyCardImg"
+                        alt="Rhododendron Festival: Spring at Dochula Pass" fetchpriority="high" decoding="async">
+                </div>
+                <div class="storyCardBody">
+                    <h2 class="storyCardTitle">Rhododendron Festival: Spring at Dochula Pass</h2>
+                    <p class="storyCardText">Spring in the Himalayas arrives not with a quiet whisper, but with a sudden
+                        burst of color across the high mountain passes...</p>
+                    <button class="readMoreLink">READ STORY &rarr;</button>
+                </div>
+            </div>
+
+            <!-- Story 2: Antarctica Penguins -->
+            <div class="storyCardBox"
+                onclick="openStoryModal('images/home/hero/hero3.jpg', 'Silent Shores: Meeting Penguins in Antarctica', 'ANTARCTICA & SOUTHERN OCEAN', 'Crossing the Southern Ocean aboard the MV Ushuaia, a humble red vessel built for icy waters, felt like leaving the modern world completely behind. By late November, as spring slowly turns to summer in the polar region, the ice opens up just enough to let you through. Standing on the narrow deck with cold wind against your face, the vastness of the white continent suddenly reaches out to greet you.<br><br>Stepping off the Zodiac onto the rocky, snow covered shore, the silence is what hits you first, quickly followed by the lively energy of local wildlife. November is a special time on the frozen continent. It is the beginning of the nesting season, where thousands of Gentoo and Chinstrap penguins cover the hillsides, busy building nests out of small pebbles. Watching them balance carefully on the snow, calling out to their partners, and fearlessly waddling past your camera lens is a deeply humbling sight.<br><br>Through the camera viewfinder, you quickly learn that penguins are full of character. They pay little attention to human visitors, moving with purpose through their harsh yet beautiful home. Sitting quietly on a cold rock as the sea mist rolls in, watching a small penguin pause and look directly into the lens, you realize how privileged you are to witness this untouched corner of Earth. It is a world where nature reigns supreme, offering raw moments of clarity and wonder that stay with you forever.')">
+                <div class="storyCardImgWrapper">
+                    <img src="images/home/hero/hero3.jpg" class="storyCardImg"
+                        alt="Silent Shores: Meeting Penguins in Antarctica" fetchpriority="high" decoding="async">
+                </div>
+                <div class="storyCardBody">
+                    <h2 class="storyCardTitle">Silent Shores: Meeting Penguins in Antarctica</h2>
+                    <p class="storyCardText">Crossing the Southern Ocean aboard the MV Ushuaia, a humble red vessel
+                        built for icy waters, felt like leaving the modern world completely behind...</p>
+                    <button class="readMoreLink">READ STORY &rarr;</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footerQuote">"Silent moments shaped by light, nature, and time."</div>
+            <div class="footerNav">
+                <a href="wildlife.html">Wildlife</a>
+                <a href="landscapes.html">Landscapes</a>
+                <a href="culture.html">People and Culture</a>
+                <a href="stories.html">Stories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="legalNav">
+                <a href="terms.html">Terms & License</a> | <a href="privacy.html">Privacy Policy</a> | <a
+                    href="https://www.instagram.com/timor_nov" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+            <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
+        </footer>
+    </div>
+
+    <!-- Story Modal Overlay -->
+    <div id="storyModal" class="storyModalOverlay" onclick="closeStoryModal()">
+        <div class="closeStoryModal" onclick="closeStoryModal()">&times;</div>
+        <div class="storyModalCard" onclick="event.stopPropagation()">
+            <img id="storyModalImg" class="storyModalImg" src="" alt="Story Image">
+            <div class="storyModalBody">
+                <h2 id="storyModalTitle" class="storyModalTitle"></h2>
+                <div id="storyModalSubtitle" class="storyModalSubtitle"></div>
+                <div id="storyModalText" class="storyModalText"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="cart.js"></script>
-<script>
-    function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
-</script>
+    <script src="cart.js"></script>
+    <script>
+        function toggleMenu() { document.getElementById("fullScreenMenu").classList.toggle("active"); }
+    </script>
 
 </body>
+
 </html>

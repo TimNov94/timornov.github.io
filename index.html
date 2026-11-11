@@ -1,193 +1,210 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timor Novoselsky</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-<div class="topVignette"></div>
+    <div class="topVignette"></div>
 
-<div class="siteContainer">
-<header class="fixedHeader">
-    <div class="headerInner">
-        <div class="branding">
-            <a href="index.html">
-                <h1>Timor Novoselsky</h1>
-                <div class="subtitle">PHOTOGRAPHY</div>
-            </a>
-        </div>
-        
-        <div class="navControls">
-            <div class="langSwitch">
-                <a href="index.html" class="langOption activeLang">EN</a>
-                <span class="langDivider">|</span>
-                <a href="index-de.html" class="langOption">DE</a>
+    <div class="siteContainer">
+        <header class="fixedHeader">
+            <div class="headerInner">
+                <div class="branding">
+                    <a href="index.html">
+                        <h1>Timor Novoselsky</h1>
+                        <div class="subtitle">PHOTOGRAPHY</div>
+                    </a>
+                </div>
+
+                <div class="navControls">
+                    <div class="langSwitch">
+                        <a href="index.html" class="langOption activeLang">EN</a>
+                        <span class="langDivider">|</span>
+                        <a href="index-de.html" class="langOption">DE</a>
+                    </div>
+
+                    <div class="navMenu" onclick="toggleMenu()">MENU</div>
+                </div>
             </div>
-            
-            <div class="navMenu" onclick="toggleMenu()">MENU</div>
+        </header>
+
+        <div id="fullScreenMenu" class="overlayMenu">
+            <div class="closeBtn" onclick="toggleMenu()">&#10005;</div>
+            <div class="menuLinks">
+                <a href="index.html" class="gapAfter">Home</a>
+                <a href="wildlife.html">Wildlife</a>
+                <a href="landscapes.html">Landscapes</a>
+                <a href="culture.html">People and Culture</a>
+                <a href="stories.html" class="gapAfter">Stories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
-    </div>
-</header>
 
-    <div id="fullScreenMenu" class="overlayMenu">
-        <div class="closeBtn" onclick="toggleMenu()">&#10005;</div> 
-        <div class="menuLinks">
-            <a href="index.html" class="gapAfter">Home</a>
-            <a href="wildlife.html">Wildlife</a>
-            <a href="landscapes.html">Landscapes</a>
-            <a href="culture.html">People and Culture</a>
-            <a href="stories.html" class="gapAfter">Stories</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
+        <div class="mainDisplay">
+            <img id="slideImage1" class="slideImg activeImg" src="images/home/hero/hero1.jpg" alt="Hero Photography 1"
+                fetchpriority="high" decoding="async">
+            <img id="slideImage2" class="slideImg" src="images/home/hero/hero2.jpg" alt="Hero Photography 2"
+                decoding="async">
         </div>
-    </div>
 
-    <div class="mainDisplay">
-        <img id="slideImage1" class="slideImg activeImg" src="images/home/hero/hero1.jpg" alt="Hero Photography 1">
-        <img id="slideImage2" class="slideImg" src="images/home/hero/hero2.jpg" alt="Hero Photography 2">
-    </div>
-
-    <div class="bioSection scrollReveal">
-        I am Timor, a photographer captivated by the raw beauty of our world. From the towering peaks of Patagonia to the serene landscapes surrounding my home in Bern, Switzerland, my lens focuses on storytelling through nature and culture. I look for those fleeting authentic moments that define a place, translating the spirit of independent travel and raw textures into visual narratives. Welcome to my journey.
-    </div>
-
-    <div class="storiesSection scrollReveal">
-        <div class="storyCard" onclick="location.href='stories.html'">
-            <div class="storyImgWrapper"><img src="images/home/hero/hero1.jpg" class="storyImg" alt="Rhododendron Festival: Spring at Dochula Pass"></div>
-            <h3 class="storyTitle">Rhododendron Festival: Spring at Dochula Pass</h3>
-            <p class="storySnippet">Spring in the Himalayas arrives not with a quiet whisper, but with a sudden burst of color across the high mountain passes...</p>
-            <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
+        <div class="bioSection scrollReveal">
+            I am Timor, a photographer captivated by the raw beauty of our world. From the towering peaks of Patagonia
+            to the serene landscapes surrounding my home in Bern, Switzerland, my lens focuses on storytelling through
+            nature and culture. I look for those fleeting authentic moments that define a place, translating the spirit
+            of independent travel and raw textures into visual narratives. Welcome to my journey.
         </div>
-        <div class="storyCard" onclick="location.href='stories.html'">
-            <div class="storyImgWrapper"><img src="images/home/hero/hero3.jpg" class="storyImg" alt="Silent Shores: Meeting Penguins in Antarctica"></div>
-            <h3 class="storyTitle">Silent Shores: Meeting Penguins in Antarctica</h3>
-            <p class="storySnippet">Crossing the Southern Ocean aboard the MV Ushuaia felt like leaving the modern world completely behind...</p>
-            <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
+
+        <div class="storiesSection scrollReveal">
+            <div class="storyCard" onclick="location.href='stories.html'">
+                <div class="storyImgWrapper"><img src="images/home/hero/hero1.jpg" class="storyImg"
+                        alt="Rhododendron Festival: Spring at Dochula Pass" loading="lazy" decoding="async"></div>
+                <h3 class="storyTitle">Rhododendron Festival: Spring at Dochula Pass</h3>
+                <p class="storySnippet">Spring in the Himalayas arrives not with a quiet whisper, but with a sudden
+                    burst of color across the high mountain passes...</p>
+                <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
+            </div>
+            <div class="storyCard" onclick="location.href='stories.html'">
+                <div class="storyImgWrapper"><img src="images/home/hero/hero3.jpg" class="storyImg"
+                        alt="Silent Shores: Meeting Penguins in Antarctica" loading="lazy" decoding="async"></div>
+                <h3 class="storyTitle">Silent Shores: Meeting Penguins in Antarctica</h3>
+                <p class="storySnippet">Crossing the Southern Ocean aboard the MV Ushuaia felt like leaving the modern
+                    world completely behind...</p>
+                <a href="stories.html" class="readMoreLink">READ STORY &rarr;</a>
+            </div>
         </div>
+
+        <div class="verticalFeature scrollReveal">
+            <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical1.jpg"
+                alt="Featured Vertical Image 1" loading="lazy" decoding="async">
+            <img id="verticalImage2" class="slideImg" src="images/home/vertical/vertical2.jpg"
+                alt="Featured Vertical Image 2" loading="lazy" decoding="async">
+            <div class="gradientOverlay"></div>
+        </div>
+
+        <footer>
+            <div class="footerQuote">"Silent moments shaped by light, nature, and time."</div>
+            <div class="footerNav">
+                <a href="wildlife.html">Wildlife</a>
+                <a href="landscapes.html">Landscapes</a>
+                <a href="culture.html">People and Culture</a>
+                <a href="stories.html">Stories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="legalNav">
+                <a href="terms.html">Terms & License</a> | <a href="privacy.html">Privacy Policy</a> | <a
+                    href="https://www.instagram.com/timor_nov" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+            <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
+        </footer>
     </div>
 
-    <div class="verticalFeature scrollReveal">
-        <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical1.jpg" alt="Featured Vertical Image 1">
-        <img id="verticalImage2" class="slideImg" src="images/home/vertical/vertical2.jpg" alt="Featured Vertical Image 2">
-        <div class="gradientOverlay"></div>
-    </div>
-
-    <footer>
-        <div class="footerQuote">"Silent moments shaped by light, nature, and time."</div>
-        <div class="footerNav">
-            <a href="wildlife.html">Wildlife</a>
-            <a href="landscapes.html">Landscapes</a>
-            <a href="culture.html">People and Culture</a>
-            <a href="stories.html">Stories</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="legalNav">
-            <a href="terms.html">Terms & License</a> | <a href="privacy.html">Privacy Policy</a> | <a href="https://www.instagram.com/timor_nov" target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-        <div class="copyrightText">&copy; 2026 TIMOR NOVOSELSKY. ALL RIGHTS RESERVED.</div>
-    </footer>
-</div>
-
-<script src="cart.js"></script>
-<script>
-    function toggleMenu() {
-        document.getElementById("fullScreenMenu").classList.toggle("active");
-    }
-
-    /* --- Top Hero Carousel: 5000ms Interval --- */
-    (function initHeroCarousel() {
-        const heroImages = [
-            "images/home/hero/hero1.jpg",
-            "images/home/hero/hero2.jpg",
-            "images/home/hero/hero3.jpg",
-            "images/home/hero/hero4.jpg",
-            "images/home/hero/hero5.jpg",
-            "images/home/hero/hero6.jpg"
-        ];
-        heroImages.forEach(src => { const img = new Image(); img.src = src; });
-
-        let heroIndex = 0;
-        const heroImg1 = document.getElementById("slideImage1");
-        const heroImg2 = document.getElementById("slideImage2");
-
-        if (!heroImg1 || !heroImg2) return;
-
-        function crossFadeHero() {
-            heroIndex = (heroIndex + 1) % heroImages.length;
-            const activeImg = heroImg1.classList.contains("activeImg") ? heroImg1 : heroImg2;
-            const nextImg = activeImg === heroImg1 ? heroImg2 : heroImg1;
-
-            const swap = () => {
-                nextImg.classList.add("activeImg");
-                activeImg.classList.remove("activeImg");
-            };
-
-            nextImg.onload = swap;
-            nextImg.src = heroImages[heroIndex];
-            if (nextImg.complete) {
-                nextImg.onload = null;
-                swap();
-            }
+    <script src="cart.js"></script>
+    <script>
+        function toggleMenu() {
+            document.getElementById("fullScreenMenu").classList.toggle("active");
         }
 
-        setInterval(crossFadeHero, 5000);
-    })();
+        /* --- Top Hero Carousel: 5000ms Interval --- */
+        (function initHeroCarousel() {
+            const heroImages = [
+                "images/home/hero/hero1.jpg",
+                "images/home/hero/hero2.jpg",
+                "images/home/hero/hero3.jpg",
+                "images/home/hero/hero4.jpg",
+                "images/home/hero/hero5.jpg",
+                "images/home/hero/hero6.jpg"
+            ];
+            heroImages.forEach(src => { const img = new Image(); img.src = src; });
 
-    /* --- Bottom Vertical Feature Carousel: 5000ms Interval --- */
-    (function initVerticalCarousel() {
-        const verticalImages = [
-            "images/home/vertical/vertical1.jpg",
-            "images/home/vertical/vertical2.jpg",
-            "images/home/vertical/vertical3.jpg",
-            "images/home/vertical/vertical4.jpg",
-            "images/home/vertical/vertical6.JPG"
-        ];
-        verticalImages.forEach(src => { const img = new Image(); img.src = src; });
+            let heroIndex = 0;
+            const heroImg1 = document.getElementById("slideImage1");
+            const heroImg2 = document.getElementById("slideImage2");
 
-        let verticalIndex = 0;
-        const vertImg1 = document.getElementById("verticalImage1");
-        const vertImg2 = document.getElementById("verticalImage2");
+            if (!heroImg1 || !heroImg2) return;
 
-        if (!vertImg1 || !vertImg2) return;
+            function crossFadeHero() {
+                heroIndex = (heroIndex + 1) % heroImages.length;
+                const activeImg = heroImg1.classList.contains("activeImg") ? heroImg1 : heroImg2;
+                const nextImg = activeImg === heroImg1 ? heroImg2 : heroImg1;
 
-        function crossFadeVertical() {
-            verticalIndex = (verticalIndex + 1) % verticalImages.length;
-            const activeImg = vertImg1.classList.contains("activeImg") ? vertImg1 : vertImg2;
-            const nextImg = activeImg === vertImg1 ? vertImg2 : vertImg1;
+                const swap = () => {
+                    nextImg.classList.add("loaded");
+                    nextImg.classList.add("activeImg");
+                    activeImg.classList.remove("activeImg");
+                };
 
-            const swap = () => {
-                nextImg.classList.add("activeImg");
-                activeImg.classList.remove("activeImg");
-            };
-
-            nextImg.onload = swap;
-            nextImg.src = verticalImages[verticalIndex];
-            if (nextImg.complete) {
-                nextImg.onload = null;
-                swap();
+                nextImg.onload = swap;
+                nextImg.src = heroImages[heroIndex];
+                if (nextImg.complete) {
+                    nextImg.onload = null;
+                    swap();
+                }
             }
-        }
 
-        setInterval(crossFadeVertical, 5000);
-    })();
+            setInterval(crossFadeHero, 5000);
+        })();
 
-    /* --- Scroll Reveal Handler --- */
-    const revealElements = document.querySelectorAll('.scrollReveal');
-    const checkReveal = () => {
-        revealElements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            if (elementTop < windowHeight - 50) {
-                el.classList.add('revealed');
+        /* --- Bottom Vertical Feature Carousel: 5000ms Interval --- */
+        (function initVerticalCarousel() {
+            const verticalImages = [
+                "images/home/vertical/vertical1.jpg",
+                "images/home/vertical/vertical2.jpg",
+                "images/home/vertical/vertical3.jpg",
+                "images/home/vertical/vertical4.jpg",
+                "images/home/vertical/vertical6.JPG"
+            ];
+            verticalImages.forEach(src => { const img = new Image(); img.src = src; });
+
+            let verticalIndex = 0;
+            const vertImg1 = document.getElementById("verticalImage1");
+            const vertImg2 = document.getElementById("verticalImage2");
+
+            if (!vertImg1 || !vertImg2) return;
+
+            function crossFadeVertical() {
+                verticalIndex = (verticalIndex + 1) % verticalImages.length;
+                const activeImg = vertImg1.classList.contains("activeImg") ? vertImg1 : vertImg2;
+                const nextImg = activeImg === vertImg1 ? vertImg2 : vertImg1;
+
+                const swap = () => {
+                    nextImg.classList.add("loaded");
+                    nextImg.classList.add("activeImg");
+                    activeImg.classList.remove("activeImg");
+                };
+
+                nextImg.onload = swap;
+                nextImg.src = verticalImages[verticalIndex];
+                if (nextImg.complete) {
+                    nextImg.onload = null;
+                    swap();
+                }
             }
-        });
-    };
-    window.addEventListener('scroll', checkReveal);
-    window.addEventListener('load', checkReveal);
-</script>
+
+            setInterval(crossFadeVertical, 5000);
+        })();
+
+        /* --- Scroll Reveal Handler --- */
+        const revealElements = document.querySelectorAll('.scrollReveal');
+        const checkReveal = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 50) {
+                    el.classList.add('revealed');
+                }
+            });
+        };
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+    </script>
 </body>
+
 </html>

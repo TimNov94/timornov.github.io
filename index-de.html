@@ -46,8 +46,8 @@
     </div>
 
     <div class="mainDisplay">
-        <img id="slideImage1" class="slideImg activeImg" src="images/home/hero/hero1.jpg" alt="Hauptbild 1">
-        <img id="slideImage2" class="slideImg" src="images/home/hero/hero2.jpg" alt="Hauptbild 2">
+        <img id="slideImage1" class="slideImg activeImg" src="images/home/hero/hero1.jpg" alt="Hauptbild 1" fetchpriority="high" decoding="async">
+        <img id="slideImage2" class="slideImg" src="images/home/hero/hero2.jpg" alt="Hauptbild 2" decoding="async">
     </div>
 
     <div class="bioSection scrollReveal">
@@ -56,13 +56,13 @@
 
     <div class="storiesSection scrollReveal">
         <div class="storyCard" onclick="location.href='stories-de.html'">
-            <div class="storyImgWrapper"><img src="images/home/hero/hero1.jpg" class="storyImg" alt="Rhododendron-Festival: Frühling am Dochula-Pass"></div>
+            <div class="storyImgWrapper"><img src="images/home/hero/hero1.jpg" class="storyImg" alt="Rhododendron-Festival: Frühling am Dochula-Pass" loading="lazy" decoding="async"></div>
             <h3 class="storyTitle">Rhododendron-Festival: Frühling am Dochula-Pass</h3>
             <p class="storySnippet">Der Frühling im Himalaya kündigt sich nicht mit einem leisen Flüstern an, sondern mit einer plötzlichen Explosion von Farben über den hohen Bergpässen...</p>
             <a href="stories-de.html" class="readMoreLink">GESCHICHTE LESEN &rarr;</a>
         </div>
         <div class="storyCard" onclick="location.href='stories-de.html'">
-            <div class="storyImgWrapper"><img src="images/home/hero/hero3.jpg" class="storyImg" alt="Stille Ufer: Begegnung mit Pinguinen in der Antarktis"></div>
+            <div class="storyImgWrapper"><img src="images/home/hero/hero3.jpg" class="storyImg" alt="Stille Ufer: Begegnung mit Pinguinen in der Antarktis" loading="lazy" decoding="async"></div>
             <h3 class="storyTitle">Stille Ufer: Begegnung mit Pinguinen in der Antarktis</h3>
             <p class="storySnippet">Die Überquerung des Südlichen Ozeans an Bord der MV Ushuaia fühlte sich an, als würde man die moderne Welt völlig hinter sich lassen...</p>
             <a href="stories-de.html" class="readMoreLink">GESCHICHTE LESEN &rarr;</a>
@@ -70,8 +70,8 @@
     </div>
 
     <div class="verticalFeature scrollReveal">
-        <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical1.jpg" alt="Ausgewähltes Hochformatbild 1">
-        <img id="verticalImage2" class="slideImg" src="images/home/vertical/vertical2.jpg" alt="Ausgewähltes Hochformatbild 2">
+        <img id="verticalImage1" class="slideImg activeImg" src="images/home/vertical/vertical1.jpg" alt="Ausgewähltes Hochformatbild 1" loading="lazy" decoding="async">
+        <img id="verticalImage2" class="slideImg" src="images/home/vertical/vertical2.jpg" alt="Ausgewähltes Hochformatbild 2" loading="lazy" decoding="async">
         <div class="gradientOverlay"></div>
     </div>
 
@@ -122,6 +122,7 @@
             const nextImg = activeImg === heroImg1 ? heroImg2 : heroImg1;
 
             const swap = () => {
+                nextImg.classList.add("loaded");
                 nextImg.classList.add("activeImg");
                 activeImg.classList.remove("activeImg");
             };
@@ -160,6 +161,7 @@
             const nextImg = activeImg === vertImg1 ? vertImg2 : vertImg1;
 
             const swap = () => {
+                nextImg.classList.add("loaded");
                 nextImg.classList.add("activeImg");
                 activeImg.classList.remove("activeImg");
             };

@@ -19,8 +19,13 @@ a, button, img, .navMenu, .contactBubble, .galleryImg, .filterTag, .closeBtn, .c
     outline: none;
 }
 
+html {
+    background-color: #000000;
+    color-scheme: dark;
+}
+
 body {
-    background-color: black;
+    background-color: #000000;
     color: white;
     margin: 0;
     padding: 0;
@@ -31,6 +36,20 @@ body {
     overflow-x: hidden;
     line-height: 1.6;
     min-height: 100vh;
+}
+
+img {
+    background-color: #0a0a0a;
+}
+
+.galleryImg, .slideImg, .storyImg, .storyCardImg {
+    background-color: #0a0a0a;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.galleryImg.loaded, .slideImg.loaded, .storyImg.loaded, .storyCardImg.loaded {
+    opacity: 1;
 }
 
 /* ==========================================================================
@@ -245,6 +264,7 @@ body {
     position: relative; 
     margin-top: 10px; 
     margin-bottom: 50px;
+    background-color: #0b0b0b;
 }
 
 .slideImg { 
@@ -254,11 +274,13 @@ body {
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    background-color: #0a0a0a;
     transition: opacity 2s ease-in-out; 
     opacity: 0; 
     border-radius: 2px;
 }
-.slideImg.activeImg { opacity: 1; }
+.slideImg.activeImg.loaded { opacity: 1; }
+.slideImg:not(.activeImg) { opacity: 0 !important; }
 
 .scrollReveal {
     opacity: 0;
@@ -300,13 +322,19 @@ body {
     height: 220px;
     overflow: hidden;
     border-radius: 2px;
+    background-color: #0b0b0b;
 }
 .storyImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background-color: #0a0a0a;
+    opacity: 0;
     filter: grayscale(30%);
-    transition: transform 0.8s ease, filter 0.3s ease;
+    transition: opacity 0.4s ease-in-out, transform 0.8s ease, filter 0.3s ease;
+}
+.storyImg.loaded {
+    opacity: 1;
 }
 .storyCard:hover .storyImg { 
     filter: grayscale(0%); 
@@ -361,13 +389,20 @@ body {
     width: 100%;
     height: 270px;
     overflow: hidden;
+    background-color: #0b0b0b;
 }
 
 .storyCardImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease, filter 0.3s ease;
+    background-color: #0a0a0a;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.6s ease, filter 0.3s ease;
+}
+
+.storyCardImg.loaded {
+    opacity: 1;
 }
 
 .storyCardBox:hover .storyCardImg {
@@ -439,6 +474,7 @@ body {
     margin: 60px 0 40px 0; 
     overflow: hidden; 
     border-radius: 2px;
+    background-color: #0b0b0b;
 }
 .verticalFeature img { 
     position: absolute;
@@ -448,11 +484,15 @@ body {
     height: 100%; 
     object-fit: cover; 
     display: block; 
+    background-color: #0a0a0a;
     transition: opacity 2s ease-in-out;
     opacity: 0;
 }
-.verticalFeature img.activeImg {
+.verticalFeature img.activeImg.loaded {
     opacity: 1;
+}
+.verticalFeature img:not(.activeImg) {
+    opacity: 0 !important;
 }
 
 .gradientOverlay {
@@ -553,6 +593,7 @@ body {
   max-width: 1400px;
   margin: 0 auto;
   padding: 40px 20px 100px 20px;
+  background-color: #000000;
 }
 
 .galleryItem {
@@ -561,6 +602,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #0b0b0b;
   transition: opacity 0.4s ease, transform 0.4s ease;
   border-radius: 2px;
 }
@@ -578,11 +620,17 @@ body {
   object-fit: contain !important;
   display: block;
   border-radius: 2px;
-  background-color: transparent;
-  transition: transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+  background-color: #0a0a0a;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
 }
 
-.galleryItem img:hover, .galleryImg:hover {
+.galleryImg.loaded,
+.galleryItem img.loaded {
+  opacity: 1;
+}
+
+.galleryItem img.loaded:hover, .galleryImg.loaded:hover {
   transform: scale(1.02);
   opacity: 0.95;
   filter: brightness(1.08);
@@ -677,6 +725,7 @@ body {
     display: inline-block;
     max-width: 92vw;
     max-height: 78vh;
+    background-color: #0b0b0b;
     transform: scale(0.95);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -689,6 +738,7 @@ body {
     max-width: 92vw;
     max-height: 78vh;
     object-fit: contain;
+    background-color: #0a0a0a;
     box-shadow: 0 20px 50px rgba(0,0,0,0.95);
     border-radius: 2px;
     display: block;
